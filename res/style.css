@@ -135,7 +135,7 @@ transition: 0.4s ease-in-out;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    margin-top: -4px;
     background-image: url("../res/images/Spring-Nature-HD-Backgrounds.jpg");
 }
 
@@ -498,10 +498,10 @@ justify-content: center;
     justify-content: center;
 }
 .RTlinkcolor{
-  color: white;
+    color: white;
 }
 .RTlinkcolorHover:hover{
-  color: red;
+    color: red;
 }
 .RTparg{
     color: white;
@@ -571,6 +571,7 @@ justify-content: center;
     width: 40%;
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
     color: white;
     font-size: 35px;
     margin-top: 60px;
@@ -764,7 +765,6 @@ textarea{
 .Contacttitle h1{
   color:white;
 }
-
 
 /*Admin Panel*/
 #AdminPanel{
