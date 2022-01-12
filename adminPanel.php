@@ -20,7 +20,6 @@ include('res/elements/footer.php');
 include('functions/functions.php');
 ?>
 
-<form method = "post">
     <h1 class = "Tabletitle" > Activity </h1>
 
     <table border="1" id="AdminPanel">
@@ -129,6 +128,5 @@ include('functions/functions.php');
 
 
     <input type = "submit" name = "submit" value = "Sign Out" class = "signout">
-</form>
 </body>
 </html>
