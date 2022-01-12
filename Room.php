@@ -27,7 +27,7 @@
         <p>1 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
+        <img src="res/images/room1.jfif" class="imgres" >
     </div>
 
         <!-- Slideshow-->
@@ -41,7 +41,7 @@
         <p>2 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../proj2revised/res/images/room2.jpg" class="imgres" >
+        <img src="res/images/room2.jpg" class="imgres" >
     </div>
 
 
@@ -54,7 +54,7 @@
         <p>3 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../proj2revised/res/images/room3.jpg" class="imgres" >
+        <img src="res/images/room3.jpg" class="imgres" >
     </div>
     <div class="child text" id="lastChild">
         <p>Caption Text</p>
