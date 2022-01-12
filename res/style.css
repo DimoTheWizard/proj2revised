@@ -750,3 +750,32 @@ textarea{
 .Contacttitle h1{
   color:white;
 }
+
+
+/*Admin Panel*/
+#AdminPanel{
+  margin-left: 20px;
+}
+
+.Tabletitle{
+  font-family: "Sitka Text", sans-serif;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+
+.activitytable{
+  font-family: "Sitka Text", sans-serif;
+}
+
+#admin td, th, tr{
+      margin: 20px;
+      color: black;
+}
+
+
+.signout{
+    background-color: #4caf50;
+    padding: 6px 18px;
+    float:right;
+}
