@@ -778,4 +778,12 @@ textarea{
     background-color: #4caf50;
     padding: 6px 18px;
     float:right;
+    margin-top: 19em;
+}
+
+
+.signout:hover{
+  transition: 0.5s;
+  background-color: green;
+  color: white;
 }
