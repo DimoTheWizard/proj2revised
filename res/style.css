@@ -342,6 +342,7 @@ box-shadow: black 2px 2px;
     justify-content: center;
     display: flex;
     align-content: center;
+    font-size: 1.2em;
 }
 .imgres{
 width: 450px;
@@ -461,7 +462,6 @@ justify-content: center;
 /*Review Tables*/
 #Rtable{
     background-image:url(../res/images/tables.jpg);
-    background-repeat: repeat-y;
     backdrop-filter: blur(1px);
     overflow: hidden;
     overflow-y: scroll;
@@ -495,7 +495,7 @@ justify-content: center;
     justify-content: center;
 }
 .RTparg{
-    font-size:1.2em;
+    font-size:1.5em;
     background-color: hsl(291deg 64% 42% / 61%);
     border: 2px solid black;
     border-radius: 4px;
