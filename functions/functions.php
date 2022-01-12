@@ -4,7 +4,7 @@
 
 //Inclusion of connection to the database page
 
-require 'con.php';
+require 'dbCon.php';
 
 
 //Registration function for register.php
