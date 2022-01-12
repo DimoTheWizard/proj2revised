@@ -1,5 +1,7 @@
 <?php
-            require('res/elements/session.php');
+            require 'functions/functions.php';
+
+            reservePage();
         ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,27 +23,36 @@
                         <div class="form_details1">
                             <div class="input_box1">
                                 <div class="details1">First name</div>
-                                <input type="text" name="fname" placeholder="Enter your first name" value="<?php echo($_SESSION['fname'])?>" required>
+                                <input type="text" name="fname" placeholder="Enter your first name"  required>
                             </div>
 
                             <div class="input_box1">
                                 <div class="details1">Last name</div>
-                                <input type="text" name="lname" placeholder="Enter your last name" value="<?php echo($_SESSION['lname'])?>" required>
+                                <input type="text" name="lname" placeholder="Enter your last name" required>
                             </div>
 
                             <div class="input_box1">
                                 <div class="details1">E-mail</div>
-                                <input type="email" name="email" placeholder="Enter your E-mail" value="<?php echo($_SESSION['email'])?>" required>
+                                <input type="email" name="email" placeholder="Enter your E-mail" required>
                             </div>
                             <br>
                             <div class="input_box1">
                                 <div class="details1">CheckIn</div>
-                                <input type="date" name="checkIn" placeholder="CheckIn" min="2021-12-31" value="<?php echo($_SESSION['checkIn'])?>" required>
+                                <input type="date" name="checkIn" placeholder="CheckIn" min="2021-12-31"  required>
                              </div>
 
                              <div class="input_box1">
                                 <div class="details1">CheckOut</div>
-                                <input type="date" name="checkOut" placeholder="CheckOut" min="2021-12-31" value="<?php echo($_SESSION['checkOut'])?>" required>
+                                <input type="date" name="checkOut" placeholder="CheckOut" min="2021-12-31"  required>
+                            </div>
+                            <br>
+
+                            <div class="input_box1">
+                                <div class="details1">Room class</div>
+                                <select>
+                                    <option value="firstClass">First Class</option>
+                                    <option value="secondClass">Second Class</option>
+                                </select>
                             </div>
                             <br>
                             <div class="button1">

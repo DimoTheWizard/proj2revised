@@ -30,7 +30,7 @@ include('res/elements/header.php');
         <br>
         <input class="boxT" type="text" name="lname" placeholder="    Enter Last Name"   required><br>
         <br>
-        <input class="box" type="password" name="password" value="" placeholder="    Enter Password"  required><br>
+        <input class="box" type="password" name="password" placeholder="    Enter Password"  required><br>
         <br>
         <br><input  class="box" type="submit" name="submit" value="Register" ><br>
         <br>

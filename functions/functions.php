@@ -160,6 +160,7 @@ function signIn()
 
                             } else {
                                 echo '<h2 style="color:red">Incorrect password</h2>';
+                                echo $row['password'];
                             }
                         }
 
@@ -268,12 +269,90 @@ function reserveRoom()
 
 function reserveRoomSuccess()
 {
-    if ($_SESSION['success_reservation'] == 1) {
-        echo '<h2 style="color:green; margin-top:20px; margin-left:40px;">Reservation made</h2>';
-    } else {
-        echo '<h2 style="color:green; margin-top:20px; margin-left:40px;">Reservation failed</h2>';
+    if(isset($_SESSION['success_reservation'])) {
+        if ($_SESSION['success_reservation'] == 1) {
+            echo '<h2 style="color:green; margin-top:20px; margin-left:40px;">Reservation made</h2>';
+        } else {
+            echo '<h2 style="color:green; margin-top:20px; margin-left:40px;">Reservation failed</h2>';
+        }
     }
 }
+
+
+//reservation page function for reservation_fron
+
+function reservePage() {
+
+    global $con;
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if(isset($_POST['submit'])) {
+
+            $con = mysqli_connect('localhost', 'root', '','testdb')
+            or die("Connection to the db failed" . mysqli_error($con));
+
+            $email = trim(htmlspecialchars($_POST['email'])); //from PHP 8 filter_sanitize_string got replaced with htmlspecialchars
+            $username = trim(htmlspecialchars($_POST['username']));
+            $roomName = trim(htmlspecialchars($_POST['roomName']));
+            $checkIn = trim(htmlspecialchars($_POST['checkIn']));
+            $checkOut = trim(htmlspecialchars($_POST['checkOut']));
+
+            $email = trim(mysqli_real_escape_string($con, $_POST['email'])); //from PHP 8 filter_sanitize_string got replaced with htmlspecialchars
+            $username = trim(mysqli_real_escape_string($con, $_POST['username']));
+            $roomName = trim(mysqli_real_escape_string($con, $_POST['roomName']));
+            $checkIn = trim(mysqli_real_escape_string($con, $_POST['checkIn']));
+            $checkOut = trim(mysqli_real_escape_string($con, $_POST['checkOut']));
+
+
+            if(!empty($email) && !empty($username) && !empty($roomName) && !empty($availability) && !empty($quantity)) {
+                if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+
+
+                    $query = $con->prepare("INSERT INTO reservationroom (roomName,roomQuantity,usernameRes,emailRes,availability) VALUES (?,?,?,?,?)");
+
+                    if (false === $query) {
+                        echo mysqli_error($con);
+                        die('Prepare failed' . htmlspecialchars($query->error));
+
+                    }
+
+                    $query->bind_param("sssss", $roomName,$quantity ,$username, $email, $availability);
+
+                    if (false === $query) {
+                        die('Bind param failed' . htmlspecialchars($query->error));
+                    }
+
+                    $query->execute();
+
+                    if (false === $query) {
+                        die('Execute failed' . htmlspecialchars($query->error));
+                    }
+
+                    echo 'Reservation has been added';
+
+
+
+                    $query->close();
+                    $con->close();
+
+
+                }else {
+                    echo 'Email not valid';
+                }
+
+
+
+            } else {
+                echo 'Make sure you have completed all fields !';
+            }
+
+
+        } else {
+            die("Form couldn't be sent");
+        }
+    }
+}
+
 
 
 ?>

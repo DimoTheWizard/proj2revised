@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2022 at 11:33 AM
+-- Generation Time: Jan 10, 2022 at 11:07 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -78,7 +78,8 @@ INSERT INTO `reservations` (`userID`, `guestid`, `activityid`, `tableid`, `roomi
 (0, 0, 0, 0, 0, ''),
 (0, 0, 0, 0, 0, ''),
 (0, 0, 0, 0, 0, ''),
-(0, 0, 0, 0, 0, '');
+(0, 0, 0, 0, 0, ''),
+(2, 1, 1, 1, 1, '');
 
 -- --------------------------------------------------------
 
@@ -88,18 +89,16 @@ INSERT INTO `reservations` (`userID`, `guestid`, `activityid`, `tableid`, `roomi
 
 CREATE TABLE `room` (
   `id` int(50) NOT NULL,
-  `roomName` varchar(20) DEFAULT NULL,
-  `roomQuantity` int(100) DEFAULT NULL,
-  `usernameRes` varchar(255) NOT NULL,
-  `emailRes` varchar(255) NOT NULL
+  `RoomName` varchar(20) DEFAULT NULL,
+  `Quantity` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`id`, `roomName`, `roomQuantity`, `usernameRes`, `emailRes`) VALUES
-(1, 'Cool', 20, 'Client', 'client@mail.com');
+INSERT INTO `room` (`id`, `RoomName`, `Quantity`) VALUES
+(1, 'Da', 0);
 
 -- --------------------------------------------------------
 
@@ -145,8 +144,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `fname`, `lname`, `email`, `checkIn`, `checkOut`, `password`, `loginid`, `userlevel`) VALUES
-(6, 'Tired', 'YesIam', 'tired@mail.com', '', '', '$argon2id$v=19$m=2048,t=4,p=3$', 0, 'guest'),
-(7, 'test', 'testTest', 'test@mail.com', '', '', '$argon2id$v=19$m=2048,t=4,p=3$', 0, 'guest');
+(2, 'folea', 'teodor', '$AWDSad', '230-13-2021', '23-21-2021', 'test', 1, NULL),
+(3, '', '', 'test@yahoo.com', '', '', '', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -215,7 +214,7 @@ ALTER TABLE `tables`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

@@ -618,7 +618,6 @@ table, th, td {
 }
 .formwidth{
     width: 250px;
-    margin-left:10px;
 }
 .formlabel h1{
   margin-top:10px;
@@ -627,7 +626,9 @@ table, th, td {
   font-size: 25px;
   color:white;
 }
-
+form{
+  margin-left:10px;
+}
 .activityImage{
   width: 24%;
   height: 262px;
@@ -727,34 +728,4 @@ textarea{
 
 .Contacttitle h1{
   color:white;
-}
-
-
-
-/*Admin Panel*/
-#AdminPanel{
-  margin-left: 20px;
-
-}
-
-.Tabletitle{
-  font-family: "Sitka Text", sans-serif;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-
-.activitytable{
-  font-family: "Sitka Text", sans-serif;
-}
-
-#admin td, th, tr{
-    margin: 20px;
-    color: black;
-}
-
-.signout{
-  background-color: #4caf50;
-  padding: 6px 18px;
-  float: right;
 }

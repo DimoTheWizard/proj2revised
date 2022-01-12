@@ -1,8 +1,8 @@
 <?php
 
-  include "functions/con.php";
+  include "res/elements/dbConn.php";
 
-  mysqli_select_db($con, 'falcondatabase');
+  mysqli_select_db($conn, 'falcondatabase');
 
   if (isset($_POST['submit'])) {
 	  if (count(array_filter($_POST))!=count($_POST)) {
@@ -15,10 +15,10 @@
   $phonenumber = $_POST['phonenumber'];
 
 
-  $query = $con->prepare("INSERT INTO activity (event, FirstName, LastName, email, phonenumber) VALUES (?, ?, ?, ?, ?)");
+  $query = $conn->prepare("INSERT INTO activity (event, FirstName, LastName, email, phonenumber) VALUES (?, ?, ?, ?, ?)");
   $query->bind_param("ssssi",$event, $FirstName, $LastName, $email, $phonenumber);
   $query->execute();
-  mysqli_close($con);
+  mysqli_close($conn);
     }
 }
 
