@@ -787,3 +787,9 @@ textarea{
   background-color: green;
   color: white;
 }
+
+/* UserPanel */
+
+#UserPanel{
+  margin-left: 20px;
+}
