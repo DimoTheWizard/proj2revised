@@ -33,7 +33,7 @@
         <!-- Slideshow-->
 
     <div class="child text" id="lastChild">
-        <p>Caption Text</p>
+        <p>First Room</p>
     </div>
     </div>
     <div class="mySlides" id="parent">
@@ -46,7 +46,7 @@
 
 
     <div class="child text" id="lastChild">
-        <p>Caption Text</p>
+        <p>Second Room</p>
     </div>
     </div>
     <div class="mySlides" id="parent">
@@ -57,7 +57,7 @@
         <img src="../proj2revised/res/images/room3.jpg" class="imgres" >
     </div>
     <div class="child text" id="lastChild">
-        <p>Caption Text</p>
+        <p>Third Room</p>
     </div>
     </div>
     <div class="arrows">
