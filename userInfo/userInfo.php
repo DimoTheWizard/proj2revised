@@ -46,22 +46,41 @@
 
                 //TEST
                 echo "<tr><td scope='row'>test</td>".
-                "<td scope='row'>test</td>".
+                "<td scope='row'>tessst</td>".
                 "<td scope='row'>test</td>".
                 "<td scope='row'>test</td>".
                 "<td scope='row'>test</td></tr>";
 
-                echo"<td class='rowED'><a href=\"userInfoEdit.php?id=".$row['id']."\">Edit</td>".
+                echo"<tr><td scope='row'></td>".
+                    "<td scope='row'></td>".
+                    "<td scope='row'></td>".
+                    "<td class='rowED'><a href=\"userInfoEdit.php?id=".$row['id']."\">Edit</td>".
                     "<td class='rowED'><a href=userInfoDelete.php?id=".$row['id'].">Delete</td></tr>";
                 
-                    echo "<tr><td scope='row'>test2</td>".
-                    "<td scope='row'>test2</td>".
-                    "<td scope='row'>test2</td>".
-                    "<td scope='row'>test2</td>".
-                    "<td scope='row'>test2</td></tr>";
+                    echo "<tr><td scope='row'>test</td>".
+                    "<td scope='row'>tessst</td>".
+                    "<td scope='row'>test</td>".
+                    "<td scope='row'>test</td>".
+                    "<td scope='row'>test</td></tr>";
     
-                    echo"<td class='rowED'><a href=\"userInfoEdit.php?id=".$row['id']."\">Edit</td>".
+                    echo"<tr><td scope='row'></td>".
+                        "<td scope='row'></td>".
+                        "<td scope='row'></td>".
+                        "<td class='rowED'><a href=\"userInfoEdit.php?id=".$row['id']."\">Edit</td>".
                         "<td class='rowED'><a href=userInfoDelete.php?id=".$row['id'].">Delete</td></tr>";
+                    
+
+                        echo "<tr><td scope='row'>test</td>".
+                        "<td scope='row'>tessst</td>".
+                        "<td scope='row'>test</td>".
+                        "<td scope='row'>test</td>".
+                        "<td scope='row'>test</td></tr>";
+        
+                        echo"<tr><td scope='row'></td>".
+                            "<td scope='row'></td>".
+                            "<td scope='row'></td>".
+                            "<td class='rowED'><a href=\"userInfoEdit.php?id=".$row['id']."\">Edit</td>".
+                            "<td class='rowED'><a href=userInfoDelete.php?id=".$row['id'].">Delete</td></tr>";
                 // while($row = mysqli_fetch_assoc($result))
                 // {
                     // echo"<tr>".
