@@ -18,9 +18,9 @@
         </h1>
         <div id="mainPageBox">
             <div id="mainPageTopBox">
-                <a class="mainPageBoxText" href="reserve_rooms.php">Reserve Rooms</a>
-                <a class="mainPageBoxText" href="activities.php">Reserve Activities</a>
-                <a class="mainPageBoxText" href="reserve_tables.php">Reserve Tables</a>
+                <a class="mainPageBoxText mainPageBoxTextHover" href="reserve_rooms.php">Reserve Rooms</a>
+                <a class="mainPageBoxText mainPageBoxTextHover" href="activities.php">Reserve Activities</a>
+                <a class="mainPageBoxText mainPageBoxTextHover" href="reserve_tables.php">Reserve Tables</a>
             </div>
             <div id="mainPageBotBox">
                 <h1 class="mainPageBotBoxText"><a href="room.php" style="text-decoration:none; color:black;">Preview Rooms&emsp;</a><a href="RevTable.php" style="text-decoration:none; color:black;">&emsp;Preview Tables</a></h1>

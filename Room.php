@@ -16,7 +16,7 @@
     <div class="backgroundforinfo">
         <p class="firstparg">This room contains two bedrooms</p>
     <br>
-        <h1 class="firstparg">Book <a href="reserve_rooms.php"> Here </a> to reserve the room!</h1>
+        <h1 class="firstparg">Book&ensp;<a href="reserve_rooms.php"> Here </a> to reserve the room!</h1>
     </div>
     </div>
     <br>
@@ -27,13 +27,13 @@
         <p>1 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
+        <img src="res/images/room1.jfif" class="imgres" >
     </div>
 
         <!-- Slideshow-->
 
     <div class="child text" id="lastChild">
-        <p>Caption Text</p>
+        <p>First Room</p>
     </div>
     </div>
     <div class="mySlides" id="parent">
@@ -41,12 +41,12 @@
         <p>2 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
+        <img src="res/images/room2.jpg" class="imgres" >
     </div>
 
 
     <div class="child text" id="lastChild">
-        <p>Caption Text</p>
+        <p>Second Room</p>
     </div>
     </div>
     <div class="mySlides" id="parent">
@@ -54,12 +54,10 @@
         <p>3 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
+        <img src="res/images/room3.jpg" class="imgres" >
     </div>
-
-
     <div class="child text" id="lastChild">
-        <p>Caption Text</p>
+        <p>Third Room</p>
     </div>
     </div>
     <div class="arrows">

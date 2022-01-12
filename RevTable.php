@@ -14,11 +14,11 @@
     <br><div class="picturelocation">
     <img src="res/images/tableone.jpg" class="picturesizeone"></div>
     <br><div class="textlocation "><div class="RTparg">
-    <p>Information for the tables</p></div></div>
+    <h1>Information for the tables</h1></div></div>
     <br><div class="picturelocation">
     <img src="res/images/table2.jpg" class="picturesizeone"></div>
     <br><div class="textlocation">
-    <h1 class="RTsize">Reservate a Table  <a href="reservation_front.php">Here</a></h1></div>
+    <h1 class="RTsize">Reservate a Table&ensp;<a href="reservation_front.php">Here</a></h1></div>
     <div class="picturelocation">
     <img src="res/images/tablethree.jpg" class="picturesizeone"></div>
     <br>

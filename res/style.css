@@ -76,7 +76,7 @@ nav{
 }
 .homePage{
     background-color:hsl(291deg 64% 42% / 61%);
-    width: 45%;
+    width: 35%;
     display: flex;
     justify-content: center;
     color: white;
@@ -114,7 +114,7 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
     font-size: 25px;
-    font-weight: 100;
+    font-weight: bold;
 }
 .mainPageBoxTextHover:hover{
 background-color: rgba(172, 164, 164, 0.767);
@@ -127,7 +127,7 @@ transition: 0.4s ease-in-out;
     margin-top: auto;
     margin-bottom: auto;
     font-size: 20px;
-    font-weight: 100;
+    font-weight: bold;
 }
 /* Reservation form */
 .body1{
@@ -321,7 +321,7 @@ border:black solid 5px;
 box-shadow: 5px 5px;
 width: 350px;
 height: 300px;
-background-color:rgba(196, 32, 196, 0.904);
+background-color:rgba(26, 228, 60, 0.58);
 margin-top: 60px;
 margin-left:100px;
 margin-right: 0px;
@@ -342,6 +342,7 @@ box-shadow: black 2px 2px;
     justify-content: center;
     display: flex;
     align-content: center;
+    font-size: 1.2em;
 }
 .imgres{
 width: 450px;
@@ -461,8 +462,9 @@ justify-content: center;
 /*Review Tables*/
 #Rtable{
     background-image:url(../res/images/tables.jpg);
-    background-repeat: repeat-y;
     backdrop-filter: blur(1px);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: hidden;
     overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
@@ -480,8 +482,9 @@ justify-content: center;
     box-shadow: hsl(291deg 64% 42% / 61%) 8px 8px 10px 10px;
 }
 .RTsize{
+    color: white;
     margin-top: 35px;
-    font-size: 1.5em;
+    font-size: 1.8em;
     background-color: hsl(291deg 64% 42% / 61%);
     width: 300px;
     border-radius: 4px;
@@ -495,7 +498,7 @@ justify-content: center;
     justify-content: center;
 }
 .RTparg{
-    font-size:1.2em;
+    color: white;
     background-color: hsl(291deg 64% 42% / 61%);
     border: 2px solid black;
     border-radius: 4px;
@@ -503,7 +506,8 @@ justify-content: center;
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 300px;
+    width: 400px;
+    font-size:1.0em;
 }
 /* Activities Preview*/
 #preActBg{
@@ -557,6 +561,10 @@ justify-content: center;
 /* Event Calendar */
 
 #evCalTitle{
+    background-color:hsl(291deg 64% 42% / 61%);
+    width: 40%;
+    display: flex;
+    justify-content: center;
     color: white;
     font-size: 35px;
     margin-top: 60px;
@@ -786,4 +794,10 @@ textarea{
   transition: 0.5s;
   background-color: green;
   color: white;
+}
+
+/* UserPanel */
+
+#UserPanel{
+  margin-left: 20px;
 }
