@@ -76,7 +76,7 @@ nav{
 }
 .homePage{
     background-color:hsl(291deg 64% 42% / 61%);
-    width: 45%;
+    width: 35%;
     display: flex;
     justify-content: center;
     color: white;
@@ -114,7 +114,7 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
     font-size: 25px;
-    font-weight: 100;
+    font-weight: bold;
 }
 .mainPageBoxTextHover:hover{
 background-color: rgba(172, 164, 164, 0.767);
@@ -127,7 +127,7 @@ transition: 0.4s ease-in-out;
     margin-top: auto;
     margin-bottom: auto;
     font-size: 20px;
-    font-weight: 100;
+    font-weight: bold;
 }
 /* Reservation form */
 .body1{

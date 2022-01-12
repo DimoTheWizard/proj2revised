@@ -36,7 +36,7 @@
 
       <div class = "contact">
         <h1> Describe yout problem </h1>
-          <textarea rows="4" cols="49">   </textarea>
+          <textarea rows="5" cols="59">   </textarea>
     </form>
 
 
