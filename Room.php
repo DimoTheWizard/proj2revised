@@ -27,40 +27,40 @@
         <p>1 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../PROJECT2/res/images/room1.jfif" class="imgres" >
+        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
     </div>
 
         <!-- Slideshow-->
 
-    <div class="child text" id="lastChild"> 
+    <div class="child text" id="lastChild">
         <p>Caption Text</p>
-    </div>   
+    </div>
     </div>
     <div class="mySlides" id="parent">
     <div class="child numbertext">
         <p>2 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../PROJECT2/res/images/room1.jfif" class="imgres" >
+        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
     </div>
 
 
-    <div class="child text" id="lastChild"> 
+    <div class="child text" id="lastChild">
         <p>Caption Text</p>
-    </div>   
+    </div>
     </div>
     <div class="mySlides" id="parent">
     <div class="child numbertext">
         <p>3 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../PROJECT2/res/images/room1.jfif" class="imgres" >
+        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
     </div>
 
 
-    <div class="child text" id="lastChild"> 
+    <div class="child text" id="lastChild">
         <p>Caption Text</p>
-    </div>   
+    </div>
     </div>
     <div class="arrows">
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -69,9 +69,9 @@
 </div>
     <br>
     <div class="dots">
-        <span class="dot" onclick="currentSlide(1)"></span> 
-        <span class="dot" onclick="currentSlide(2)"></span> 
-        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 </div>
 <script>
@@ -88,15 +88,15 @@ function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
+  if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+      slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
+  slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
 </script>
