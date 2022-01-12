@@ -41,7 +41,7 @@
         <p>2 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
+        <img src="../proj2revised/res/images/room2.jpg" class="imgres" >
     </div>
 
 
@@ -54,10 +54,8 @@
         <p>3 / 3</p>
     </div>
     <div class="child imgRoom">
-        <img src="../proj2revised/res/images/room1.jfif" class="imgres" >
+        <img src="../proj2revised/res/images/room3.jpg" class="imgres" >
     </div>
-
-
     <div class="child text" id="lastChild">
         <p>Caption Text</p>
     </div>
