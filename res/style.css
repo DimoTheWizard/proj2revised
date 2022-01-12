@@ -76,7 +76,7 @@ nav{
 }
 .homePage{
     background-color:hsl(291deg 64% 42% / 61%);
-    width: 45%;
+    width: 35%;
     display: flex;
     justify-content: center;
     color: white;
@@ -114,7 +114,7 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
     font-size: 25px;
-    font-weight: 100;
+    font-weight: bold;
 }
 .mainPageBoxTextHover:hover{
 background-color: rgba(172, 164, 164, 0.767);
@@ -127,7 +127,7 @@ transition: 0.4s ease-in-out;
     margin-top: auto;
     margin-bottom: auto;
     font-size: 20px;
-    font-weight: 100;
+    font-weight: bold;
 }
 /* Reservation form */
 .body1{
@@ -749,4 +749,47 @@ textarea{
 
 .Contacttitle h1{
   color:white;
+}
+
+
+/*Admin Panel*/
+#AdminPanel{
+  margin-left: 20px;
+}
+
+.Tabletitle{
+  font-family: "Sitka Text", sans-serif;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+
+.activitytable{
+  font-family: "Sitka Text", sans-serif;
+}
+
+#admin td, th, tr{
+      margin: 20px;
+      color: black;
+}
+
+
+.signout{
+    background-color: #4caf50;
+    padding: 6px 18px;
+    float:right;
+    margin-top: 19em;
+}
+
+
+.signout:hover{
+  transition: 0.5s;
+  background-color: green;
+  color: white;
+}
+
+/* UserPanel */
+
+#UserPanel{
+  margin-left: 20px;
 }
