@@ -18,7 +18,7 @@
     <br><div class="picturelocation">
     <img src="res/images/table2.jpg" class="picturesizeone"></div>
     <br><div class="textlocation">
-    <h1 class="RTsize">Reservate a Table&ensp;<a href="reservation_front.php">Here</a></h1></div>
+    <h1 class="RTsize">Reservate a Table&ensp;<a href="reservation_front.php" class="RTlinkcolor RTlinkcolorHover">Here</a></h1></div>
     <div class="picturelocation">
     <img src="res/images/tablethree.jpg" class="picturesizeone"></div>
     <br>

@@ -497,6 +497,12 @@ justify-content: center;
     display: flex;
     justify-content: center;
 }
+.RTlinkcolor{
+  color: white;
+}
+.RTlinkcolorHover:hover{
+  color: red;
+}
 .RTparg{
     color: white;
     background-color: hsl(291deg 64% 42% / 61%);
