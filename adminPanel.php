@@ -16,66 +16,113 @@ include('res/elements/header.php');
 include('res/elements/footer.php');
 ?>
 
+<?php
+include('functions/functions.php');
+?>
+
 <form method = "post">
     <h1 class = "Tabletitle" > Activity </h1>
 
     <table border="1" id="AdminPanel">
         <tr>
             <th> id </th>
-            <th> event </th>
-            <th> FirstName </th>
-            <th> LastName </th>
-            <th> email </th>
-            <th> phonenumber </th>
+            <th> Activity Name </th>
+            <th> Activity Limit </th>
+            <th> Activity Availability </th>
+            <th> Edit </th>
+            <th> Delete </th>
         </tr>
+        <?php
+        adminActivity();
+        ?>
     </table>
 
-    <h1 class = "Tabletitle" > Reservations </h1>
+    <h1 class = "Tabletitle" > Reserved Activities </h1>
+
     <table border="1" id="AdminPanel">
         <tr>
-            <th> userID </th>
-            <th> guestid </th>
-            <th> activityid </th>
-            <th> tableid </th>
-            <th> roomid </th>
-            <th> email </th>
+            <th> User ID </th>
+            <th> Activity ID </th>
+            <th> Check in </th>
+            <th> Edit </th>
+            <th> Delete </th>
         </tr>
+        <?php
+            adminReservedActivities();
+        ?>
     </table>
 
     <h1 class = "Tabletitle" > Room </h1>
     <table border="1" id="AdminPanel">
         <tr>
-            <th> id      </th>
-            <th> roomName</th>
-            <th> roomQuantity </th>
-            <th> usernameRes </th>
-            <th> emailRes </th>
+            <th> ID      </th>
+            <th> Room Number</th>
+            <th> Room Availability </th>
+            <th> Room Type </th>
+            <th> Edit </th>
+            <th> Delete </th>
         </tr>
+        <?php
+            adminRoom();
+        ?>
+    </table>
+
+    <h1 class = "Tabletitle" > Reserved Rooms </h1>
+    <table border="1" id="AdminPanel">
+        <tr>
+            <th> user ID </th>
+            <th> room ID </th>
+            <th> check in </th>
+            <th> check out </th>
+            <th> Edit </th>
+            <th> Delete </th>
+        </tr>
+        <?php
+            adminReservedRooms();
+        ?>
     </table>
 
     <h1 class = "Tabletitle" > Tables </h1>
     <table border="1" id="AdminPanel">
         <tr>
-            <th> id   </th>
-            <th> Date </th>
-            <th> FirstName </th>
-            <th> LastName </th>
-            <th> tablenumber </th>
+            <th> Table ID   </th>
+            <th> Table Number </th>
+            <th> Edit </th>
+            <th> Delete </th>
+        <?php
+            adminTables();
+        ?>
+        </tr>
+    </table>
+
+    <h1 class = "Tabletitle" > Reserved Tables </h1>
+    <table border="1" id="AdminPanel">
+        <tr>
+            <th> user ID   </th>
+            <th> Table ID </th>
+            <th> check in </th>
+            <th> Edit </th>
+            <th> Delete </th>
+        <?php
+            adminReservedTables();
+        ?>
         </tr>
     </table>
 
     <h1 class = "Tabletitle" > User </h1>
     <table border="1" id="AdminPanel">
         <tr>
-            <th> id   </th>
-            <th> fname </th>
-            <th> lname </th>
-            <th> email </th>
-            <th> checkin </th>
-            <th> checkOut </th>
-            <th> password </th>
-            <th> loginid  </th>
-            <th> userlevel </th>
+            <th> ID   </th>
+            <th> E-mail </th>
+            <th> Username </th>
+            <th> Password </th>
+            <th> User Level </th>
+            <th> Corona Certificate Path </th>
+            <th> Edit </th>
+            <th> Delete </th>
+        <?php
+            adminRoom();
+        ?>
         </tr>
     </table>
 

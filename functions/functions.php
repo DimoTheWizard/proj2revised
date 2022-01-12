@@ -353,6 +353,262 @@ function reservePage() {
     }
 }
 
+//adminside
+function adminActivity()
+{
+    global $con;
 
+    $query = $con->prepare("SELECT * FROM activities");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['id'] . '</td>';
+        echo '<td>' . $row['activityName'] . '</td>';
+        echo '<td>' . $row['activityLimit'] . '</td>';
+        echo '<td>' . $row['activityAvailability'] . '</td>';
+        echo "<td>" . '<a href="Edit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
+        echo '</tr>';
+    }
+}
+
+function adminReservedActivities()
+{
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM reservedactivities");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['userId'] . '</td>';
+        echo '<td>' . $row['activityId'] . '</td>';
+        echo '<td>' . $row['checkIn'] . '</td>';
+        echo "<td>" . '<a href="Edit.php?id=' . $row['userId'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['userId'] . '">Delete</a>' . "</td>";
+        echo '</tr>';
+    }
+}
+
+function adminRoom()
+{
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM rooms");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['id'] . '</td>';
+        echo '<td>' . $row['roomNr'] . '</td>';
+        echo '<td>' . $row['roomAvailability'] . '</td>';
+        echo '<td>' . $row['roomType'] . '</td>';
+        echo "<td>" . '<a href="Edit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
+        echo '</tr>';
+    }
+}
+
+function adminReservedRooms()
+{
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM reservedrooms");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['userId'] . '</td>';
+        echo '<td>' . $row['roomId'] . '</td>';
+        echo '<td>' . $row['checkIn'] . '</td>';
+        echo '<td>' . $row['checkOut'] . '</td>';
+        echo "<td>" . '<a href="Edit.php?id=' . $row['userId'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['userId'] . '">Delete</a>' . "</td>";
+        echo '</tr>';
+    }
+}
+
+function adminTables()
+{
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM tables");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['id'] . '</td>';
+        echo '<td>' . $row['tableNr'] . '</td>';
+        echo "<td>" . '<a href="Edit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
+        echo '</tr>';
+    }
+}
+
+function adminReservedTables()
+{
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM reservedTables");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['userId'] . '</td>';
+        echo '<td>' . $row['tableId'] . '</td>';
+        echo '<td>' . $row['checkIn'] . '</td>';
+        echo "<td>" . '<a href="Edit.php?id=' . $row['userId'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['userId'] . '">Delete</a>' . "</td>";
+        echo '</tr>';
+    }
+}
+
+function adminUsers()
+{
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM users");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['id'] . '</td>';
+        echo '<td>' . $row['email'] . '</td>';
+        echo '<td>' . $row['username'] . '</td>';
+        echo '<td>' . $row['password'] . '</td>';
+        echo '<td>' . $row['usrLevel'] . '</td>';
+        echo '<td>' . $row['pathCert'] . '</td>';
+        echo "<td>" . '<a href="Edit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
+        echo '</tr>';
+    }
+}
 
 ?>

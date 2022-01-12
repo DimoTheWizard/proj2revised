@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2022 at 07:54 PM
+-- Generation Time: Jan 12, 2022 at 10:58 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -30,9 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `activities` (
   `id` int(11) NOT NULL,
   `activityName` varchar(255) NOT NULL,
-  `actvityLimit` int(11) NOT NULL,
+  `activityLimit` int(11) NOT NULL,
   `activityAvailability` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `activities`
+--
+
+INSERT INTO `activities` (`id`, `activityName`, `activityLimit`, `activityAvailability`) VALUES
+(1, 'hiking', 12, 1);
 
 -- --------------------------------------------------------
 
@@ -43,8 +50,15 @@ CREATE TABLE `activities` (
 CREATE TABLE `reservedactivities` (
   `userId` int(11) DEFAULT NULL,
   `activityId` int(11) DEFAULT NULL,
-  `checkIn` int(11) DEFAULT NULL
+  `checkIn` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reservedactivities`
+--
+
+INSERT INTO `reservedactivities` (`userId`, `activityId`, `checkIn`) VALUES
+(NULL, 1, '2022-01-12');
 
 -- --------------------------------------------------------
 
@@ -59,6 +73,13 @@ CREATE TABLE `reservedrooms` (
   `checkOut` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `reservedrooms`
+--
+
+INSERT INTO `reservedrooms` (`userId`, `roomId`, `checkIn`, `checkOut`) VALUES
+(NULL, 1, '2022-01-13', '2022-01-15');
+
 -- --------------------------------------------------------
 
 --
@@ -68,8 +89,15 @@ CREATE TABLE `reservedrooms` (
 CREATE TABLE `reservedtables` (
   `userId` int(11) DEFAULT NULL,
   `tableId` int(11) DEFAULT NULL,
-  `checkIn` int(11) DEFAULT NULL
+  `checkIn` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reservedtables`
+--
+
+INSERT INTO `reservedtables` (`userId`, `tableId`, `checkIn`) VALUES
+(NULL, 1, '2022-01-13');
 
 -- --------------------------------------------------------
 
@@ -84,6 +112,13 @@ CREATE TABLE `rooms` (
   `roomType` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `roomNr`, `roomAvailability`, `roomType`) VALUES
+(1, 1, 1, 'Normal');
+
 -- --------------------------------------------------------
 
 --
@@ -94,6 +129,13 @@ CREATE TABLE `tables` (
   `id` int(11) NOT NULL,
   `tableNr` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tables`
+--
+
+INSERT INTO `tables` (`id`, `tableNr`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -167,25 +209,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
