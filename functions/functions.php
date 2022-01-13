@@ -1340,6 +1340,50 @@ function spotEvent(){
     foreach ($data as $row) {
         echo '<option>' . $row['activityName'] . '</option>'; 
     }
+
+}
+
+//reserve activities
+function activityReservation(){
+    global $con;
+    if(isset($_POST['submit'])){
+
+        if(!empty($_POST['eventlist'])){
+            $activity = $_POST['eventlist'];
+            echo "you have chosen: " . $activity . "<br>";
+        } else {
+            echo "please select activity<br>";
+        }
+
+        //inputing filled data into database
+        $query = $con->prepare("INSERT INTO reservedactivities (
+                    userId, activityId
+                ) VALUES (
+                    ?, ?
+                )");
+
+        //Getting user ID with eventual session
+
+
+        //Getting Activity Id from activity name through another query
+
+
+        //check In is done automatically with sql and current timestamp
+
+        //reserve ID is auto incremented
+
+        if (false === $query) {
+            die('Prepare failed' . htmlspecialchars($query->error));
+        }
+
+        $query->bind_param("ii",  $filler1, $filler2);
+        if($query->execute()){
+            echo "record edited succesfully.<br>";                
+        }else{
+            echo "Error executing query";
+            die(mysqli_error($con));
+        }       
+    }
 }
 
 ?>

@@ -1,30 +1,3 @@
-<?php
-
-  include "res/elements/dbConn.php";
-
-  mysqli_select_db($conn, 'falcondb');
-
-  if (isset($_POST['submit'])) {
-	  if (count(array_filter($_POST))!=count($_POST)) {
-	    echo "One of the inputs is not filled in !";
-	  } else {
-  $event = $_POST['event'];
-  $FirstName = $_POST['FirstName'];
-  $LastName = $_POST['LastName'];
-  $email = $_POST['email'];
-  $phonenumber = $_POST['phonenumber'];
-
-
-  $query = $conn->prepare("INSERT INTO activity (event, FirstName, LastName, email, phonenumber) VALUES (?, ?, ?, ?, ?)");
-  $query->bind_param("ssssi",$event, $FirstName, $LastName, $email, $phonenumber);
-  $query->execute();
-  mysqli_close($conn);
-    }
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,6 +35,9 @@
             <div> </div>
             <input type ="submit" name="submit" value="Book Now" class="submitlabel">
           </div>
+          <?php
+              activityReservation();
+          ?>
           <div class = "activitytext">
           </div>
     </body>
