@@ -683,10 +683,11 @@ form{
   height: 262px;
   background-image: url(../res/images/ActivityBird.jpg);
   background-size: cover;
-  margin-right: 23%;
+  margin-right:120px;
+  margin-top:-200px;
   float:right;
-  border:black solid 4px;
-  box-shadow: black 8px 8px;
+  border:black solid 3px;
+  box-shadow: black 4px 4px;
 }
 p{
     margin-bottom: 10px;
@@ -696,12 +697,11 @@ p{
 }
 .activitytext{
     background-color:hsl(291deg 64% 42% / 61%);
-    width:40%;
-    width: 35%;
+    width:45%;
     font-size: 15px;
     float: right;
-    margin-right: 17%;
-    margin-top: 20px;
+    margin-right: 10px;
+    margin-top: -180px;
     color:white;
     font-family: "Sitka Text", sans-serif;
 }
