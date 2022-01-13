@@ -35,10 +35,13 @@
     </head>
     <body id = "activities">
         <?php
-             include('res/elements/header.php');
+            include('res/elements/header.php');
         ?>
         <?php
-             include('res/elements/footer.php');
+            include('res/elements/footer.php');
+        ?>
+        <?php
+            include('functions/functions.php');
         ?>
         <div class = "Activitiestitle">
             <h1> Reserve a spot in an event </h1>
@@ -47,39 +50,19 @@
         <div class = "activityImage"> </div>
 
         <div class = "formbox">
-
             <div class = "formlabel">
-              <h1> First Name </h1>
-              <form action = "activities.php" method = "post">
-                 <input type = "text" name ="FirstName" class = "firstnamewidth">
+                <h1> Book An Event </h1>
+                <form action = "activities.php" method = "post">
+                <select name ="eventlist" id ="eventlist">
+                  <?php
+                    spotEvent();
+                  ?>
+                </select>
             </div>
-
-            <div class = "formlabel">
-              <h1> Email </h1>
-                 <input type = "text" name ="email" class = "formwidth">
-            </div>
-
-            <div class = "formlabel">
-              <h1> Last Name </h1>
-                 <input type = "text" name ="LastName"  class ="formwidth">
-            </div>
-
-            <div class = "formlabel">
-              <h1> Event </h1>
-
-                 <input type = "text" name ="phonenumber" class= "formwidth">
-
-            </div>
-
-              <div class = "formlabel">
-                  <input type = "submit" name ="submit" value= "Book Now" class = "submitlabel">
-                </form>
-            </div>
-        </div>
+            <div> </div>
+            <input type ="submit" name="submit" value="Book Now" class="submitlabel">
+          </div>
           <div class = "activitytext">
-              <h1>Join one of the hotels beautiful hikes </h1>
-              <h1>through nature or learn how to take </h1>
-              <h1>care of falcon. All in our events!  </h1>
           </div>
     </body>
 </html>

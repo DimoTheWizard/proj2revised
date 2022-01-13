@@ -361,6 +361,41 @@ function reservePage() {
     }
 }
 
+//event calendar
+function calendar(){
+    global $con;
+
+    $query = $con->prepare("SELECT activityName, `description`, `date`, `time`  FROM activities");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['activityName'] . '</td>';
+        echo '<td>' . $row['description'] . '</td>';
+        echo '<td>' . $row['date'] . '</td>';
+        echo '<td>' . $row['time'] . '</td>';
+        echo '</tr>';
+    }
+}
+
 //adminside
 function adminActivity()
 {
@@ -392,11 +427,13 @@ function adminActivity()
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['activityName'] . '</td>';
+        echo '<td>' . $row['description'] . '</td>';
+        echo '<td>' . $row['date'] . '</td>';
+        echo '<td>' . $row['time'] . '</td>';
         echo '<td>' . $row['activityLimit'] . '</td>';
         echo '<td>' . $row['activityAvailability'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -431,8 +468,7 @@ function adminReservedActivities()
         echo '<td>' . $row['activityId'] . '</td>';
         echo '<td>' . $row['checkIn'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvActivitiesId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['userId'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['rsrvActivitiesId'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -469,8 +505,7 @@ function adminRoom()
         echo '<td>' . $row['roomAvailability'] . '</td>';
         echo '<td>' . $row['roomType'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -507,8 +542,7 @@ function adminReservedRooms()
         echo '<td>' . $row['checkIn'] . '</td>';
         echo '<td>' . $row['checkOut'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvRoomsId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['rsrvRoomsId'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['rsrvRoomsId'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -543,8 +577,7 @@ function adminTables()
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['tableNr'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -580,8 +613,7 @@ function adminReservedTables()
         echo '<td>' . $row['tableId'] . '</td>';
         echo '<td>' . $row['checkIn'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvTableId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['rsrvTableId'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['rsrvTableId'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -622,7 +654,7 @@ function adminUsers()
         echo '<td>' . $row['usrLevel'] . '</td>';
         echo '<td>' . $row['pathCert'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelDelete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
         echo '</tr>';
     }
 }
@@ -631,7 +663,6 @@ function adminUsers()
 
 //function chooser
 function chooseEditFunction($tableName, $idNum){
-
     switch($tableName){
         case "adminActivity":
             AdminPanelEditActivity($idNum);
@@ -1280,4 +1311,35 @@ function AdminPanelEditUsers($idNum){
         }
     }
 }
+
+//reserve a spot an event
+function spotEvent(){
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM activities");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    $funcRequired = "adminActivity";
+    foreach ($data as $row) {
+        echo '<option>' . $row['activityName'] . '</option>'; 
+    }
+}
+
 ?>
