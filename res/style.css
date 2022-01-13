@@ -782,11 +782,14 @@ textarea{
   font-family: "Sitka Text", sans-serif;
 }
 
-#admin td, th, tr{
+#adminPanel td, th, tr{
       margin: 20px;
       color: black;
 }
 
+#adminPanel{
+    overflow: visible !important;
+}
 
 .signout{
     background-color: #4caf50;

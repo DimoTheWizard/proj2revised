@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta lang="en-us">
 </head>
-<body id = "admin">
+<body id ="adminPanel">
 
 <?php
 include('res/elements/header.php');
