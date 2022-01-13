@@ -3,7 +3,7 @@
 // Initialize the session
     require_once "res/elements/session.php";
 // Include config file
-    require_once "res/elements/dbConn.php";
+    require_once "res/elements/dbCon.php";
 
 // Define variables and initialize with empty values
     $email = $password = "";

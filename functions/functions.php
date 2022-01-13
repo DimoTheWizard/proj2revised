@@ -6,7 +6,6 @@
 
 require 'dbCon.php';
 
-
 //Registration function for register.php
 
 function register()
@@ -14,25 +13,28 @@ function register()
 
     global $con;
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['submit'])) {
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if(isset($_POST['submit'])) {
 
-            $email = trim(htmlspecialchars($_POST['email'])); //from PHP 8 filter_sanitize_string got replaced with htmlspecialchars
-            $fname = trim(htmlspecialchars($_POST['fname']));
-            $lname = trim(htmlspecialchars($_POST['lname']));
+            $username = trim(htmlspecialchars($_POST['username'])); //from PHP 8 filter_sanitize_string got replaced with htmlspecialchars
+            $email = trim(htmlspecialchars($_POST['email']));
+            $fName = trim(htmlspecialchars($_POST['fName']));
+            $lName = trim(htmlspecialchars($_POST['lName']));
             $password = trim(htmlspecialchars($_POST['password']));
 
+
+            $username = trim(mysqli_real_escape_string($con,$_POST['username']));
             $email = trim(mysqli_real_escape_string($con, $_POST['email']));
-            $fname = trim(mysqli_real_escape_string($con, $_POST['fname']));
-            $lname = trim(mysqli_real_escape_string($con, $_POST['lname']));
+            $fName = trim(mysqli_real_escape_string($con, $_POST['fName']));
+            $lName = trim(mysqli_real_escape_string($con, $_POST['lName']));
             $password = trim(mysqli_real_escape_string($con, $_POST['password']));
 
             $usrLevel = trim(mysqli_real_escape_string($con, 'guest'));
             $usrLevel = trim(htmlspecialchars('guest'));
 
 
-            if (!empty($email) && !empty($fname) && !empty($lname) && !empty($password)) {
-                if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            if(!empty($username) && !empty($email) && !empty($fName)  && !empty($lName) && !empty($password)) {
+                if (filter_var($email, FILTER_VALIDATE_EMAIL)){
 
                     $hashPass = password_hash($password,
                         PASSWORD_ARGON2ID,
@@ -44,13 +46,13 @@ function register()
 
                     //$hashSalt = $hashPass . $salt;
 
-                    $query = $con->prepare("INSERT INTO user (fname,lname,email,password,userlevel) VALUES (?,?,?,?,?)");
+                    $query = $con->prepare("INSERT INTO users (email,username,fName,lName,password,usrLevel) VALUES (?,?,?,?,?,?)");
 
                     if (false === $query) {
                         die('Prepare failed' . htmlspecialchars($query->error));
                     }
 
-                    $query->bind_param("sssss", $fname, $lname, $email, $hashPass, $usrLevel);
+                    $query->bind_param("ssssss", $email, $username, $fName, $lName, $hashPass ,$usrLevel);
 
                     if (false === $query) {
                         die('Bind param failed' . htmlspecialchars($query->error));
@@ -62,19 +64,20 @@ function register()
                         die('Execute failed' . htmlspecialchars($query->error));
                     }
 
-                    echo '<h2 style="color:green">Registration made</h2>';
+                    echo 'Registration made';
 
                     $query->close();
                     $con->close();
 
 
-                } else {
-                    echo '<h2 style="color:red">Email not valid</h2>';
+                }else {
+                    echo 'Email not valid';
                 }
 
 
+
             } else {
-                echo '<h2 style="color:red">Make sure you have completed both fields !</h2>';
+                echo 'Make sure you have completed both fields !';
             }
 
 
@@ -94,20 +97,18 @@ function signIn()
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['submit'])) {
 
-            $email = trim(htmlspecialchars($_POST['email'])); //from PHP 8 filter_sanitize_string got replaced with htmlspecialchars
+            $email = trim(htmlspecialchars($_POST['email']));
             $password = trim(htmlspecialchars($_POST['password']));
+
 
             $email = trim(mysqli_real_escape_string($con, $_POST['email']));
             $password = trim(mysqli_real_escape_string($con, $_POST['password']));
 
-            $usrLevel = trim(mysqli_real_escape_string($con, 'guest'));
-            $usrLevel = trim(htmlspecialchars('guest'));
-
-            if (!empty($email) && !empty($password)) {
+            if(!empty($email) && !empty($password)) {
 
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-                    $query = $con->prepare("SELECT * FROM user WHERE email = ?");
+                    $query = $con->prepare("SELECT * FROM users WHERE email = ?");
 
                     //$result = mysqli_query($con, $query);
 
@@ -140,18 +141,19 @@ function signIn()
                     if ($data) {
                         foreach ($data as $row) {
                             if (password_verify($password, $row['password'])) {
-                                $_SESSION['fname'] = $row['fname'];
-                                $_SESSION['lname'] = $row['lname'];
+                                $_SESSION['fName'] = $row['fName'];
+                                $_SESSION['lName'] = $row['lName'];
                                 $_SESSION['email'] = $row['email'];
-                                $_SESSION['userlevel'] = $row['userlevel'];
+                                $_SESSION['pathCert'] = $row['pathCert'];
+                                $_SESSION['usrLevel'] = $row['usrLevel'];
 
-                                if ($row['userlevel'] === 'guest' || $row['userlevel'] === 'vip') {
+                                if ($row['usrLevel'] === 'guest' || $row['usrLevel'] === 'vip') {
                                     //header("Location: ../testing/adminPanel/indexUser.php");
                                     echo 'guest or vip';
                                     die();
                                 }
 
-                                if ($row['userlevel'] === 'admin') {
+                                if ($row['usrLevel'] === 'admin') {
                                     //header("Location: ../testing/adminPanel/indexAdmin.php");
                                     echo 'admin';
                                     die();
@@ -339,6 +341,12 @@ function reservePage() {
                 }else {
                     echo 'Email not valid';
                 }
+
+
+//User panel
+
+
+
 
 
 
@@ -610,5 +618,9 @@ function adminUsers()
         echo '</tr>';
     }
 }
+
+//User panel
+
+
 
 ?>
