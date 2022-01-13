@@ -361,6 +361,41 @@ function reservePage() {
     }
 }
 
+//event calendar
+function calendar(){
+    global $con;
+
+    $query = $con->prepare("SELECT activityName, `description`, `date`, `time`  FROM activities");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    foreach ($data as $row) {
+        echo '<tr>';
+        echo '<td>' . $row['activityName'] . '</td>';
+        echo '<td>' . $row['description'] . '</td>';
+        echo '<td>' . $row['date'] . '</td>';
+        echo '<td>' . $row['time'] . '</td>';
+        echo '</tr>';
+    }
+}
+
 //adminside
 function adminActivity()
 {
@@ -392,6 +427,9 @@ function adminActivity()
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['activityName'] . '</td>';
+        echo '<td>' . $row['description'] . '</td>';
+        echo '<td>' . $row['date'] . '</td>';
+        echo '<td>' . $row['time'] . '</td>';
         echo '<td>' . $row['activityLimit'] . '</td>';
         echo '<td>' . $row['activityAvailability'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";

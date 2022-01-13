@@ -26,6 +26,9 @@ include('functions/functions.php');
         <tr>
             <th> id </th>
             <th> Activity Name </th>
+            <th> Description  </th>
+            <th> Date  </th>
+            <th> Time  </th>
             <th> Activity Limit </th>
             <th> Activity Availability </th>
             <th> Edit </th>
