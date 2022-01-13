@@ -395,8 +395,7 @@ function adminActivity()
         echo '<td>' . $row['activityLimit'] . '</td>';
         echo '<td>' . $row['activityAvailability'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -431,8 +430,7 @@ function adminReservedActivities()
         echo '<td>' . $row['activityId'] . '</td>';
         echo '<td>' . $row['checkIn'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvActivitiesId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['userId'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['rsrvActivitiesId'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -469,8 +467,7 @@ function adminRoom()
         echo '<td>' . $row['roomAvailability'] . '</td>';
         echo '<td>' . $row['roomType'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -507,8 +504,7 @@ function adminReservedRooms()
         echo '<td>' . $row['checkIn'] . '</td>';
         echo '<td>' . $row['checkOut'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvRoomsId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['rsrvRoomsId'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['rsrvRoomsId'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -543,8 +539,7 @@ function adminTables()
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['tableNr'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -580,8 +575,7 @@ function adminReservedTables()
         echo '<td>' . $row['tableId'] . '</td>';
         echo '<td>' . $row['checkIn'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvTableId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['rsrvTableId'] . '">Delete</a>' . "</td>";
-        echo '</tr>';
+        echo "<td>" . '<a href="adminPanelDelete.php?id=' . $row['rsrvTableId'] . '&funcRequired='. $funcRequired . '">Delete</a>' . "</td>";        echo '</tr>';
     }
 }
 
@@ -622,7 +616,7 @@ function adminUsers()
         echo '<td>' . $row['usrLevel'] . '</td>';
         echo '<td>' . $row['pathCert'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelDelete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
         echo '</tr>';
     }
 }
@@ -631,7 +625,6 @@ function adminUsers()
 
 //function chooser
 function chooseEditFunction($tableName, $idNum){
-
     switch($tableName){
         case "adminActivity":
             AdminPanelEditActivity($idNum);
