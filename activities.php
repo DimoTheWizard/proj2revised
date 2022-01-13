@@ -65,20 +65,13 @@
             </div>
 
             <div class = "formlabel">
-              <h1> Phone Number </h1>
+              <h1> Event </h1>
 
                  <input type = "text" name ="phonenumber" class= "formwidth">
 
             </div>
 
-            <div class = "formlabel">
-              <h1> Event </h1>
-
-                 <input type = "text" name ="event" class= "formwidth">
-
-            </div>
-
-            <div class = "formlabel">
+              <div class = "formlabel">
                   <input type = "submit" name ="submit" value= "Book Now" class = "submitlabel">
                 </form>
             </div>

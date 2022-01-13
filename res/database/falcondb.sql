@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 09:57 AM
+-- Generation Time: Jan 13, 2022 at 03:28 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -34,6 +34,13 @@ CREATE TABLE `activities` (
   `activityAvailability` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `activities`
+--
+
+INSERT INTO `activities` (`id`, `activityName`, `activityLimit`, `activityAvailability`) VALUES
+(2, 'Skydiving', 12, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +53,13 @@ CREATE TABLE `reservedactivities` (
   `checkIn` date DEFAULT NULL,
   `rsrvActivitiesId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reservedactivities`
+--
+
+INSERT INTO `reservedactivities` (`userId`, `activityId`, `checkIn`, `rsrvActivitiesId`) VALUES
+(2, 2, '2022-01-14', 1);
 
 -- --------------------------------------------------------
 
@@ -66,7 +80,7 @@ CREATE TABLE `reservedrooms` (
 --
 
 INSERT INTO `reservedrooms` (`userId`, `roomId`, `checkIn`, `checkOut`, `rsrvRoomsId`) VALUES
-(2, 2, '2022-01-13', '2022-01-14', 1);
+(2, 2, '2022-01-12', '2022-01-14', 1);
 
 -- --------------------------------------------------------
 
@@ -86,7 +100,7 @@ CREATE TABLE `reservedtables` (
 --
 
 INSERT INTO `reservedtables` (`userId`, `tableId`, `checkIn`, `rsrvTableId`) VALUES
-(2, 2, '2022-01-13', 1);
+(2, 2, '2022-01-12', 1);
 
 -- --------------------------------------------------------
 
@@ -106,7 +120,7 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `roomNr`, `roomAvailability`, `roomType`) VALUES
-(2, 1, 1, 'Normal');
+(2, 2, 1, 'Normal');
 
 -- --------------------------------------------------------
 
@@ -124,7 +138,7 @@ CREATE TABLE `tables` (
 --
 
 INSERT INTO `tables` (`id`, `tableNr`) VALUES
-(2, 1);
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -138,15 +152,17 @@ CREATE TABLE `users` (
   `username` varchar(15) NOT NULL,
   `password` varchar(255) NOT NULL,
   `usrLevel` varchar(20) NOT NULL,
-  `pathCert` varchar(255) NOT NULL
+  `pathCert` varchar(255) NOT NULL,
+  `firstName` varchar(15) NOT NULL,
+  `lastName` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `password`, `usrLevel`, `pathCert`) VALUES
-(2, 'kekwEpicTarkovGamer@gmail.com', 'chadScav420', 'kekbestitem3', 'User', '../coronaCerts/EpicCertificate.pdf');
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `usrLevel`, `pathCert`, `firstName`, `lastName`) VALUES
+(2, 'kekwEpicTarkovGamer@hotmail.com', 'chadScav420', 'kekbestitem3', 'User', '../coronaCerts/EpicCertificate.pdf', 'Johnathan', 'Misdeed');
 
 --
 -- Indexes for dumped tables
@@ -208,13 +224,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reservedactivities`
 --
 ALTER TABLE `reservedactivities`
-  MODIFY `rsrvActivitiesId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `rsrvActivitiesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reservedrooms`

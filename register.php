@@ -1,8 +1,8 @@
 <?php session_start(); ?>
 
 
-<?php require 'functions/functions.php' ?>
-<?php register(); ?>
+<?php require 'functions/functions.php'; ?>
+<?php  register();?>
 
 
 <!DOCTYPE html>
@@ -24,17 +24,19 @@ include('res/elements/header.php');
         <h1 class="bigsign" ><br>Register</h1>
         <br>
         <br>
-        <input class="box" type="email" name="email" placeholder="    Enter Email Address"   required><br>
+        <input class="boxT" type="text" name="username" placeholder="    Enter Username"   ><br>
         <br>
-        <input class="boxT" type="text" name="fname" placeholder="    Enter First Name"   required><br>
+        <input class="box" type="email" name="email" placeholder="    Enter Email Address"   ><br>
         <br>
-        <input class="boxT" type="text" name="lname" placeholder="    Enter Last Name"   required><br>
+        <input class="boxT" type="text" name="fName" placeholder="    Enter First Name"   ><br>
         <br>
-        <input class="box" type="password" name="password" placeholder="    Enter Password"  required><br>
+        <input class="boxT" type="text" name="lName" placeholder="    Enter Last Name"   ><br>
+        <br>
+        <input class="box" type="password" name="password" placeholder="    Enter Password"  ><br>
         <br>
         <br><input  class="box" type="submit" name="submit" value="Register" ><br>
         <br>
-        <p style="padding-top:60px;">Have an Account ?<br> Sign in  <a href="signin.php">Here</a>
+        <p style="padding-top:20px;">Have an Account ?<br> Sign in  <a href="signin.php">Here</a>
     </div>
 </form>
 

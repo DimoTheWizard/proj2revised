@@ -76,7 +76,7 @@ nav{
 }
 .homePage{
     background-color:hsl(291deg 64% 42% / 61%);
-    width:40%;
+    width: 35%;
     display: flex;
     justify-content: center;
     color: white;
@@ -114,6 +114,7 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
     font-size: 25px;
+    font-weight: bold;
 }
 .mainPageBoxTextHover:hover{
 background-color: rgba(172, 164, 164, 0.767);
@@ -126,6 +127,7 @@ transition: 0.4s ease-in-out;
     margin-top: auto;
     margin-bottom: auto;
     font-size: 20px;
+    font-weight: bold;
 }
 /* Reservation form */
 .title1{
@@ -328,24 +330,24 @@ transition: 0.4s ease-in-out;
         background-image:url(../res/images/coolbed.jpg);
     }
 .firstroom{
-    border:black solid 5px;
-    box-shadow: 2px 2px;
-    width: 350px;
-    height: 300px;
-    background-color:rgba(26, 228, 60, 0.58);
-    margin-top: 60px;
-    margin-left:100px;
-    margin-right: 0px;
+border:black solid 5px;
+box-shadow: 5px 5px;
+width: 350px;
+height: 300px;
+background-color:rgba(26, 228, 60, 0.58);
+margin-top: 60px;
+margin-left:100px;
+margin-right: 0px;
 }
 .firsthead{
-    margin-top: 25px;
-    display: flex;
-    align-content: center;
-    color: white;
-    justify-content: center;
-    font-size: 1.5em;
-    border: black 2px solid;
-    box-shadow: black 2px 2px;
+margin-top: 25px;
+display: flex;
+align-content: center;
+color: white;
+justify-content: center;
+font-size: 1.5em;
+border: black 2px solid;
+box-shadow: black 2px 2px;
 }
 .firstparg{
     margin-top: 40px;
@@ -356,55 +358,55 @@ transition: 0.4s ease-in-out;
     font-size: 1.2em;
 }
 .imgres{
-    width: 450px;
-    height: 250px;
+width: 450px;
+height: 250px;
 }
 .mySlides .numbertext
 {
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
 }
 /* Slideshow container */
 .slideshow-container {
     display: absolute;
     height: 270px;
-    width: 450px;
-    object-fit: cover;
-    object-fit: contain;
-    position: relative;
-    margin: auto;
-    border: black solid 5px;
-    box-shadow: 5px 5px 5px 6px;
-    float: right;
-    margin-right: 119px;
-    margin-top:-200px;
+  width: 450px;
+  object-fit: cover;
+  object-fit: contain;
+  position: relative;
+  margin: auto;
+  border: black solid 5px;
+  box-shadow: 5px 8px 5px 8px;
+  float: right;
+  margin-right: 119px;
+  margin-top:-200px;
 }
 /* Next & previous buttons */
 .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 10px;
-    margin: 0;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 30px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 10px;
+  margin: 0;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 /* Position the "next button" to the right */
 .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.8);
 }
 /* Caption text */
 /* Number text (1/3 etc) */
@@ -415,20 +417,16 @@ transition: 0.4s ease-in-out;
   position: absolute;
   top: 0;
 }
-#lastChild{
-  background-color:hsla(138, 100%, 27%, 0.9);
-  height: 25px;
-}
 /* The dots/bullets/indicators */
  .dot {
-    cursor: pointer;
-    height: 10px;
-    width: 10px;
-    margin: 0 5px;
-    background-color: #717171;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #717171;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 .dots{
     display:flex;
@@ -442,29 +440,25 @@ transition: 0.4s ease-in-out;
     float:right;
     margin-top: -100px;
 }
-.SliderText{
-  color: white;
-  font-size:1.3em;
-}
 .active, .dot:hover {
-    background-color: #bbb;
+  background-color: #bbb;
 }
 /* Fading animation */
 .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 /*text of image*/
 .text{
     position: relative;
     top: -6px;
-    height: 100%;
-    background-color: white;
-    display: flex;
-    align-content: center;
-    justify-content: center;
+height: 100%;
+background-color: white;
+display: flex;
+align-content: center;
+justify-content: center;
 }
 @-webkit-keyframes fade {
   from {opacity: .4}
@@ -740,9 +734,12 @@ p{
     margin-left: 40px;
 }
 
+
+
 #resRoomTable{
     margin-top: 30px;
     margin-left: 40px;
+    background-color: white;
 }
 #resRoomTable td, th, tr{
     margin: 20px;
