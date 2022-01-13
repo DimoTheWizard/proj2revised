@@ -51,7 +51,7 @@
             <div class = "formlabel">
               <h1> First Name </h1>
               <form action = "activities.php" method = "post">
-                 <input type = "text" name ="FirstName" class = "formwidth">
+                 <input type = "text" name ="FirstName" class = "firstnamewidth">
             </div>
 
             <div class = "formlabel">

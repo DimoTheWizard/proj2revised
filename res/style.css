@@ -654,7 +654,10 @@ table, th, td {
 }
 
 /*Form box */
-
+.firstnamewidth{
+  width:250px;
+  margin-left: 10px;
+}
 .formbox {
   display:grid;
   grid-template-rows:  85px 83px 89px;
@@ -667,6 +670,7 @@ table, th, td {
 }
 .formwidth{
     width: 250px;
+    margin-left: 10px;
 }
 .formlabel h1{
   margin-top:10px;
@@ -676,7 +680,7 @@ table, th, td {
   color:white;
 }
 form{
-  margin-left:10px;
+  margin-left:3px;
 }
 .activityImage{
   width: 24%;
