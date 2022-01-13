@@ -47,35 +47,19 @@
         <div class = "activityImage"> </div>
 
         <div class = "formbox">
-
             <div class = "formlabel">
-              <h1> First Name </h1>
+              <h1> Book An Event </h1>
               <form action = "activities.php" method = "post">
-                 <input type = "text" name ="FirstName" class = "firstnamewidth">
-            </div>
-
-            <div class = "formlabel">
-              <h1> Email </h1>
-                 <input type = "text" name ="email" class = "formwidth">
-            </div>
-
-            <div class = "formlabel">
-              <h1> Last Name </h1>
-                 <input type = "text" name ="LastName"  class ="formwidth">
-            </div>
-
-            <div class = "formlabel">
-              <h1> Event </h1>
-
-                 <input type = "text" name ="phonenumber" class= "formwidth">
-
-            </div>
-
-              <div class = "formlabel">
-                  <input type = "submit" name ="submit" value= "Book Now" class = "submitlabel">
-                </form>
-            </div>
-        </div>
+              <select name ="eventlist" id ="eventlist">
+                <option value = "Event"> Event </option>
+                  <option value = "Event"> Event </option>
+                    <option value = "Event"> Event </option>
+                      <option value = "Event"> Event </option>
+                </select>
+              </div>
+            <div> </div>
+            <input type ="submit" name="submit" value="Book Now" class="submitlabel">
+          </div>
           <div class = "activitytext">
               <h1>Join one of the hotels beautiful hikes </h1>
               <h1>through nature or learn how to take </h1>

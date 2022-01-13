@@ -631,6 +631,10 @@ table, th, td {
 
 /* Activities form */
 
+#eventlist{
+  width:130%;
+}
+
 .maintitle{
   background-color:hsl(291deg 64% 42% / 61%);
   width: 41%;
