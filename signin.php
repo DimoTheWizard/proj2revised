@@ -31,7 +31,7 @@
                 <br>
                 <br><input  class="box" type="submit" name="submit" value="Sign in" ><br>
                 <br>
-                <p style="padding-top:150px;">Don't have an Account ?<br> Create one  <a href="register.php">Here</a>
+                <p >Don't have an Account ?<br> Create one  <a href="register.php">Here</a>
             </div>
         </form>
 
