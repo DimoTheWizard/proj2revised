@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2022 at 10:58 PM
+-- Generation Time: Jan 13, 2022 at 09:57 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -34,13 +34,6 @@ CREATE TABLE `activities` (
   `activityAvailability` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `activities`
---
-
-INSERT INTO `activities` (`id`, `activityName`, `activityLimit`, `activityAvailability`) VALUES
-(1, 'hiking', 12, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -50,15 +43,9 @@ INSERT INTO `activities` (`id`, `activityName`, `activityLimit`, `activityAvaila
 CREATE TABLE `reservedactivities` (
   `userId` int(11) DEFAULT NULL,
   `activityId` int(11) DEFAULT NULL,
-  `checkIn` date DEFAULT NULL
+  `checkIn` date DEFAULT NULL,
+  `rsrvActivitiesId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `reservedactivities`
---
-
-INSERT INTO `reservedactivities` (`userId`, `activityId`, `checkIn`) VALUES
-(NULL, 1, '2022-01-12');
 
 -- --------------------------------------------------------
 
@@ -70,15 +57,16 @@ CREATE TABLE `reservedrooms` (
   `userId` int(11) DEFAULT NULL,
   `roomId` int(11) DEFAULT NULL,
   `checkIn` date NOT NULL,
-  `checkOut` date NOT NULL
+  `checkOut` date NOT NULL,
+  `rsrvRoomsId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reservedrooms`
 --
 
-INSERT INTO `reservedrooms` (`userId`, `roomId`, `checkIn`, `checkOut`) VALUES
-(NULL, 1, '2022-01-13', '2022-01-15');
+INSERT INTO `reservedrooms` (`userId`, `roomId`, `checkIn`, `checkOut`, `rsrvRoomsId`) VALUES
+(2, 2, '2022-01-13', '2022-01-14', 1);
 
 -- --------------------------------------------------------
 
@@ -89,15 +77,16 @@ INSERT INTO `reservedrooms` (`userId`, `roomId`, `checkIn`, `checkOut`) VALUES
 CREATE TABLE `reservedtables` (
   `userId` int(11) DEFAULT NULL,
   `tableId` int(11) DEFAULT NULL,
-  `checkIn` date DEFAULT NULL
+  `checkIn` date DEFAULT NULL,
+  `rsrvTableId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reservedtables`
 --
 
-INSERT INTO `reservedtables` (`userId`, `tableId`, `checkIn`) VALUES
-(NULL, 1, '2022-01-13');
+INSERT INTO `reservedtables` (`userId`, `tableId`, `checkIn`, `rsrvTableId`) VALUES
+(2, 2, '2022-01-13', 1);
 
 -- --------------------------------------------------------
 
@@ -117,7 +106,7 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `roomNr`, `roomAvailability`, `roomType`) VALUES
-(1, 1, 1, 'Normal');
+(2, 1, 1, 'Normal');
 
 -- --------------------------------------------------------
 
@@ -135,7 +124,7 @@ CREATE TABLE `tables` (
 --
 
 INSERT INTO `tables` (`id`, `tableNr`) VALUES
-(1, 1);
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -153,6 +142,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `usrLevel`, `pathCert`) VALUES
+(2, 'kekwEpicTarkovGamer@gmail.com', 'chadScav420', 'kekbestitem3', 'User', '../coronaCerts/EpicCertificate.pdf');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -166,6 +162,7 @@ ALTER TABLE `activities`
 -- Indexes for table `reservedactivities`
 --
 ALTER TABLE `reservedactivities`
+  ADD PRIMARY KEY (`rsrvActivitiesId`),
   ADD KEY `userId` (`userId`),
   ADD KEY `activityId` (`activityId`);
 
@@ -173,6 +170,7 @@ ALTER TABLE `reservedactivities`
 -- Indexes for table `reservedrooms`
 --
 ALTER TABLE `reservedrooms`
+  ADD PRIMARY KEY (`rsrvRoomsId`),
   ADD KEY `userId` (`userId`),
   ADD KEY `roomId` (`roomId`);
 
@@ -180,6 +178,7 @@ ALTER TABLE `reservedrooms`
 -- Indexes for table `reservedtables`
 --
 ALTER TABLE `reservedtables`
+  ADD PRIMARY KEY (`rsrvTableId`),
   ADD KEY `userId` (`userId`),
   ADD KEY `tableId` (`tableId`);
 
@@ -212,22 +211,40 @@ ALTER TABLE `activities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `reservedactivities`
+--
+ALTER TABLE `reservedactivities`
+  MODIFY `rsrvActivitiesId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `reservedrooms`
+--
+ALTER TABLE `reservedrooms`
+  MODIFY `rsrvRoomsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `reservedtables`
+--
+ALTER TABLE `reservedtables`
+  MODIFY `rsrvTableId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

@@ -120,7 +120,7 @@ include('functions/functions.php');
             <th> Edit </th>
             <th> Delete </th>
         <?php
-            adminRoom();
+            adminUsers();
         ?>
         </tr>
     </table>
