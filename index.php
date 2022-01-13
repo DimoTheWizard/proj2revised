@@ -18,12 +18,12 @@
         </h1>
         <div id="mainPageBox">
             <div id="mainPageTopBox">
-                <a class="mainPageBoxText mainPageBoxTextHover" href="reserve_rooms.php">Reserve Rooms</a>
-                <a class="mainPageBoxText mainPageBoxTextHover" href="activities.php">Reserve Activities</a>
-                <a class="mainPageBoxText mainPageBoxTextHover" href="reserve_tables.php">Reserve Tables</a>
+                <a class="mainPageBoxText mainPageBoxTextHover" href="reserve_rooms.php"><h3>Reserve Rooms</h3></a>
+                <a class="mainPageBoxText mainPageBoxTextHover" href="activities.php"><h3>Reserve Activities</h3></a>
+                <a class="mainPageBoxText mainPageBoxTextHover" href="reserve_tables.php"><h3>Reserve Tables</h3></a>
             </div>
             <div id="mainPageBotBox">
-                <h1 class="mainPageBotBoxText"><a href="room.php" style="text-decoration:none; color:black;">Preview Rooms&emsp;</a><a href="RevTable.php" style="text-decoration:none; color:black;">&emsp;Preview Tables</a></h1>
+                <h1 class="mainPageBotBoxText"><a href="room.php" style="text-decoration:none; color:white;">Preview Rooms&emsp;</a><a href="RevTable.php" style="text-decoration:none; color:white;">&emsp;Preview Tables</a></h1>
             </div>
         </div>
         <?php
