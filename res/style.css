@@ -574,7 +574,7 @@ justify-content: center;
     margin-top: auto;
     margin-bottom: auto;
     font-size: 25px;
-    font-weight: 100;
+    font-weight: bold;
 }
 
 /* Event Calendar */
@@ -686,8 +686,13 @@ form{
   margin-right:120px;
   margin-top:-200px;
   float:right;
+<<<<<<< HEAD
   border:black solid 3px;
   box-shadow: black 4px 4px;
+=======
+  border: black solid 1px;
+  box-shadow: black 7px 7px;
+>>>>>>> ae7f01cac7318f801fe9f6803991c6cdfd9acabb
 }
 p{
     margin-bottom: 10px;
