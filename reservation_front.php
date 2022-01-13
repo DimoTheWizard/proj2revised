@@ -18,37 +18,37 @@
         ?>
         <div class="body1">
             <div class="container1">
-                <div class="title1">Reservation</div><br>
+                <div class="title1"><h1>Reservation</h1></div><br>
                     <form action='reservation_back.php' method="post">
                         <div class="form_details1">
                             <div class="input_box1">
-                                <div class="details1">First name</div>
+                                <div class="details1"><h3>First name</h3></div>
                                 <input type="text" name="fname" placeholder="Enter your first name"  required>
                             </div>
 
                             <div class="input_box1">
-                                <div class="details1">Last name</div>
+                                <div class="details1"><h3>Last name</h3></div>
                                 <input type="text" name="lname" placeholder="Enter your last name" required>
                             </div>
 
                             <div class="input_box1">
-                                <div class="details1">E-mail</div>
+                                <div class="details1"><h3>E-mail</h3></div>
                                 <input type="email" name="email" placeholder="Enter your E-mail" required>
                             </div>
                             <br>
                             <div class="input_box1">
-                                <div class="details1">CheckIn</div>
+                                <div class="details1"><h3>CheckIn</h3></div>
                                 <input type="date" name="checkIn" placeholder="CheckIn" min="2021-12-31"  required>
                              </div>
 
                              <div class="input_box1">
-                                <div class="details1">CheckOut</div>
+                                <div class="details1"><h3>CheckOut</h3></div>
                                 <input type="date" name="checkOut" placeholder="CheckOut" min="2021-12-31"  required>
                             </div>
                             <br>
 
                             <div class="input_box1">
-                                <div class="details1">Room class</div>
+                                <div class="details1"><h3>Room class</h3></div>
                                 <select>
                                     <option value="firstClass">First Class</option>
                                     <option value="secondClass">Second Class</option>

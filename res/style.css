@@ -130,6 +130,11 @@ transition: 0.4s ease-in-out;
     font-weight: bold;
 }
 /* Reservation form */
+.title1{
+  font-size: 20px;
+  color:white;
+  font-family: "Sitka Text", sans-serif;
+}
 .body1{
     display: flex;
     height: 100vh;
@@ -138,13 +143,19 @@ transition: 0.4s ease-in-out;
     margin-top: -4px;
     background-image: url("../res/images/Spring-Nature-HD-Backgrounds.jpg");
 }
+.details1{
+  color:white;
+  font-size:20px;
+  font-family: "Sitka Text", sans-serif;
 
+}
 .container1{
     max-width: 700px;
     width:100%;
     background: white;
     padding:25px 30px ;
     border-radius: 5px;
+    background-color: hsl(291deg 64% 42% / 61%);
 }
 
 .container1 .title{
@@ -192,7 +203,6 @@ transition: 0.4s ease-in-out;
 .button1{
     margin-top: 35px;
     margin-left: 20px;
-
 }
 
 .button1 input{
@@ -202,6 +212,9 @@ transition: 0.4s ease-in-out;
     outline: none;
     border-radius: 10px;
     letter-spacing: 2px;
+    font-size:23px;
+    color:white;
+    font-family: "Sitka Text", sans-serif;
     background: linear-gradient(135deg,#71b7e6,#9b59b6);
 }
 
