@@ -35,10 +35,13 @@
     </head>
     <body id = "activities">
         <?php
-             include('res/elements/header.php');
+            include('res/elements/header.php');
         ?>
         <?php
-             include('res/elements/footer.php');
+            include('res/elements/footer.php');
+        ?>
+        <?php
+            include('functions/functions.php');
         ?>
         <div class = "Activitiestitle">
             <h1> Reserve a spot in an event </h1>
@@ -48,22 +51,18 @@
 
         <div class = "formbox">
             <div class = "formlabel">
-              <h1> Book An Event </h1>
-              <form action = "activities.php" method = "post">
-              <select name ="eventlist" id ="eventlist">
-                <option value = "Event"> Event </option>
-                  <option value = "Event"> Event </option>
-                    <option value = "Event"> Event </option>
-                      <option value = "Event"> Event </option>
+                <h1> Book An Event </h1>
+                <form action = "activities.php" method = "post">
+                <select name ="eventlist" id ="eventlist">
+                  <?php
+                    spotEvent();
+                  ?>
                 </select>
-              </div>
+            </div>
             <div> </div>
             <input type ="submit" name="submit" value="Book Now" class="submitlabel">
           </div>
           <div class = "activitytext">
-              <h1>Join one of the hotels beautiful hikes </h1>
-              <h1>through nature or learn how to take </h1>
-              <h1>care of falcon. All in our events!  </h1>
           </div>
     </body>
 </html>

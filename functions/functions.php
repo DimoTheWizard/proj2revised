@@ -1311,4 +1311,35 @@ function AdminPanelEditUsers($idNum){
         }
     }
 }
+
+//reserve a spot an event
+function spotEvent(){
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM activities");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    //echo 'Querry executed<br>';
+
+    $query->close();
+
+    $funcRequired = "adminActivity";
+    foreach ($data as $row) {
+        echo '<option>' . $row['activityName'] . '</option>'; 
+    }
+}
+
 ?>
