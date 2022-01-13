@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 03:28 PM
+-- Generation Time: Jan 13, 2022 at 08:22 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -31,15 +31,20 @@ CREATE TABLE `activities` (
   `id` int(11) NOT NULL,
   `activityName` varchar(255) NOT NULL,
   `activityLimit` int(11) NOT NULL,
-  `activityAvailability` tinyint(1) NOT NULL
+  `activityAvailability` tinyint(1) NOT NULL,
+  `description` text NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `activities`
 --
 
-INSERT INTO `activities` (`id`, `activityName`, `activityLimit`, `activityAvailability`) VALUES
-(2, 'Skydiving', 12, 1);
+INSERT INTO `activities` (`id`, `activityName`, `activityLimit`, `activityAvailability`, `description`, `date`, `time`) VALUES
+(4, 'Pro ForkKnife gaming', 4, 1, 'learn how to do 90\'s', '2022-01-14', '12:00:00'),
+(5, 'Cooking Haggis', 5, 1, 'cook \"delicious\" traditional scottish food', '2022-01-19', '00:00:15'),
+(6, 'Spear Fishing', 3, 1, 'catch fish by violently throwing spears', '2022-01-23', '09:30:00');
 
 -- --------------------------------------------------------
 
@@ -59,7 +64,7 @@ CREATE TABLE `reservedactivities` (
 --
 
 INSERT INTO `reservedactivities` (`userId`, `activityId`, `checkIn`, `rsrvActivitiesId`) VALUES
-(2, 2, '2022-01-14', 1);
+(3, 6, '2022-01-13', 2);
 
 -- --------------------------------------------------------
 
@@ -100,7 +105,9 @@ CREATE TABLE `reservedtables` (
 --
 
 INSERT INTO `reservedtables` (`userId`, `tableId`, `checkIn`, `rsrvTableId`) VALUES
-(2, 2, '2022-01-12', 1);
+(2, 2, '2022-01-12', 1),
+(3, 2, '2022-01-14', 2),
+(4, 3, '2022-01-18', 3);
 
 -- --------------------------------------------------------
 
@@ -120,7 +127,11 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `roomNr`, `roomAvailability`, `roomType`) VALUES
-(2, 2, 1, 'Normal');
+(2, 2, 1, 'Normal'),
+(3, 2, 1, 'Normal'),
+(4, 3, 1, 'VIP'),
+(5, 3, 1, 'Normal'),
+(6, 4, 1, 'VIP');
 
 -- --------------------------------------------------------
 
@@ -138,7 +149,9 @@ CREATE TABLE `tables` (
 --
 
 INSERT INTO `tables` (`id`, `tableNr`) VALUES
-(2, 2);
+(2, 2),
+(3, 1),
+(4, 3);
 
 -- --------------------------------------------------------
 
@@ -162,7 +175,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `usrLevel`, `pathCert`, `firstName`, `lastName`) VALUES
-(2, 'kekwEpicTarkovGamer@hotmail.com', 'chadScav420', 'kekbestitem3', 'User', '../coronaCerts/EpicCertificate.pdf', 'Johnathan', 'Misdeed');
+(2, 'kekwEpicTarkovGamer@hotmail.com', 'chadScav420', 'kekbestitem3', 'User', '../coronaCerts/EpicCertificate.pdf', 'Johnathan', 'Misdeed'),
+(3, 'corkigae@gmail.com', 'Varus', 'nuggets123', 'User', 'fakepath', 'Anita', 'Hanjaab'),
+(4, 'cykablyad@gmail.com', 'Kenshi', 'worcestershire12', 'User', 'fakePath', 'Dragma', 'Nadsk');
 
 --
 -- Indexes for dumped tables
@@ -224,13 +239,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reservedactivities`
 --
 ALTER TABLE `reservedactivities`
-  MODIFY `rsrvActivitiesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `rsrvActivitiesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reservedrooms`
@@ -242,25 +257,25 @@ ALTER TABLE `reservedrooms`
 -- AUTO_INCREMENT for table `reservedtables`
 --
 ALTER TABLE `reservedtables`
-  MODIFY `rsrvTableId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `rsrvTableId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
