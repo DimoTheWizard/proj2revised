@@ -2,7 +2,7 @@
 
   include "res/elements/dbConn.php";
 
-  mysqli_select_db($conn, 'falcondatabase');
+  mysqli_select_db($conn, 'falcondb');
 
   if (isset($_POST['submit'])) {
 	  if (count(array_filter($_POST))!=count($_POST)) {

@@ -4,7 +4,7 @@
     $host = "127.0.0.1";
     $user = "root";
     $pass = "";
-    $db = "falcondatabase";
+    $db = "falcondb";
 
     $conn = mysqli_connect($host, $user, $pass, $db);
 
