@@ -114,6 +114,8 @@ include('functions/functions.php');
             <th> ID   </th>
             <th> E-mail </th>
             <th> Username </th>
+            <th> First Name </th>
+            <th> Last Name </th>
             <th> Password </th>
             <th> User Level </th>
             <th> Corona Certificate Path </th>

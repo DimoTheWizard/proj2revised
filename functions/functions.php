@@ -379,13 +379,14 @@ function adminActivity()
 
     $query->close();
 
+    $funcRequired = "adminActivity";
     foreach ($data as $row) {
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['activityName'] . '</td>';
         echo '<td>' . $row['activityLimit'] . '</td>';
         echo '<td>' . $row['activityAvailability'] . '</td>';
-        echo "<td>" . '<a href="Edit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
         echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
         echo '</tr>';
     }
@@ -415,13 +416,13 @@ function adminReservedActivities()
     //echo 'Querry executed<br>';
 
     $query->close();
-
+    $funcRequired = "adminReservedActivities";
     foreach ($data as $row) {
         echo '<tr>';
         echo '<td>' . $row['userId'] . '</td>';
         echo '<td>' . $row['activityId'] . '</td>';
         echo '<td>' . $row['checkIn'] . '</td>';
-        echo "<td>" . '<a href="Edit.php?id=' . $row['userId'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvActivitiesId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
         echo "<td>" . '<a href="Delete.php?id=' . $row['userId'] . '">Delete</a>' . "</td>";
         echo '</tr>';
     }
@@ -452,13 +453,14 @@ function adminRoom()
 
     $query->close();
 
+    $funcRequired = "adminRoom";
     foreach ($data as $row) {
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['roomNr'] . '</td>';
         echo '<td>' . $row['roomAvailability'] . '</td>';
         echo '<td>' . $row['roomType'] . '</td>';
-        echo "<td>" . '<a href="Edit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
         echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
         echo '</tr>';
     }
@@ -489,14 +491,15 @@ function adminReservedRooms()
 
     $query->close();
 
+    $funcRequired = "adminReservedRooms";
     foreach ($data as $row) {
         echo '<tr>';
         echo '<td>' . $row['userId'] . '</td>';
         echo '<td>' . $row['roomId'] . '</td>';
         echo '<td>' . $row['checkIn'] . '</td>';
         echo '<td>' . $row['checkOut'] . '</td>';
-        echo "<td>" . '<a href="Edit.php?id=' . $row['userId'] . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['userId'] . '">Delete</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvRoomsId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['rsrvRoomsId'] . '">Delete</a>' . "</td>";
         echo '</tr>';
     }
 }
@@ -526,11 +529,12 @@ function adminTables()
 
     $query->close();
 
+    $funcRequired = "adminTables";
     foreach ($data as $row) {
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['tableNr'] . '</td>';
-        echo "<td>" . '<a href="Edit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
         echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
         echo '</tr>';
     }
@@ -561,13 +565,14 @@ function adminReservedTables()
 
     $query->close();
 
+    $funcRequired = "adminReservedTables";
     foreach ($data as $row) {
         echo '<tr>';
         echo '<td>' . $row['userId'] . '</td>';
         echo '<td>' . $row['tableId'] . '</td>';
         echo '<td>' . $row['checkIn'] . '</td>';
-        echo "<td>" . '<a href="Edit.php?id=' . $row['userId'] . '">Edit</a>' . "</td>";
-        echo "<td>" . '<a href="Delete.php?id=' . $row['userId'] . '">Delete</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['rsrvTableId'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="Delete.php?id=' . $row['rsrvTableId'] . '">Delete</a>' . "</td>";
         echo '</tr>';
     }
 }
@@ -597,17 +602,674 @@ function adminUsers()
 
     $query->close();
 
+    $funcRequired = "adminUsers";
     foreach ($data as $row) {
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['email'] . '</td>';
         echo '<td>' . $row['username'] . '</td>';
+        echo '<td>' . $row['firstName'] . '</td>';
+        echo '<td>' . $row['lastName'] . '</td>';
         echo '<td>' . $row['password'] . '</td>';
         echo '<td>' . $row['usrLevel'] . '</td>';
         echo '<td>' . $row['pathCert'] . '</td>';
-        echo "<td>" . '<a href="Edit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired='. $funcRequired . '">Edit</a>' . "</td>";
         echo "<td>" . '<a href="Delete.php?id=' . $row['id'] . '">Delete</a>' . "</td>";
         echo '</tr>';
+    }
+}
+
+//adminPanel Edit functions
+
+//function chooser
+function chooseEditFunction($tableName, $idNum){
+
+    switch($tableName){
+        case "adminActivity":
+            AdminPanelEditActivity($idNum);
+            break;
+        case "adminReservedActivities":
+            AdminPanelEditReservedActivities($idNum);
+            break;
+        case "adminRoom":
+            AdminPanelEditRoom($idNum);
+            break;
+        case "adminReservedRooms":
+            AdminPanelEditReservedRooms($idNum);
+            break;
+        case "adminTables":
+            AdminPanelEditTables($idNum);
+            break;
+        case "adminReservedTables":
+            AdminPanelEditReservedTables($idNum);
+            break;
+        case "adminUsers":
+            AdminPanelEditUsers($idNum);
+            break;
+        default:
+            echo "error open page through admin panel<br>";
+            break;
+    }
+}
+
+function AdminPanelEditActivity($idNum){
+    global $con;
+    $id = $_GET['id'];
+
+    $query = $con->prepare("SELECT activityName, activityLimit, activityAvailability FROM activities WHERE id= ?");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->bind_param('i', $id);
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+    $result->fetch_all(MYSQLI_ASSOC);
+
+    echo "<h1>Activities</h1><br>";
+
+    echo "<form method=\"post\"><br>";
+    
+    foreach($result as $row){
+        echo "<label for=\"activityName\">Activity Name</label><br>";
+        echo "<input type=\"text\" id=\"activityName\" name=\"activityName\" value=\"". $row['activityName'] . "\"><br>";
+        echo "<label for=\"activityLimit\">Activity Limit</label><br>";
+        echo "<input type=\"text\" id=\"activityLimit\" name=\"activityLimit\" value=\"". $row['activityLimit'] . "\"><br>";
+        echo "<label for=\"activityAvailability\">Activity Availability</label><br>";
+        echo "<input type=\"text\" id=\"activityAvailability\" name=\"activityAvailability\" value=\"" . $row['activityAvailability'] . " \"><br><br>";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Edit\">";
+    }
+ 
+    echo "</form>";
+
+    if(isset($_POST['submit'])){
+        $formInputs = array('activityName', 'activityLimit', 'activityAvailability');
+        $allInputsFilled = false;
+        foreach($formInputs as $input){
+            if(empty($_POST[$input])){
+                $allInputsFilled = false;
+                echo $input . " was not filled in<br>";
+                echo "all fields are required...<br>";
+                break;
+            }else{
+                $allInputsFilled = true;
+            }
+            echo $input . " was filled in <br>";
+        }
+
+        if($allInputsFilled == true){
+            //Turning post values into variables for easy access and checking them
+            $activityName = trim(htmlspecialchars($_POST['activityName']));
+            $activityLimit = trim(htmlspecialchars($_POST['activityLimit']));
+            $activityAvailability = trim(htmlspecialchars($_POST['activityAvailability']));
+
+            $conn = mysqli_connect("localhost", "root", "", "bugreport");
+
+            $activityName = trim(mysqli_real_escape_string($con, $_POST['activityName']));
+            $activityLimit = trim(mysqli_real_escape_string($con, $_POST['activityLimit']));
+            $activityAvailability = trim(mysqli_real_escape_string($con, $_POST['activityAvailability']));
+
+            if(!$con){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            //inputing filled data into database
+            $query = $con->prepare("UPDATE activities SET activityName = ?, `activityLimit` = ?, activityAvailability = ?
+            WHERE id = ?");
+
+            if (false === $query) {
+                die('Prepare failed' . htmlspecialchars($query->error));
+            }
+
+            $query->bind_param("ssii", $activityName, $activityLimit, $activityAvailability, $id);
+            if($query->execute()){
+                echo "record edited succesfully.<br>";                
+            }else{
+                echo "Error executing query";
+                die(mysqli_error($conn));
+            }
+        }
+    }
+    $query->close();
+}
+
+function AdminPanelEditReservedActivities($idNum){
+    global $con;
+    $id = $_GET['id'];
+
+    $query = $con->prepare("SELECT checkIn FROM reservedactivities WHERE rsrvActivitiesId = ?");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->bind_param('i', $id);
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+    $result->fetch_all(MYSQLI_ASSOC);
+
+    echo "<h1>Reserved Activities</h1><br>";
+
+    echo "<form method=\"post\"><br>";
+    
+    foreach($result as $row){
+        echo "<label for=\"checkIn\">Check In</label><br>";
+        echo "<input type=\"text\" id=\"checkIn\" name=\"checkIn\" value=\"" . $row['checkIn'] . "\"><br><br>";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Edit\">";
+    }
+ 
+    echo "</form>";
+
+    if(isset($_POST['submit'])){
+        $formInputs = array('checkIn');
+        $allInputsFilled = false;
+        foreach($formInputs as $input){
+            if(empty($_POST[$input])){
+                $allInputsFilled = false;
+                echo $input . " was not filled in<br>";
+                echo "all fields are required...<br>";
+                break;
+            }else{
+                $allInputsFilled = true;
+            }
+            echo $input . " was filled in <br>";
+        }
+
+        if($allInputsFilled == true){
+            //Turning post values into variables for easy access and checking them
+            $checkIn = trim(htmlspecialchars($_POST['checkIn']));
+
+            $conn = mysqli_connect("localhost", "root", "", "bugreport");
+
+            $checkIn = trim(mysqli_real_escape_string($con, $_POST['checkIn']));
+
+            if(!$con){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            //inputing filled data into database
+            $query = $con->prepare("UPDATE reservedactivities SET checkIn = ?
+            WHERE rsrvActivitiesId = ?");
+
+            if (false === $query) {
+                die('Prepare failed' . htmlspecialchars($query->error));
+            }
+
+            $query->bind_param("si", $checkIn, $id);
+            if($query->execute()){
+                echo "record edited succesfully.<br>";                
+            }else{
+                echo "Error executing query";
+                die(mysqli_error($conn));
+            }
+        }
+    }
+    $query->close();
+}
+
+function AdminPanelEditRoom($idNum){
+    global $con;
+    $id = $_GET['id'];
+
+    $query = $con->prepare("SELECT roomNr, roomAvailability, roomType FROM rooms WHERE id= ?");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->bind_param('i', $id);
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+    $result->fetch_all(MYSQLI_ASSOC);
+
+    echo "<h1>Rooms</h1><br>";
+
+    echo "<form method=\"post\"><br>";
+    
+    foreach($result as $row){
+        echo "<label for=\"roomNr\">Room Number</label><br>";
+        echo "<input type=\"text\" id=\"roomNr\" name=\"roomNr\" value=\"". $row['roomNr'] . "\"><br>";
+        echo "<label for=\"roomAvailability\">Room Availability</label><br>";
+        echo "<input type=\"text\" id=\"roomAvailability\" name=\"roomAvailability\" value=\"". $row['roomAvailability'] . "\"><br>";
+        echo "<label for=\"roomType\">Room Type</label><br>";
+        echo "<input type=\"text\" id=\"roomType\" name=\"roomType\" value=\"" . $row['roomType'] . "\"><br><br>";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Edit\">";
+    }
+ 
+    echo "</form>";
+
+    if(isset($_POST['submit'])){
+        $formInputs = array('roomNr', 'roomAvailability', 'roomType');
+        $allInputsFilled = false;
+        foreach($formInputs as $input){
+            if(empty($_POST[$input])){
+                $allInputsFilled = false;
+                echo $input . " was not filled in<br>";
+                echo "all fields are required...<br>";
+                break;
+            }else{
+                $allInputsFilled = true;
+            }
+            echo $input . " was filled in <br>";
+        }
+
+        if($allInputsFilled == true){
+            //Turning post values into variables for easy access and checking them
+            $roomNr = trim(htmlspecialchars($_POST['roomNr']));
+            $roomAvailability = trim(htmlspecialchars($_POST['roomAvailability']));
+            $roomType = trim(htmlspecialchars($_POST['roomType']));
+
+            $conn = mysqli_connect("localhost", "root", "", "bugreport");
+
+            $roomNr = trim(mysqli_real_escape_string($con, $_POST['roomNr']));
+            $roomAvailability = trim(mysqli_real_escape_string($con, $_POST['roomAvailability']));
+            $roomType = trim(mysqli_real_escape_string($con, $_POST['roomType']));
+
+            if(!$con){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            //inputing filled data into database
+            $query = $con->prepare("UPDATE rooms SET roomNr = ?, `roomAvailability` = ?, roomType = ?
+            WHERE id = ?");
+
+            if (false === $query) {
+                die('Prepare failed' . htmlspecialchars($query->error));
+            }
+
+            $query->bind_param("iisi", $roomNr, $roomAvailability, $roomType, $id);
+            if($query->execute()){
+                echo "record edited succesfully.<br>";                
+            }else{
+                echo "Error executing query";
+                die(mysqli_error($conn));
+            }
+        }
+    }
+    $query->close();
+}
+
+function AdminPanelEditReservedRooms($idNum){
+    global $con;
+    $id = $_GET['id'];
+
+    $query = $con->prepare("SELECT checkIn, checkOut FROM reservedrooms WHERE rsrvRoomsId = ?");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->bind_param('i', $id);
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+    $result->fetch_all(MYSQLI_ASSOC);
+
+    echo "<h1>Reserved Rooms</h1><br>";
+
+    echo "<form method=\"post\"><br>";
+    
+    foreach($result as $row){
+        echo "<label for=\"checkIn\">Check In</label><br>";
+        echo "<input type=\"text\" id=\"checkIn\" name=\"checkIn\" value=\"". $row['checkIn'] . "\"><br>";
+        echo "<label for=\"checkOut\">Check Out</label><br>";
+        echo "<input type=\"text\" id=\"checkOut\" name=\"checkOut\" value=\"". $row['checkOut'] . "\"><br>";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Edit\">";
+    }
+ 
+    echo "</form>";
+
+    if(isset($_POST['submit'])){
+        $formInputs = array('checkIn', 'checkOut');
+        $allInputsFilled = false;
+        foreach($formInputs as $input){
+            if(empty($_POST[$input])){
+                $allInputsFilled = false;
+                echo $input . " was not filled in<br>";
+                echo "all fields are required...<br>";
+                break;
+            }else{
+                $allInputsFilled = true;
+            }
+            echo $input . " was filled in <br>";
+        }
+
+        if($allInputsFilled == true){
+            //Turning post values into variables for easy access and checking them
+            $checkIn = trim(htmlspecialchars($_POST['checkIn']));
+            $checkOut = trim(htmlspecialchars($_POST['checkOut']));
+
+            $conn = mysqli_connect("localhost", "root", "", "bugreport");
+
+            $checkIn = trim(mysqli_real_escape_string($con, $_POST['checkIn']));
+            $checkOut = trim(mysqli_real_escape_string($con, $_POST['checkOut']));
+
+            if(!$con){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            //inputing filled data into database
+            $query = $con->prepare("UPDATE reservedrooms SET checkIn = ?, `checkOut` = ?
+            WHERE rsrvRoomsId = ?");
+
+            if (false === $query) {
+                die('Prepare failed' . htmlspecialchars($query->error));
+            }
+
+            $query->bind_param("ssi", $checkIn, $checkOut, $id);
+            if($query->execute()){
+                echo "record edited succesfully.<br>";                
+            }else{
+                echo "Error executing query";
+                die(mysqli_error($conn));
+            }
+        }
+    }
+    $query->close();
+}
+
+function AdminPanelEditTables($idNum){
+    global $con;
+    $id = $_GET['id'];
+
+    $query = $con->prepare("SELECT tableNr FROM tables WHERE id= ?");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->bind_param('i', $id);
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+    $result->fetch_all(MYSQLI_ASSOC);
+
+    echo "<h1>Tables</h1><br>";
+
+    echo "<form method=\"post\"><br>";
+    
+    foreach($result as $row){
+        echo "<label for=\"tableNr\">Table Number</label><br>";
+        echo "<input type=\"text\" id=\"tableNr\" name=\"tableNr\" value=\"" . $row['tableNr'] . "\"><br><br>";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Edit\">";
+    }
+ 
+    echo "</form>";
+
+    if(isset($_POST['submit'])){
+        $formInputs = array('tableNr');
+        $allInputsFilled = false;
+        foreach($formInputs as $input){
+            if(empty($_POST[$input])){
+                $allInputsFilled = false;
+                echo $input . " was not filled in<br>";
+                echo "all fields are required...<br>";
+                break;
+            }else{
+                $allInputsFilled = true;
+            }
+            echo $input . " was filled in <br>";
+        }
+
+        if($allInputsFilled == true){
+            //Turning post values into variables for easy access and checking them
+            $tableNr = trim(htmlspecialchars($_POST['tableNr']));
+
+            $conn = mysqli_connect("localhost", "root", "", "bugreport");
+
+            $tableNr = trim(mysqli_real_escape_string($con, $_POST['tableNr']));
+
+            if(!$con){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            //inputing filled data into database
+            $query = $con->prepare("UPDATE tables SET tableNr = ?
+            WHERE id = ?");
+
+            if (false === $query) {
+                die('Prepare failed' . htmlspecialchars($query->error));
+            }
+
+            $query->bind_param("ii", $tableNr, $id);
+            if($query->execute()){
+                echo "record edited succesfully.<br>";                
+            }else{
+                echo "Error executing query";
+                die(mysqli_error($conn));
+            }
+        }
+    }
+    $query->close();
+}
+
+function AdminPanelEditReservedTables($idNum){
+    global $con;
+    $id = $_GET['id'];
+
+    $query = $con->prepare("SELECT checkIn FROM reservedtables WHERE rsrvTableId = ?");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->bind_param('i', $id);
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+    $result->fetch_all(MYSQLI_ASSOC);
+
+    echo "<h1>Reserved Tables</h1><br>";
+
+    echo "<form method=\"post\"><br>";
+
+    foreach($result as $row){  
+        echo "<label for=\"checkIn\">Check In</label><br>";
+        echo "<input type=\"text\" id=\"checkIn\" name=\"checkIn\" value=\"" . $row['checkIn'] . "\"><br><br>";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Edit\">";
+    }
+ 
+    echo "</form>";
+
+    if(isset($_POST['submit'])){
+        $formInputs = array('checkIn');
+        $allInputsFilled = false;
+        foreach($formInputs as $input){
+            if(empty($_POST[$input])){
+                $allInputsFilled = false;
+                echo $input . " was not filled in<br>";
+                echo "all fields are required...<br>";
+                break;
+            }else{
+                $allInputsFilled = true;
+            }
+            echo $input . " was filled in <br>";
+        }
+
+        if($allInputsFilled == true){
+            //Turning post values into variables for easy access and checking them
+            $checkIn = trim(htmlspecialchars($_POST['checkIn']));
+
+            $conn = mysqli_connect("localhost", "root", "", "bugreport");
+
+            $checkIn = trim(mysqli_real_escape_string($con, $_POST['checkIn']));
+
+            if(!$con){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            //inputing filled data into database
+            $query = $con->prepare("UPDATE reservedtables SET checkIn = ?
+            WHERE rsrvTableId = ?");
+
+            if (false === $query) {
+                die('Prepare failed' . htmlspecialchars($query->error));
+            }
+
+            $query->bind_param("si", $checkIn, $id);
+            if($query->execute()){
+                echo "record edited succesfully.<br>";                
+            }else{
+                echo "Error executing query";
+                die(mysqli_error($conn));
+            }
+        }
+    }
+    
+    $query->close();
+}
+
+function AdminPanelEditUsers($idNum){
+    global $con;
+    $id = $_GET['id'];
+
+    $query = $con->prepare("SELECT email, username, firstName, lastName, usrLevel, pathCert  FROM users WHERE id= ?");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->bind_param('i', $id);
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+    $result->fetch_all(MYSQLI_ASSOC);
+
+    echo "<h1>Users</h1><br>";
+
+    echo "<form method=\"post\"><br>";
+    
+    foreach($result as $row){
+        echo "<label for=\"email\">email</label><br>";
+        echo "<input type=\"text\" id=\"email\" name=\"email\" value=\"" . $row['email'] . "\"><br>";
+        echo "<label for=\"username\">username</label><br>";
+        echo "<input type=\"text\" id=\"username\" name=\"username\" value=\"" . $row['username'] . "\"><br>";
+        echo "<label for=\"firstName\">First Name</label><br>";
+        echo "<input type=\"text\" id=\"firstName\" name=\"firstName\" value=\"" . $row['firstName'] . "\"><br>";
+        echo "<label for=\"lastName\">Last Name</label><br>";
+        echo "<input type=\"text\" id=\"lastName\" name=\"lastName\" value=\"" . $row['lastName'] . "\"><br>";
+        echo "<label for=\"usrLevel\">User Level</label><br>";
+        echo "<input type=\"text\" id=\"usrLevel\" name=\"usrLevel\" value=\"" . $row['usrLevel'] . "\"><br>";
+        echo "<label for=\"pathCert\">Certificate Path</label><br>";
+        echo "<input type=\"text\" id=\"pathCert\" name=\"pathCert\" value=\"" . $row['pathCert'] . "\"><br><br>";
+        echo "<input type=\"submit\" name=\"submit\" value=\"Edit\">";
+    }
+ 
+    echo "</form>";
+
+    if(isset($_POST['submit'])){
+        $formInputs = array('email', 'username', 'firstName', 'lastName', 'usrLevel', 'pathCert');
+        $allInputsFilled = false;
+        foreach($formInputs as $input){
+            if(empty($_POST[$input])){
+                $allInputsFilled = false;
+                echo $input . " was not filled in<br>";
+                echo "all fields are required...<br>";
+                break;
+            }else{
+                $allInputsFilled = true;
+            }
+            echo $input . " was filled in <br>";
+        }
+
+        if($allInputsFilled == true){
+            //Turning post values into variables for easy access and checking them
+            $email = trim(htmlspecialchars($_POST['email']));
+            $username = trim(htmlspecialchars($_POST['username']));
+            $firstName = trim(htmlspecialchars($_POST['firstName']));
+            $lastName = trim(htmlspecialchars($_POST['lastName']));
+            $usrLevel = trim(htmlspecialchars($_POST['usrLevel']));
+            $pathCert = trim(htmlspecialchars($_POST['pathCert']));
+
+            $conn = mysqli_connect("localhost", "root", "", "bugreport");
+
+            $email = trim(mysqli_real_escape_string($con, $_POST['email']));
+            $username = trim(mysqli_real_escape_string($con, $_POST['username']));
+            $firstName = trim(mysqli_real_escape_string($con, $_POST['firstName']));
+            $lastName = trim(mysqli_real_escape_string($con, $_POST['lastName']));
+            $usrLevel = trim(mysqli_real_escape_string($con, $_POST['usrLevel']));
+            $pathCert = trim(mysqli_real_escape_string($con, $_POST['pathCert']));
+
+            if(!$con){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            //inputing filled data into database
+            $query = $con->prepare("UPDATE users SET email = ?, username = ?, firstName = ?, lastName = ?, usrLevel = ?, pathCert = ?
+            WHERE id = ?");
+
+            if (false === $query) {
+                die('Prepare failed' . htmlspecialchars($query->error));
+            }
+
+            $query->bind_param("ssssssi", $email, $username, $firstName, $lastName, $usrLevel, $pathCert, $id);
+            if($query->execute()){
+                echo "record edited succesfully.<br>";                
+            }else{
+                echo "Error executing query";
+                die(mysqli_error($conn));
+            }
+        }
     }
 }
 
