@@ -14,8 +14,8 @@
         <h1 id="preActTitle">Sign up for events</h1>
         <div id="preActPageBox">
             <div id="preActPageTopBox">
-                <a class="preActPageBoxText" href="event_calendar.php">Events calendar</a></h1>
-                <a class="preActPageBoxText" href="activities.php">Reserve a spot</a></h1>
+                <a class="preActPageBoxText preActPageBoxTextHover" href="event_calendar.php">Events calendar</a></h1>
+                <a class="preActPageBoxText preActPageBoxTextHover" href="activities.php">Reserve a spot</a></h1>
             </div>
             <div id="preActPageBotBox">
 

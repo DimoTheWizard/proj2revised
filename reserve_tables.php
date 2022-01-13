@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <link rel="stylesheet" href="res/style.css">
         <title>Falcon Hotel and Resturant</title>
         <meta charset="utf-8">
@@ -17,11 +17,11 @@
         </h1>
         <div id="resTableBox">
         <form id="resTableForm">
-            <label for="fname">First name:</label><br>
+            <label class="resTableTextspacing"for="fname">First name:</label><br>
             <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname">Last name:</label><br>
+            <label class="resTableTextspacing"for="lname">Last name:</label><br>
             <input type="text" id="lname" name="lname"><br><br>
-            <label for="tableNumber">Table Number:</label><br>
+            <label class="resTableTextspacing"for="tableNumber">Table Number:</label><br>
             <input type="text" id="lname" name="lname">
         </form>
         </div>

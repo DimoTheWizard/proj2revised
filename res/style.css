@@ -576,6 +576,11 @@ justify-content: center;
     font-size: 25px;
     font-weight: bold;
 }
+.preActPageBoxTextHover:hover{
+    background-color: rgba(172, 164, 164, 0.767);
+    border-radius: 3px;
+    transition: 0.4s ease-in-out;
+}
 
 /* Event Calendar */
 
@@ -686,13 +691,8 @@ form{
   margin-right:120px;
   margin-top:-200px;
   float:right;
-<<<<<<< HEAD
   border:black solid 3px;
   box-shadow: black 4px 4px;
-=======
-  border: black solid 1px;
-  box-shadow: black 7px 7px;
->>>>>>> ae7f01cac7318f801fe9f6803991c6cdfd9acabb
 }
 p{
     margin-bottom: 10px;
@@ -865,13 +865,22 @@ background-image: url(../res/images/reservetablefront.jpg);
 }
 #resTableForm{
 width:30%;
-height:400px;
-
+height:350px;
 background-color:hsl(291deg 64% 42% / 61%);
 margin-left: 150px;
 font-size: 2.0em;
 color: white;
 }
-#fname,lname{
-  width: 20%;
+#fname{
+  width: 60%;
+  height:20px;
+  margin-left: 20px;
+}
+#lname{
+  width: 60%;
+  height:20px;
+  margin-left: 20px;
+}
+.resTableTextspacing{
+  margin-left:15px;
 }
