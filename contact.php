@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['submit'])) {
             $mail = new PHPMailer;
             $mail->isSMTP();
-            $mail->SMTPDebug = 2;
+            $mail->SMTPDebug = 0;
             $mail->Host = "smtp.gmail.com";
             $mail->Port = "587"; // typically 587
             $mail->SMTPSecure = 'tls'; // ssl is depracated
