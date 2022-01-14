@@ -94,8 +94,8 @@ nav{
     display: grid;
     grid-column: 2/3;
     grid-row: 1 / 2;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:auto;
     background-color: white;
 }
 #mainPageBotBox{

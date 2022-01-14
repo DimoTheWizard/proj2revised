@@ -20,7 +20,6 @@
         </h1>
         <div id="mainPageBox">
             <div id="mainPageTopBox">
-                <a class="mainPageBoxText mainPageBoxTextHover" href="reserve_rooms.php"><h3>Reserve Rooms</h3></a>
                 <a class="mainPageBoxText mainPageBoxTextHover" href="activities.php"><h3>Reserve Activities</h3></a>
                 <a class="mainPageBoxText mainPageBoxTextHover" href="reserve_tables.php"><h3>Reserve Tables</h3></a>
             </div>
