@@ -147,6 +147,7 @@ function signIn()
                                 $_SESSION['email'] = $row['email'];
                                 $_SESSION['pathCert'] = $row['pathCert'];
                                 $_SESSION['usrLevel'] = $row['usrLevel'];
+                                $_SESSION['isLogged'] = "logged";
 
                                 if ($row['usrLevel'] === 'guest' || $row['usrLevel'] === 'vip') {
                                     header("Location: userPanel.php");
@@ -163,7 +164,6 @@ function signIn()
 
                             } else {
                                 echo '<h2 style="color:red">Incorrect password</h2>';
-                                echo $row['password'];
                             }
                         }
 
