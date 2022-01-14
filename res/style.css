@@ -878,12 +878,7 @@ color: white;
 font-family: "Sitka Text", sans-serif;
 
 }
-#fname{
-  width: 60%;
-  height:20px;
-  margin-left: 20px;
-}
-#lname{
+.reserveTablesFormInput{
   width: 60%;
   height:20px;
   margin-left: 20px;

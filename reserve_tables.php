@@ -18,12 +18,16 @@
         <div id="resTableBox">
         <form id="resTableForm">
             <label class="resTableTextspacing"for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br><br>
+            <input type="text" class="reserveTablesFormInput" name="fname"><br><br>
             <label class="resTableTextspacing"for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname"><br><br>
+            <input type="text" class="reserveTablesFormInput" name="lname"><br><br>
             <label class="resTableTextspacing"for="tableNumber">Table Number:</label><br>
+<<<<<<< HEAD
             <input type="text" id="lname" name="lname">
             <input type="submit" value="Reserve!" name="reserve" class="reservetablebutton reservetablebuttonhover">
+=======
+            <input type="text" class="reserveTablesFormInput" name="tableNr">
+>>>>>>> 4323442bfa404334b8f683b0bbbed84e4f1dfdf8
         </form>
         </div>
         <?php
