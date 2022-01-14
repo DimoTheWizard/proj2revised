@@ -392,6 +392,7 @@ function calendar()
 }
 
 //adminside
+
 function adminActivity()
 {
     global $con;
@@ -649,8 +650,8 @@ function adminUsers()
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['email'] . '</td>';
         echo '<td>' . $row['username'] . '</td>';
-        echo '<td>' . $row['fName'] . '</td>';
-        echo '<td>' . $row['lName'] . '</td>';
+        echo '<td>' . $row['firstName'] . '</td>';
+        echo '<td>' . $row['lastName'] . '</td>';
         echo '<td>' . $row['password'] . '</td>';
         echo '<td>' . $row['usrLevel'] . '</td>';
         echo '<td>' . $row['pathCert'] . '</td>';

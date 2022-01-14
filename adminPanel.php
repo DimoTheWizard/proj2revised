@@ -131,7 +131,6 @@ include('functions/functions.php');
     </table>
 
 
-
-    <input type = "submit" name = "submit" value = "Sign Out" class = "signout">
+    <<a id="signOut" href="functions/sessionDestroy.php">Sign Out</a>
 </body>
 </html>
