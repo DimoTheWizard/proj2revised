@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     require 'functions/functions.php';
 ?>
 
@@ -35,3 +37,7 @@ include('res/elements/footer.php');
                 <?php overviewUser(); ?>
           </tr>
       </table>
+</form>
+    <a href="functions/sessionDestroy.php">Logout</a>
+</body>
+</html>

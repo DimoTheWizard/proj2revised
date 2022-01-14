@@ -140,6 +140,8 @@ function signIn()
                     if ($data) {
                         foreach ($data as $row) {
                             if (password_verify($password, $row['password'])) {
+                                $_SESSION['id'] = $row['id'];
+                                $_SESSION['username'] = $row['username'];
                                 $_SESSION['fName'] = $row['fName'];
                                 $_SESSION['lName'] = $row['lName'];
                                 $_SESSION['email'] = $row['email'];
@@ -147,7 +149,7 @@ function signIn()
                                 $_SESSION['usrLevel'] = $row['usrLevel'];
 
                                 if ($row['usrLevel'] === 'guest' || $row['usrLevel'] === 'vip') {
-                                    header("Location: useranel.php");
+                                    header("Location: userPanel.php");
                                     //echo 'guest or vip';
                                     die();
                                 }
@@ -1382,42 +1384,17 @@ function activityReservation()
 
 function overviewUser()
 {
-    global $con;
-
-    $query = $con->prepare("SELECT * FROM users");
-
-    if (false === $query) {
-        die('Prepare failed' . htmlspecialchars($query->error));
-    }
-
-    $query->execute();
-
-    if (false === $query) {
-        die('Execute failed' . htmlspecialchars($query->error));
-    }
-
-
-    $result = $query->get_result();
-
-    $data = $result->fetch_all(MYSQLI_ASSOC);
-
-    //echo 'Querry executed<br>';
-
-    $query->close();
 
     $funcRequired = "adminUsers";
-    foreach ($data as $row) {
         echo '<tr>';
-        echo '<td>' . $row['email'] . '</td>';
-        echo '<td>' . $row['username'] . '</td>';
-        echo '<td>' . $row['fName'] . '</td>';
-        echo '<td>' . $row['lName'] . '</td>';;
-        echo '<td>' . $row['usrLevel'] . '</td>';
-        echo "<td>" . '<a href="./userEdit.php?id=' . $row['id'] . '">Edit</a>' . "</td>";
+        echo '<td>' . $_SESSION['email'] . '</td>';
+        echo '<td>' . $_SESSION['username'] . '</td>';
+        echo '<td>' . $_SESSION['fName'] . '</td>';
+        echo '<td>' . $_SESSION['lName'] . '</td>';;
+        echo '<td>' . $_SESSION['usrLevel'] . '</td>';
+        echo "<td>" . '<a href="./userEdit.php?id=' . $_SESSION['id'] . '">Edit</a>' . "</td>";
         echo '</tr>';
-    }
 }
-
 
 function userEdit()
 {
