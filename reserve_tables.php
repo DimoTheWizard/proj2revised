@@ -22,7 +22,8 @@
             <label class="resTableTextspacing"for="lname">Last name:</label><br>
             <input type="text" class="reserveTablesFormInput" name="lname"><br><br>
             <label class="resTableTextspacing"for="tableNumber">Table Number:</label><br>
-            <input type="text" class="reserveTablesFormInput" name="tableNr">
+            <input type="text" class="reserveTablesFormInput" name="lname">
+            <input type="submit" value="Reserve!" name="reserve" class="reservetablebutton reservetablebuttonhover">
         </form>
         </div>
         <?php

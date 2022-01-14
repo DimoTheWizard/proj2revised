@@ -886,3 +886,8 @@ font-family: "Sitka Text", sans-serif;
 .resTableTextspacing{
   margin-left:15px;
 }
+.reservetablebutton{
+  height:20px;
+  width: 80px;
+  margin-left: 13px;
+}
