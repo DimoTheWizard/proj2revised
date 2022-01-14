@@ -153,7 +153,7 @@ function signIn()
                                 }
 
                                 if ($row['usrLevel'] === 'admin') {
-                                    eader("Location: adminPanel.php");
+                                    header("Location: adminPanel.php");
                                     //echo 'admin';
                                     die();
                                 }
@@ -774,7 +774,7 @@ function AdminPanelEditActivity($idNum)
                 echo "record edited succesfully.<br>";
             } else {
                 echo "Error executing query";
-                die(mysqli_error($conn));
+                die(mysqli_error($con));
             }
         }
     }
@@ -856,7 +856,7 @@ function AdminPanelEditReservedActivities($idNum)
                 echo "record edited succesfully.<br>";
             } else {
                 echo "Error executing query";
-                die(mysqli_error($conn));
+                die(mysqli_error($con));
             }
         }
     }
@@ -946,7 +946,7 @@ function AdminPanelEditRoom($idNum)
                 echo "record edited succesfully.<br>";
             } else {
                 echo "Error executing query";
-                die(mysqli_error($conn));
+                die(mysqli_error($con));
             }
         }
     }
@@ -1032,7 +1032,7 @@ function AdminPanelEditReservedRooms($idNum)
                 echo "record edited succesfully.<br>";
             } else {
                 echo "Error executing query";
-                die(mysqli_error($conn));
+                die(mysqli_error($con));
             }
         }
     }
@@ -1114,7 +1114,7 @@ function AdminPanelEditTables($idNum)
                 echo "record edited succesfully.<br>";
             } else {
                 echo "Error executing query";
-                die(mysqli_error($conn));
+                die(mysqli_error($con));
             }
         }
     }
@@ -1196,7 +1196,7 @@ function AdminPanelEditReservedTables($idNum)
                 echo "record edited succesfully.<br>";
             } else {
                 echo "Error executing query";
-                die(mysqli_error($conn));
+                die(mysqli_error($con));
             }
         }
     }
@@ -1296,7 +1296,7 @@ function AdminPanelEditUsers($idNum)
                 echo "record edited succesfully.<br>";
             } else {
                 echo "Error executing query";
-                die(mysqli_error($conn));
+                die(mysqli_error($con));
             }
         }
     }
@@ -1481,55 +1481,4 @@ function userEdit()
 }
 
 
-function contact() {
-
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
-
-    require 'phpmailer/src/Exception.php';
-    require 'phpmailer/src/PHPMailer.php';
-    require 'phpmailer/src/SMTP.php';
-
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['submit'])) {
-
-            $fName = trim(htmlspecialchars($_POST['fName'])); //from PHP 8 filter_sanitize_string got replaced with htmlspecialchars
-            $lName = trim(htmlspecialchars($_POST['lName']));
-            $email= trim(htmlspecialchars($_POST['email']));
-            $desc = trim(htmlspecialchars($_POST['desc']));
-
-            $finalName = $fName . ' ' . $lName;
-
-
-
-            if (isset($_POST['submit'])) {
-                $mail = new PHPMailer;
-                $mail->isSMTP();
-                $mail->SMTPDebug = 20
-                $mail->Host = "smtp.gmail.com";
-                $mail->Port = "587"; // typically 587
-                $mail->SMTPSecure = 'tls'; // ssl is depracated
-                $mail->SMTPAuth = true;
-                $mail->Username = "testinphp3@gmail.com";
-                $mail->Password = "matthewariankrystianameli";
-                $mail->setFrom("falconhotel@mail.com", "Falcon Hotel");
-                $mail->addAddress($email, $finalName);
-                $mail->Subject = 'Contact received';
-                $mail->msgHTML($desc); // remove if you do not want to send HTML email
-                $mail->AltBody = 'HTML not supported';
-
-                $mail->send();
-
-                if(!$mail->Send())
-                {
-                    echo "Couldn't send e-mail";
-                }
-                else
-                {
-                    echo "E-mail sent";
-                }
-            }
-        }
-    }
-}
 ?>
