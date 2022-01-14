@@ -19,7 +19,7 @@
     <div class="backgroundforinfo">
         <p class="firstparg">This room contains two bedrooms</p>
     <br>
-        <h1 class="firstparg">Book&ensp;<a href="reserve_rooms.php"> Here </a> to reserve the room!</h1>
+        <h1 class="firstparg">Book&nbsp;<a href="reservation_front.php">Here&nbsp;</a> to reserve the room!</h1>
     </div>
     </div>
     <br>
