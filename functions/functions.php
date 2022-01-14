@@ -64,19 +64,19 @@ function register()
                         die('Execute failed' . htmlspecialchars($query->error));
                     }
 
-                    echo 'Registration made';
+                    echo '<h2 style="color:green">Registration made</h2>';
 
                     $query->close();
                     $con->close();
 
 
                 } else {
-                    echo 'Email not valid';
+                    echo '<h2 style="color:red">Email not valid</h2>';
                 }
 
 
             } else {
-                echo 'Make sure you have completed both fields !';
+                echo '<h2 style="color:red">Make sure both fields are completed</h2>';
             }
 
 
@@ -329,7 +329,7 @@ function reservePage()
                         die('Execute failed' . htmlspecialchars($query->error));
                     }
 
-                    echo 'Reservation has been added';
+                    echo '<h2 style="color:green">reservation has been added</h2>';
 
 
                     $query->close();
@@ -337,7 +337,7 @@ function reservePage()
 
 
                 } else {
-                    echo 'Email not valid';
+                    echo '<h2 style="colorred:">Email not valid</h2>';
                 }
 
 
@@ -345,7 +345,7 @@ function reservePage()
 
 
             } else {
-                echo 'Make sure you have completed all fields !';
+                echo '<h2 style="color:red">Make sure you complete all fields</h2>';
             }
 
 
@@ -774,7 +774,7 @@ function AdminPanelEditActivity($idNum)
 
             $query->bind_param("ssii", $activityName, $activityLimit, $activityAvailability, $id);
             if ($query->execute()) {
-                echo "record edited succesfully.<br>";
+                echo '<h2 style="color:green">Record Edited succesfully</h2>';
             } else {
                 echo "Error executing query";
                 die(mysqli_error($con));
@@ -828,13 +828,13 @@ function AdminPanelEditReservedActivities($idNum)
         foreach ($formInputs as $input) {
             if (empty($_POST[$input])) {
                 $allInputsFilled = false;
-                echo $input . " was not filled in<br>";
-                echo "all fields are required...<br>";
+                echo '<h2 style="color:red">' . $input . ' was not filled in...</h2><br>';;
+                echo '<h2 style="color:red">All fields are required </h2><br>';
                 break;
             } else {
                 $allInputsFilled = true;
             }
-            echo $input . " was filled in <br>";
+            echo '<h2 style="color:green">' . $input . ' was filled in</h2>';
         }
 
         if ($allInputsFilled == true) {
@@ -856,7 +856,7 @@ function AdminPanelEditReservedActivities($idNum)
 
             $query->bind_param("si", $checkIn, $id);
             if ($query->execute()) {
-                echo "record edited succesfully.<br>";
+                echo '<h2 style="color:green">record edited succesfully</h2>';
             } else {
                 echo "Error executing query";
                 die(mysqli_error($con));
@@ -914,13 +914,13 @@ function AdminPanelEditRoom($idNum)
         foreach ($formInputs as $input) {
             if (empty($_POST[$input])) {
                 $allInputsFilled = false;
-                echo $input . " was not filled in<br>";
-                echo "all fields are required...<br>";
+                echo '<h2 style="color:red">' . $input . ' was not filled in...</h2><br>';;
+                echo '<h2 style="color:red">All fields are required </h2><br>';
                 break;
             } else {
                 $allInputsFilled = true;
             }
-            echo $input . " was filled in <br>";
+            echo '<h2 style="color:green">' . $input . ' was filled in</h2>';
         }
 
         if ($allInputsFilled == true) {
@@ -1002,13 +1002,13 @@ function AdminPanelEditReservedRooms($idNum)
         foreach ($formInputs as $input) {
             if (empty($_POST[$input])) {
                 $allInputsFilled = false;
-                echo $input . " was not filled in<br>";
-                echo "all fields are required...<br>";
+                echo '<h2 style="color:red">' . $input . ' was not filled in...</h2><br>';;
+                echo '<h2 style="color:red">All fields are required </h2><br>';
                 break;
             } else {
                 $allInputsFilled = true;
             }
-            echo $input . " was filled in <br>";
+            echo '<h2 style="color:green">' . $input . ' was filled in</h2>';
         }
 
         if ($allInputsFilled == true) {
@@ -1086,13 +1086,13 @@ function AdminPanelEditTables($idNum)
         foreach ($formInputs as $input) {
             if (empty($_POST[$input])) {
                 $allInputsFilled = false;
-                echo $input . " was not filled in<br>";
-                echo "all fields are required...<br>";
+                echo '<h2 style="color:red">' . $input . ' was not filled in...</h2><br>';;
+                echo '<h2 style="color:red">All fields are required </h2><br>';
                 break;
             } else {
                 $allInputsFilled = true;
             }
-            echo $input . " was filled in <br>";
+            echo '<h2 style="color:green">' . $input . ' was filled in</h2>';
         }
 
         if ($allInputsFilled == true) {
@@ -1168,13 +1168,13 @@ function AdminPanelEditReservedTables($idNum)
         foreach ($formInputs as $input) {
             if (empty($_POST[$input])) {
                 $allInputsFilled = false;
-                echo $input . " was not filled in<br>";
-                echo "all fields are required...<br>";
+                echo '<h2 style="color:red">' . $input . ' was not filled in...</h2><br>';;
+                echo '<h2 style="color:red">All fields are required </h2><br>';
                 break;
             } else {
                 $allInputsFilled = true;
             }
-            echo $input . " was filled in <br>";
+            echo '<h2 style="color:green">' . $input . ' was filled in</h2>';
         }
 
         if ($allInputsFilled == true) {
@@ -1261,13 +1261,13 @@ function AdminPanelEditUsers($idNum)
         foreach ($formInputs as $input) {
             if (empty($_POST[$input])) {
                 $allInputsFilled = false;
-                echo $input . " was not filled in<br>";
-                echo "all fields are required...<br>";
+                echo '<h2 style="color:red">' . $input . ' was not filled in...</h2><br>';;
+                echo '<h2 style="color:red">All fields are required </h2><br>';
                 break;
             } else {
                 $allInputsFilled = true;
             }
-            echo $input . " was filled in <br>";
+            echo '<h2 style="color:green">' . $input . ' was filled in</h2>';
         }
 
         if ($allInputsFilled == true) {
@@ -1370,9 +1370,9 @@ function activityReservation()
 
         if (!empty($_POST['eventList'])) {
             $activity = $_POST['eventList'];
-            echo "you have chosen: " . $activity . "<br>";
+            echo '<h2 style="color:green">you have chosen ' . $activity . '</h2>';
         } else {
-            echo "please select activity<br>";
+            echo '<h2 style="color:red">Please select activity</h2>';
         }
 
         //inputing filled data into database
@@ -1390,9 +1390,9 @@ function activityReservation()
 
         $query->bind_param("ii", $userId, $activityId);
         if ($query->execute()) {
-            echo "record created succesfully.<br>";
+            echo '<h2 style="color:green">record created succesfully</h2>';
         } else {
-            echo "Error executing query";
+            echo '<h2 style="color:green">error executing query</h2>';
             die(mysqli_error($con));
         }
     }
@@ -1461,9 +1461,9 @@ function roomReservation()
 
         if (!empty($_POST['roomsList'])) {
             $room = $_POST['roomsList'];
-            echo "you have chosen: " . $room . "<br>";
+            echo '<h2 style="color:green">You have chosen ' . $room . '</h2>';
         } else {
-            echo "please select room<br>";
+            echo '<h2 style="color:red"please select room</h2>';
         }
 
         //inputing filled data into database
@@ -1483,9 +1483,9 @@ function roomReservation()
 
         $query->bind_param("iiss", $userId, $roomId, $checkIn, $checkOut);
         if ($query->execute()) {
-            echo "record created succesfully.<br>";
+            echo '<h2 style="color:green">record created succesfully</h2>';
         } else {
-            echo "Error executing query";
+            echo '<h2 style="color:green">error executing query</h2>';
             die(mysqli_error($con));
         }
     }
@@ -1549,12 +1549,12 @@ function userEdit()
                     die('Execution failed' . mysqli_error($con));
                 }
 
-                echo 'Edit done';
+                echo '<h2 style="color:green"Edit done</h2>';
 
                 $query->close();
                 $con->close();
             } else {
-                echo 'Email is of wrong type or not introduced correctly';
+                echo '<h2 style="color:red">Email is of wrong type or introduced correctly</h2>';
             }
 
         }
