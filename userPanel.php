@@ -1,3 +1,7 @@
+<?php
+    require 'functions/functions.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +21,17 @@ include('res/elements/footer.php');
 ?>
 
 <form method = "post">
-    <h1 class = "Tabletitle" > Activity </h1>
+    <h1 class = "Tabletitle" > User Panel </h1>
       <table border="1" id="UserPanel">
          <tr>
-             <th> ID    </th>
-             <th> email </th>
-             <th> username </th>
-             <th> userLevel </th>
-             <th> pathcert  </th>
+             <th> Email    </th>
+             <th> Username </th>
+             <th> First Name </th>
+             <th> Last Name </th>
+             <th> User level  </th>
+             <th> Edit  </th>
+          </tr>
+          <tr>
+                <?php overviewUser(); ?>
           </tr>
       </table>
