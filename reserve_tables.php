@@ -23,6 +23,7 @@
             <input type="text" id="lname" name="lname"><br><br>
             <label class="resTableTextspacing"for="tableNumber">Table Number:</label><br>
             <input type="text" id="lname" name="lname">
+            <input type="submit" value="Reserve!" name="reserve" class="reservetablebutton reservetablebuttonhover">
         </form>
         </div>
         <?php
