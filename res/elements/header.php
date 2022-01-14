@@ -9,6 +9,17 @@
             uses dont forget to tell us!!!-->
             <div class="headerText"><a href="preview_activities.php" style="text-decoration:none; color:black;">Activities</a></div>
         <div class="headerText"><a href="reservation_front.php" style="text-decoration:none; color:black;">Reservations</a></div>
-        <div class="headerText"><a href="signin.php" style="text-decoration:none; color:black;">Sign in</a></div>
+        
+        <?php
+            if(isset($_SESSION["isLogged"])){
+                if($_SESSION["isLogged"] === "logged"){
+                    echo "<div class=\"headerText\"><a href=\"functions/sessionDestroy.php\" style=\"text-decoration:none; color:black;\">Sign out</a></div>";
+                } else {
+                    echo "<div class=\"headerText\"><a href=\"signin.php\" style=\"text-decoration:none; color:black;\">Sign in</a></div>";
+                }
+            } else {
+                echo "<div class=\"headerText\"><a href=\"signin.php\" style=\"text-decoration:none; color:black;\">Sign in</a></div>";
+            }
+        ?>
     </nav>
 </header>
