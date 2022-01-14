@@ -42,11 +42,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if(!$mail->Send())
             {
-                echo "Couldn't send e-mail";
+                echo '<h2 style="color:red;">Couldnt send e-mail</h2>';
             }
             else
             {
-                echo "E-mail sent";
+                echo '<h2 style="color:green">E-mail sent</h2>';
             }
         }
     }
@@ -80,12 +80,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <div class = "contact">
         <h1> First Name </h1>
-          <input type = "text" name = "fName" class = "customwidth">
+          <input type = "text" name = "fName" class = "customwidth" placeholder="First Name">
       </div>
 
       <div class = "contact">
         <h1> Last Name </h1>
-          <input type = "text" name = "lName" class = "customwidth">
+          <input type = "text" name = "lName" class = "customwidth" placeholder="Last Name">
       </div>
 
       <div class = "contact">
