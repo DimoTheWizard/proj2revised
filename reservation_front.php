@@ -1,4 +1,7 @@
 <?php
+        session_start();
+?>
+<?php
             require 'functions/functions.php';
 
             reservePage();

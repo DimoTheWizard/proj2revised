@@ -1,4 +1,6 @@
-
+<?php
+        session_start();
+?>
 <?php
 // Initialize the session
     require_once "res/elements/session.php";
