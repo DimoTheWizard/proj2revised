@@ -157,6 +157,13 @@ transition: 0.4s ease-in-out;
     border-radius: 5px;
     background-color: hsl(291deg 64% 42% / 61%);
 }
+.reservationfrontselecter{
+    height: 45px;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+}
 
 .container1 .title{
     font-size: 25px;

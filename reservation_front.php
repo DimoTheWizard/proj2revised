@@ -52,7 +52,7 @@
 
                             <div class="input_box1">
                                 <div class="details1"><h3>Room class</h3></div>
-                                <select>
+                                <select class="reservationfrontselecter">
                                     <option value="firstClass">First Class</option>
                                     <option value="secondClass">Second Class</option>
                                 </select>
