@@ -2,10 +2,10 @@
         session_start();
 ?>
 <?php
-            require 'functions/functions.php';
+    require 'functions/functions.php';
 
-            reservePage();
-        ?>
+    //reservePage();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,7 +22,7 @@
         <div class="body1">
             <div class="container1">
                 <div class="title1"><h1>Reservation</h1></div><br>
-                    <form action='reservation_back.php' method="post">
+                    <form method="post">
                         <div class="form_details1">
                             <div class="input_box1">
                                 <div class="details1"><h3>CheckIn</h3></div>
@@ -35,16 +35,20 @@
                             </div>
 
                             <div class="input_box1">
-                              <div class="details1"><h3>Room class</h3></div>
-                                <select class="reservationfrontselecter">
-                                    <option value="firstClass">First Class</option>
-                                    <option value="secondClass">Second Class</option>
+                              <div class="details1"><h3>Room</h3></div>
+                                <select name="roomsList" class="reservationfrontselecter">
+                                    <?php
+                                        dropDownRoom();
+                                    ?>
                                 </select>
                             </div>
                             <br>
                             <div class="input_box1">
                               <div class="button1">
-                                    <input type="submit" name="submit" value=" Make a Reservation" >
+                                    <input type="submit" name="submit" value="Make a Reservation" >
+                                    <?php
+                                        roomReservation();
+                                    ?>
                               </div>
                             </div>
 
@@ -62,6 +66,6 @@
         </div>
         <?php
         require('res/elements/footer.php')
-    ?>
+        ?>
     </body>
 </html>

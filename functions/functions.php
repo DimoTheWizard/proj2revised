@@ -1306,7 +1306,7 @@ function AdminPanelEditUsers($idNum)
 }
 
 //reserve a spot an event
-function spotEvent()
+function dropDownEvent()
 {
     global $con;
 
@@ -1330,8 +1330,7 @@ function spotEvent()
 
     $query->close();
 
-    $funcRequired = "adminActivity";
-    foreach ($data as $row) {
+    foreach($data as $row){
         echo '<option>' . $row['activityName'] . '</option>';
     }
 
@@ -1343,8 +1342,34 @@ function activityReservation()
     global $con;
     if (isset($_POST['submit'])) {
 
-        if (!empty($_POST['eventlist'])) {
-            $activity = $_POST['eventlist'];
+        $activityName = $_POST['eventList'];
+
+        //inputing filled data into database
+        $query = $con->prepare("SELECT id FROM activities WHERE activityName = ?");
+
+        
+        if (false === $query) {
+            die('Prepare failed' . htmlspecialchars($query->error));
+        }
+
+        $query->bind_param("s", $activityName);
+        if ($query->execute()) {
+            
+        } else {
+            echo "Error executing query";
+            die(mysqli_error($con));
+        }
+
+        $result = $query->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+
+        foreach($result as $row){
+            $activityId = $row;
+            break;  
+        }
+
+        if (!empty($_POST['eventList'])) {
+            $activity = $_POST['eventList'];
             echo "you have chosen: " . $activity . "<br>";
         } else {
             echo "please select activity<br>";
@@ -1357,29 +1382,115 @@ function activityReservation()
                     ?, ?
                 )");
 
-        //Getting user ID with eventual session
-
-
-        //Getting Activity Id from activity name through another query
-
-
-        //check In is done automatically with sql and current timestamp
-
-        //reserve ID is auto incremented
-
         if (false === $query) {
             die('Prepare failed' . htmlspecialchars($query->error));
         }
 
-        $query->bind_param("ii", $filler1, $filler2);
+        $userId = $_SESSION['id'];
+
+        $query->bind_param("ii", $userId, $activityId);
         if ($query->execute()) {
-            echo "record edited succesfully.<br>";
+            echo "record created succesfully.<br>";
         } else {
             echo "Error executing query";
             die(mysqli_error($con));
         }
     }
 }
+
+
+//room reservation
+
+function dropDownRoom()
+{
+    global $con;
+
+    $query = $con->prepare("SELECT roomNr FROM rooms");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    $query->close();
+
+    foreach($data as $row){
+        echo '<option>' . $row['roomNr'] . '</option>';
+    }
+
+}
+
+function roomReservation()
+{
+    global $con;
+    if (isset($_POST['submit'])) {
+
+        $roomNr = $_POST['roomsList'];
+
+        //inputing filled data into database
+        $query = $con->prepare("SELECT id FROM rooms WHERE roomNr = ?");
+        
+        if (false === $query) {
+            die('Prepare failed' . htmlspecialchars($query->error));
+        }
+
+        $query->bind_param("i", $roomNr);
+        if ($query->execute()) {
+            
+        } else {
+            echo "Error executing query";
+            die(mysqli_error($con));
+        }
+
+        $result = $query->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+
+        foreach($result as $row){
+            $roomId = $row;
+            break;  
+        }
+
+        if (!empty($_POST['roomsList'])) {
+            $room = $_POST['roomsList'];
+            echo "you have chosen: " . $room . "<br>";
+        } else {
+            echo "please select room<br>";
+        }
+
+        //inputing filled data into database
+        $query = $con->prepare("INSERT INTO reservedrooms (
+                   userId ,roomId, checkIn, checkOut 
+                ) VALUES (
+                    ?, ?, ?, ?
+                )");
+
+        if (false === $query) {
+            die('Prepare failed' . htmlspecialchars($query->error));
+        }
+
+        $userId = $_SESSION['id'];
+        $checkIn = $_POST['checkIn'];
+        $checkOut = $_POST['checkOut'];
+
+        $query->bind_param("iiss", $userId, $roomId, $checkIn, $checkOut);
+        if ($query->execute()) {
+            echo "record created succesfully.<br>";
+        } else {
+            echo "Error executing query";
+            die(mysqli_error($con));
+        }
+    }
+}
+
 
 //User panel
 

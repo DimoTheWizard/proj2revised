@@ -24,20 +24,20 @@
         </div>
 
         <div class = "activityImage"> </div>
-
-        <div class = "formbox">
-            <div class = "formlabel">
-                <h1> Book An Event </h1>
-                <form action = "activities.php" method = "post">
-                <select name ="eventlist" id ="eventlist">
-                  <?php
-                    spotEvent();
-                  ?>
-                </select>
+        <form action = "activities.php" method = "post">
+            <div class = "formbox">
+                <div class = "formlabel">
+                    <h1> Book An Event </h1>
+                    <select name ="eventList" id ="eventlist">
+                    <?php
+                        dropDownEvent();
+                    ?>
+                    </select>
+                </div>
+                <div> </div>
+                <input type ="submit" name="submit" value="Book Now" class="submitlabel">
             </div>
-            <div> </div>
-            <input type ="submit" name="submit" value="Book Now" class="submitlabel">
-          </div>
+        </form>
           <?php
               activityReservation();
           ?>
