@@ -220,6 +220,8 @@ transition: 0.4s ease-in-out;
     border-radius: 10px;
     letter-spacing: 2px;
     font-size:23px;
+    margin-left: -20px;
+    margin-top: -6px;
     color:white;
     font-family: "Sitka Text", sans-serif;
     background: linear-gradient(135deg,#71b7e6,#9b59b6);

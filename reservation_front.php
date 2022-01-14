@@ -25,42 +25,36 @@
                     <form action='reservation_back.php' method="post">
                         <div class="form_details1">
                             <div class="input_box1">
-                                <div class="details1"><h3>First name</h3></div>
-                                <input type="text" name="fname" placeholder="Enter your first name"  required>
-                            </div>
-
-                            <div class="input_box1">
-                                <div class="details1"><h3>Last name</h3></div>
-                                <input type="text" name="lname" placeholder="Enter your last name" required>
-                            </div>
-
-                            <div class="input_box1">
-                                <div class="details1"><h3>E-mail</h3></div>
-                                <input type="email" name="email" placeholder="Enter your E-mail" required>
-                            </div>
-                            <br>
-                            <div class="input_box1">
                                 <div class="details1"><h3>CheckIn</h3></div>
                                 <input type="date" name="checkIn" placeholder="CheckIn" min="2021-12-31"  required>
-                             </div>
-
-                             <div class="input_box1">
-                                <div class="details1"><h3>CheckOut</h3></div>
-                                <input type="date" name="checkOut" placeholder="CheckOut" min="2021-12-31"  required>
                             </div>
-                            <br>
 
                             <div class="input_box1">
-                                <div class="details1"><h3>Room class</h3></div>
+                              <div class="details1"><h3>CheckOut</h3></div>
+                              <input type="date" name="checkOut" placeholder="CheckOut" min="2021-12-31"  required>
+                            </div>
+
+                            <div class="input_box1">
+                              <div class="details1"><h3>Room class</h3></div>
                                 <select class="reservationfrontselecter">
                                     <option value="firstClass">First Class</option>
                                     <option value="secondClass">Second Class</option>
                                 </select>
                             </div>
                             <br>
-                            <div class="button1">
-                                  <input type="submit" name="submit" value=" Make a Reservation" >
+                            <div class="input_box1">
+                              <div class="button1">
+                                    <input type="submit" name="submit" value=" Make a Reservation" >
+                              </div>
                             </div>
+
+                             <div class="input_box1">
+                             </div>
+                            <br>
+
+                            <div class="input_box1">
+                            </div>
+                            <br>   
                         </div>
                     </form>
                 </div>
