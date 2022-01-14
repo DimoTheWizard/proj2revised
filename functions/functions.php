@@ -290,9 +290,6 @@ function reservePage()
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['submit'])) {
 
-            $con = mysqli_connect('localhost', 'root', '', 'testdb')
-            or die("Connection to the db failed" . mysqli_error($con));
-
             $email = trim(htmlspecialchars($_POST['email'])); //from PHP 8 filter_sanitize_string got replaced with htmlspecialchars
             $username = trim(htmlspecialchars($_POST['username']));
             $roomName = trim(htmlspecialchars($_POST['roomName']));
@@ -757,8 +754,6 @@ function AdminPanelEditActivity($idNum)
             $activityLimit = trim(htmlspecialchars($_POST['activityLimit']));
             $activityAvailability = trim(htmlspecialchars($_POST['activityAvailability']));
 
-            $conn = mysqli_connect("localhost", "root", "", "bugreport");
-
             $activityName = trim(mysqli_real_escape_string($con, $_POST['activityName']));
             $activityLimit = trim(mysqli_real_escape_string($con, $_POST['activityLimit']));
             $activityAvailability = trim(mysqli_real_escape_string($con, $_POST['activityAvailability']));
@@ -842,8 +837,6 @@ function AdminPanelEditReservedActivities($idNum)
         if ($allInputsFilled == true) {
             //Turning post values into variables for easy access and checking them
             $checkIn = trim(htmlspecialchars($_POST['checkIn']));
-
-            $conn = mysqli_connect("localhost", "root", "", "bugreport");
 
             $checkIn = trim(mysqli_real_escape_string($con, $_POST['checkIn']));
 
@@ -933,8 +926,6 @@ function AdminPanelEditRoom($idNum)
             $roomAvailability = trim(htmlspecialchars($_POST['roomAvailability']));
             $roomType = trim(htmlspecialchars($_POST['roomType']));
 
-            $conn = mysqli_connect("localhost", "root", "", "bugreport");
-
             $roomNr = trim(mysqli_real_escape_string($con, $_POST['roomNr']));
             $roomAvailability = trim(mysqli_real_escape_string($con, $_POST['roomAvailability']));
             $roomType = trim(mysqli_real_escape_string($con, $_POST['roomType']));
@@ -1022,8 +1013,6 @@ function AdminPanelEditReservedRooms($idNum)
             $checkIn = trim(htmlspecialchars($_POST['checkIn']));
             $checkOut = trim(htmlspecialchars($_POST['checkOut']));
 
-            $conn = mysqli_connect("localhost", "root", "", "bugreport");
-
             $checkIn = trim(mysqli_real_escape_string($con, $_POST['checkIn']));
             $checkOut = trim(mysqli_real_escape_string($con, $_POST['checkOut']));
 
@@ -1107,8 +1096,6 @@ function AdminPanelEditTables($idNum)
             //Turning post values into variables for easy access and checking them
             $tableNr = trim(htmlspecialchars($_POST['tableNr']));
 
-            $conn = mysqli_connect("localhost", "root", "", "bugreport");
-
             $tableNr = trim(mysqli_real_escape_string($con, $_POST['tableNr']));
 
             if (!$con) {
@@ -1190,8 +1177,6 @@ function AdminPanelEditReservedTables($idNum)
         if ($allInputsFilled == true) {
             //Turning post values into variables for easy access and checking them
             $checkIn = trim(htmlspecialchars($_POST['checkIn']));
-
-            $conn = mysqli_connect("localhost", "root", "", "bugreport");
 
             $checkIn = trim(mysqli_real_escape_string($con, $_POST['checkIn']));
 
