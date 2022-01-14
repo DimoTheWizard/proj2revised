@@ -13,7 +13,7 @@
         <?php
             include('res/elements/header.php');
         ?>
-        <h1 id="preActTitle">Sign up for events</h1>
+        <h1 id="preActTitle">Events</h1>
         <div id="preActPageBox">
             <div id="preActPageTopBox">
                 <a class="preActPageBoxText preActPageBoxTextHover" href="event_calendar.php">Events calendar</a></h1>

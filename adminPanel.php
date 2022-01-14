@@ -23,6 +23,8 @@ include('res/elements/footer.php');
 include('functions/functions.php');
 ?>
 
+    <<a id="signOut" href="functions/sessionDestroy.php">Sign Out</a>
+
     <h1 class = "Tabletitle" > Activity </h1>
 
     <table border="1" id="AdminPanel">
@@ -132,8 +134,5 @@ include('functions/functions.php');
         ?>
         </tr>
     </table>
-
-
-    <<a id="signOut" href="functions/sessionDestroy.php">Sign Out</a>
 </body>
 </html>
