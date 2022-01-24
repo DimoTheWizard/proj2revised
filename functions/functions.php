@@ -1361,7 +1361,7 @@ function activityReservation()
         }
 
         $result = $query->get_result();
-        $result->fetch_all(MYSQLI_ASSOC);
+        $result->fetch_all(MYSQLI_ASSOC); // fetch the result as an associative array
 
         foreach($result as $row){
             $activityId = $row;
