@@ -21,14 +21,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $finalName = $fName . ' ' . $lName;
 
 
-
+/*Object Oriented style*/
         if (isset($_POST['submit'])) {
             $mail = new PHPMailer;
-            $mail->isSMTP();
+            $mail->isSMTP();      /*Port Definitition*/
             $mail->SMTPDebug = 0;
-            $mail->Host = "smtp.gmail.com";
+            $mail->Host = "smtp.gmail.com"; /*Host Port*/
             $mail->Port = "587"; // typically 587
-            $mail->SMTPSecure = 'tls'; // ssl is depracated
+            $mail->SMTPSecure = 'tls'; // ssl is depracated /*Security wise*/
             $mail->SMTPAuth = true;
             $mail->Username = "testinphp3@gmail.com";
             $mail->Password = "matthewariankrystianameli";

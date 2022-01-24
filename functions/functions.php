@@ -403,7 +403,7 @@ function adminActivity()
         die('Prepare failed' . htmlspecialchars($query->error));
     }
 
-    $query->execute();
+    $query->execute();  
 
     if (false === $query) {
         die('Execute failed' . htmlspecialchars($query->error));
@@ -1347,14 +1347,14 @@ function activityReservation()
         //inputing filled data into database
         $query = $con->prepare("SELECT id FROM activities WHERE activityName = ?");
 
-        
+
         if (false === $query) {
             die('Prepare failed' . htmlspecialchars($query->error));
         }
 
         $query->bind_param("s", $activityName);
         if ($query->execute()) {
-            
+
         } else {
             echo "Error executing query";
             die(mysqli_error($con));
@@ -1365,7 +1365,7 @@ function activityReservation()
 
         foreach($result as $row){
             $activityId = $row;
-            break;  
+            break;
         }
 
         if (!empty($_POST['eventList'])) {
@@ -1438,14 +1438,14 @@ function roomReservation()
 
         //inputing filled data into database
         $query = $con->prepare("SELECT id FROM rooms WHERE roomNr = ?");
-        
+
         if (false === $query) {
             die('Prepare failed' . htmlspecialchars($query->error));
         }
 
         $query->bind_param("i", $roomNr);
         if ($query->execute()) {
-            
+
         } else {
             echo "Error executing query";
             die(mysqli_error($con));
@@ -1456,7 +1456,7 @@ function roomReservation()
 
         foreach($result as $row){
             $roomId = $row;
-            break;  
+            break;
         }
 
         if (!empty($_POST['roomsList'])) {
@@ -1468,7 +1468,7 @@ function roomReservation()
 
         //inputing filled data into database
         $query = $con->prepare("INSERT INTO reservedrooms (
-                   userId ,roomId, checkIn, checkOut 
+                   userId ,roomId, checkIn, checkOut
                 ) VALUES (
                     ?, ?, ?, ?
                 )");
