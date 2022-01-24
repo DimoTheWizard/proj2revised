@@ -188,7 +188,7 @@ function signIn()
 
 //reserveRoom function for reserve_rooms.php page
 
-function reserveRoom()
+function reserveRoom() /* OutDated*/
 {
     global $con;
 
@@ -270,7 +270,7 @@ function reserveRoom()
 
 //reservation success or fail for reserve_rooms.php
 
-function reserveRoomSuccess()
+function reserveRoomSuccess() /*not in use*/
 {
     if (isset($_SESSION['success_reservation'])) {
         if ($_SESSION['success_reservation'] == 1) {
@@ -376,12 +376,13 @@ function calendar()
     $result = $query->get_result();
 
     $data = $result->fetch_all(MYSQLI_ASSOC);
+    /* we turn the rows into associative array*/
 
     //echo 'Querry executed<br>';
 
     $query->close();
 
-    foreach ($data as $row) {
+    foreach ($data as $row) /*Loop used to add to the table*/ {
         echo '<tr>';
         echo '<td>' . $row['activityName'] . '</td>';
         echo '<td>' . $row['description'] . '</td>';
@@ -1438,7 +1439,7 @@ function roomReservation()
 
         //inputing filled data into database
         $query = $con->prepare("SELECT id FROM rooms WHERE roomNr = ?");
-
+        /*We send back the number of the room so that we can retrieve the id*/
         if (false === $query) {
             die('Prepare failed' . htmlspecialchars($query->error));
         }
@@ -1477,7 +1478,7 @@ function roomReservation()
             die('Prepare failed' . htmlspecialchars($query->error));
         }
 
-        $userId = $_SESSION['id'];
+        $userId = $_SESSION['id']; /*from the user*/
         $checkIn = $_POST['checkIn'];
         $checkOut = $_POST['checkOut'];
 
