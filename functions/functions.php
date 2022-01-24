@@ -403,7 +403,7 @@ function adminActivity()
         die('Prepare failed' . htmlspecialchars($query->error));
     }
 
-    $query->execute();  
+    $query->execute();
 
     if (false === $query) {
         die('Execute failed' . htmlspecialchars($query->error));
