@@ -16,6 +16,8 @@
         ?>
         <h1 id="evCalTitle">Monthly Events - December</h1>
 
+    <!-- Calendar for the event calendar-->
+
         <table id="evCalEventTable">
             <tr>
                 <th id="evCalTopRowTable">Event</th>
@@ -23,9 +25,9 @@
                 <th id="evCalTopRowTable">Date</th>
                 <th id="evCalTopRowTable">Time</th>
             </tr>
-                <?php
-                    calendar();
-                ?>
+            <?php
+                calendar();
+            ?>
         </table>
         <p class="evCalText">
             Want to sign-up for an event?

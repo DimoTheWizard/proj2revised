@@ -10,7 +10,6 @@ require 'dbCon.php';
 
 function register()
 {
-
     global $con;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -31,7 +30,6 @@ function register()
 
             $usrLevel = trim(mysqli_real_escape_string($con, 'guest'));
             $usrLevel = trim(htmlspecialchars('guest'));
-
 
             if (!empty($username) && !empty($email) && !empty($fName) && !empty($lName) && !empty($password)) {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -74,11 +72,9 @@ function register()
                     echo '<h2 style="color:red">Email not valid</h2>';
                 }
 
-
             } else {
                 echo '<h2 style="color:red">Make sure both fields are completed</h2>';
             }
-
 
         } else {
             die("Form couldn't be sent");
@@ -87,7 +83,7 @@ function register()
 }
 
 
-//Sign in function for the signin.php
+//Sign in function for signin.php
 
 function signIn()
 {
@@ -98,7 +94,6 @@ function signIn()
 
             $email = trim(htmlspecialchars($_POST['email']));
             $password = trim(htmlspecialchars($_POST['password']));
-
 
             $email = trim(mysqli_real_escape_string($con, $_POST['email']));
             $password = trim(mysqli_real_escape_string($con, $_POST['password']));
@@ -136,7 +131,6 @@ function signIn()
                     $query->close();
                     $con->close();
 
-
                     if ($data) {
                         foreach ($data as $row) {
                             if (password_verify($password, $row['password'])) {
@@ -160,7 +154,6 @@ function signIn()
                                     //echo 'admin';
                                     die();
                                 }
-
 
                             } else {
                                 echo '<h2 style="color:red">Incorrect password</h2>';
@@ -204,7 +197,6 @@ function reserveRoom() /* OutDated*/
         die('Execute failed' . htmlspecialchars($query->error));
     }
 
-
     $result = $query->get_result();
 
     $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -220,13 +212,11 @@ function reserveRoom() /* OutDated*/
             $usernameSes = 'Client';
             $emailSes = 'client@mail.com';
 
-
             $query = $con->prepare("UPDATE room SET roomQuantity = roomQuantity - 1, usernameRes = '$usernameSes', emailRes = '$emailSes' WHERE roomName = ? ");
 
             if (false === $query) {
                 echo mysqli_error($con);
                 die('Prepare failed' . htmlspecialchars($query->error));
-
             }
 
             $query->bind_param("s", $roomName);
@@ -241,30 +231,24 @@ function reserveRoom() /* OutDated*/
                 die('Execute failed' . htmlspecialchars($query->error));
             }
 
-
             $_SESSION['success_reservation'] = 1;
 
             header('Location: reserve_rooms.php');
 
             $query->close();
-
         }
-
     }
 
     foreach ($data as $row) {
-
         $unavailableMsg = 'Unavailable';
         $reserveBad = 'Unavailable';
         $reserveGood = '<a href="?roomName=' . $row['roomName'] . '">Reserve</a>';
-
 
         echo "<tr>";
         echo "<td>" . $row['roomName'] . "</td>";
         echo "<td>" . ($row['roomQuantity'] <= 0 ? $unavailableMsg : $row['roomQuantity']) . "</td>";
         echo "<td>" . ($row['roomQuantity'] <= 0 ? $reserveBad : $reserveGood) . "</td>";
         echo "</tr>";
-
     }
 }
 
@@ -281,12 +265,10 @@ function reserveRoomSuccess() /*not in use*/
     }
 }
 
-
 //reservation page function for reservation_fron
 
 function reservePage()
 {
-
     global $con;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -304,17 +286,13 @@ function reservePage()
             $checkIn = trim(mysqli_real_escape_string($con, $_POST['checkIn']));
             $checkOut = trim(mysqli_real_escape_string($con, $_POST['checkOut']));
 
-
             if (!empty($email) && !empty($username) && !empty($roomName) && !empty($availability) && !empty($quantity)) {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-
-
                     $query = $con->prepare("INSERT INTO reservationroom (roomName,roomQuantity,usernameRes,emailRes,availability) VALUES (?,?,?,?,?)");
 
                     if (false === $query) {
                         echo mysqli_error($con);
                         die('Prepare failed' . htmlspecialchars($query->error));
-
                     }
 
                     $query->bind_param("sssss", $roomName, $quantity, $username, $email, $availability);
@@ -331,23 +309,18 @@ function reservePage()
 
                     echo '<h2 style="color:green">reservation has been added</h2>';
 
-
                     $query->close();
                     $con->close();
-
 
                 } else {
                     echo '<h2 style="colorred:">Email not valid</h2>';
                 }
 
-
 //User panel
-
 
             } else {
                 echo '<h2 style="color:red">Make sure you complete all fields</h2>';
             }
-
 
         } else {
             die("Form couldn't be sent");
@@ -355,7 +328,8 @@ function reservePage()
     }
 }
 
-//event calendar
+//event calendar list for events for event_calendar.php
+
 function calendar()
 {
     global $con;
@@ -372,10 +346,10 @@ function calendar()
         die('Execute failed' . htmlspecialchars($query->error));
     }
 
-
     $result = $query->get_result();
 
     $data = $result->fetch_all(MYSQLI_ASSOC);
+
     /* we turn the rows into associative array*/
 
     //echo 'Querry executed<br>';
@@ -392,7 +366,7 @@ function calendar()
     }
 }
 
-//adminside
+//adminside tables for admin panel
 
 function adminActivity()
 {
@@ -409,7 +383,6 @@ function adminActivity()
     if (false === $query) {
         die('Execute failed' . htmlspecialchars($query->error));
     }
-
 
     $result = $query->get_result();
 
@@ -451,7 +424,6 @@ function adminReservedActivities()
         die('Execute failed' . htmlspecialchars($query->error));
     }
 
-
     $result = $query->get_result();
 
     $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -486,7 +458,6 @@ function adminRoom()
     if (false === $query) {
         die('Execute failed' . htmlspecialchars($query->error));
     }
-
 
     $result = $query->get_result();
 
@@ -525,7 +496,6 @@ function adminReservedRooms()
         die('Execute failed' . htmlspecialchars($query->error));
     }
 
-
     $result = $query->get_result();
 
     $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -563,7 +533,6 @@ function adminTables()
         die('Execute failed' . htmlspecialchars($query->error));
     }
 
-
     $result = $query->get_result();
 
     $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -598,7 +567,6 @@ function adminReservedTables()
     if (false === $query) {
         die('Execute failed' . htmlspecialchars($query->error));
     }
-
 
     $result = $query->get_result();
 
@@ -636,7 +604,6 @@ function adminUsers()
         die('Execute failed' . htmlspecialchars($query->error));
     }
 
-
     $result = $query->get_result();
 
     $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -664,7 +631,7 @@ function adminUsers()
 
 //adminPanel Edit functions
 
-//function chooser
+//function chooser allows the below functions to choose the appropriate set of variables for the database
 function chooseEditFunction($tableName, $idNum)
 {
     switch ($tableName) {
@@ -1306,7 +1273,7 @@ function AdminPanelEditUsers($idNum)
     }
 }
 
-//reserve a spot an event
+//reserve a spot an event a drop down list for events same as calendar but as a dropdown list
 function dropDownEvent()
 {
     global $con;
@@ -1334,7 +1301,6 @@ function dropDownEvent()
     foreach($data as $row){
         echo '<option>' . $row['activityName'] . '</option>';
     }
-
 }
 
 //reserve activities
@@ -1347,7 +1313,6 @@ function activityReservation()
 
         //inputing filled data into database
         $query = $con->prepare("SELECT id FROM activities WHERE activityName = ?");
-
 
         if (false === $query) {
             die('Prepare failed' . htmlspecialchars($query->error));
@@ -1399,7 +1364,6 @@ function activityReservation()
     }
 }
 
-
 //room reservation
 
 function dropDownRoom()
@@ -1427,7 +1391,6 @@ function dropDownRoom()
     foreach($data as $row){
         echo '<option>' . $row['roomNr'] . '</option>';
     }
-
 }
 
 function roomReservation()
@@ -1492,12 +1455,10 @@ function roomReservation()
     }
 }
 
-
 //User panel
 
 function overviewUser()
 {
-
     $funcRequired = "adminUsers";
         echo '<tr>';
         echo '<td>' . $_SESSION['email'] . '</td>';
@@ -1531,7 +1492,6 @@ function userEdit()
 
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-
                 $query = $con->prepare("UPDATE users SET email = ?, username = ?, fName = ?, lName = ? WHERE id = ?");
 
                 if (false === $query) {
@@ -1557,9 +1517,7 @@ function userEdit()
             } else {
                 echo '<h2 style="color:red">Email is of wrong type or introduced correctly</h2>';
             }
-
         }
-
     }
     echo '<form method="post">';
     echo '<input type="text" name="email" placeholder="E-mail"><br><br>';
@@ -1569,6 +1527,4 @@ function userEdit()
     echo '<input type="submit" name="submit" value="Edit"><br><br>';
     echo '</form>';
 }
-
-
 ?>

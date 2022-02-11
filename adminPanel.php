@@ -27,6 +27,8 @@ include('functions/functions.php');
 
     <h1 class = "Tabletitle" > Activity </h1>
 
+    <!--tables for admin panel-->
+
     <table border="1" id="AdminPanel">
         <tr>
             <th> id </th>
@@ -40,7 +42,7 @@ include('functions/functions.php');
             <th> Delete </th>
         </tr>
         <?php
-        adminActivity();
+            adminActivity();
         ?>
     </table>
 

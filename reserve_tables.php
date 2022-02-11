@@ -1,14 +1,18 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+?>
 <!DOCTYPE html>
 <html>
     <head>
-
         <link rel="stylesheet" href="res/style.css">
         <title>Falcon Hotel and Resturant</title>
         <meta charset="utf-8">
         <meta lang="en-us">
     </head>
     <body id="resTableBg">
+
+    <!--Reservation page for tables-->
+
         <?php
             include('res/elements/header.php');
         ?>

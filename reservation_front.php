@@ -3,7 +3,6 @@
 ?>
 <?php
     require 'functions/functions.php';
-
     //reservePage();
 ?>
 <!DOCTYPE html>
@@ -16,6 +15,9 @@
         <title>Room Reservation</title>
     </head>
     <body>
+
+    <!--reservation for rooms page-->
+
         <?php
             require('res/elements/header.php');
         ?>

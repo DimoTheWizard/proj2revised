@@ -11,21 +11,21 @@
 </head>
 <body id ="adminPanel">
 
-<?php
-include('res/elements/header.php');
-?>
+    <?php
+        include('res/elements/header.php');
+    ?>
 
-<?php
-include('res/elements/footer.php');
-?>
+    <?php
+        include('res/elements/footer.php');
+    ?>
 
-<?php
-include('functions/functions.php');
-?>
+    <?php
+        include('functions/functions.php');
+    ?>
 
-        <?php
+    <?php
         chooseEditFunction($_GET['funcRequired'], $_GET["id"]);
-        ?>
+    ?>
 
     <input type = "submit" name = "submit" value = "Sign Out" class = "signout">
     <a href="adminPanel.php">back to Admin Panel</a>

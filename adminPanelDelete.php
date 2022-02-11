@@ -5,6 +5,8 @@
 
     include('functions/functions.php');
 
+    //functions used to delete fields from the database through the admin panel
+
     $tableName = $_GET['funcRequired'];
     $id = $_GET['id'];
 
@@ -155,7 +157,6 @@
             echo "error open page through admin panel<br>";
             break;
     }
-
 ?>
 <html>
     <body>

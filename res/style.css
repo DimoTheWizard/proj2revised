@@ -5,6 +5,7 @@
     outline: 0;
     vertical-align: baseline;
 }
+
 body{
     overflow: hidden;
     height:100%;
@@ -12,13 +13,15 @@ body{
     background-repeat: no-repeat;
     margin: 0;
 }
-div.body
-{
+
+div.body{
     font-weight: bold;
     margin: 5px;
     padding: 3px;
 }
+
 /*Header Element*/
+
 header{
     background-image: linear-gradient(90deg, hsla(138, 100%, 25%, 0.8), hsla(138, 100%, 40%, 0.8), hsla(138, 100%, 25%, 0.8));
     display: inline-grid;
@@ -27,6 +30,7 @@ header{
     height: 6%;
     background-color:#008c2ac4;
 }
+
 .headerText{
     transition-timing-function: ease-out;
     transition: 0.5s;
@@ -42,6 +46,7 @@ header{
     margin: 3px;
     justify-content:space-evenly;
 }
+
 .headerText:hover{
     transition-timing-function: ease-in;
     transition: 0.5s;
@@ -51,9 +56,11 @@ header{
     margin: 3px;
     justify-content: space-evenly;
 }
+
 .logo{
     grid-column: 2;
 }
+
 .logo img{
     display: block;
     margin: 0 auto;
@@ -64,16 +71,20 @@ header{
     width: 35%;
     height: auto;
 }
+
 nav{
     grid-column: 3;
     color: whitesmoke;
     font-weight: 10px;
 }
+
 /*Front/Main page*/
+
 #mainPage{
     background-image: url(../res/images/mainpage_background.jpg);
     background-size: cover;
 }
+
 .homePage{
     background-color:hsl(291deg 64% 42% / 61%);
     width: 35%;
@@ -84,12 +95,14 @@ nav{
     margin-top: 60px;
     margin-left: 40px;
 }
+
 #mainPageBox{
     padding-top: 50px;
     display: grid;
     grid-template-columns: 40px auto 40px;
     grid-template-rows: 2fr 1fr;
 }
+
 #mainPageTopBox{
     display: grid;
     grid-column: 2/3;
@@ -98,12 +111,14 @@ nav{
     grid-template-rows:auto;
     background-color: white;
 }
+
 #mainPageBotBox{
     display: grid;
     grid-column: 2/3;
     grid-row: 2/3;
     background-color: hsl(291deg 64% 42% / 61%);
 }
+
 .mainPageBoxText{
     text-decoration: none;
     color: black;
@@ -116,11 +131,13 @@ nav{
     font-size: 25px;
     font-weight: bold;
 }
+
 .mainPageBoxTextHover:hover{
-background-color: rgba(172, 164, 164, 0.767);
-border-radius: 3px;
-transition: 0.4s ease-in-out;
+    background-color: rgba(172, 164, 164, 0.767);
+    border-radius: 3px;
+    transition: 0.4s ease-in-out;
 }
+
 .mainPageBotBoxText{
     margin-left: auto;
     margin-right: auto;
@@ -129,12 +146,15 @@ transition: 0.4s ease-in-out;
     font-size: 20px;
     font-weight: bold;
 }
+
 /* Reservation form */
+
 .title1{
-  font-size: 20px;
-  color:white;
-  font-family: "Sitka Text", sans-serif;
+    font-size: 20px;
+    color:white;
+    font-family: "Sitka Text", sans-serif;
 }
+
 .body1{
     display: flex;
     height: 100vh;
@@ -143,12 +163,13 @@ transition: 0.4s ease-in-out;
     margin-top: -4px;
     background-image: url("../res/images/Spring-Nature-HD-Backgrounds.jpg");
 }
-.details1{
-  color:white;
-  font-size:20px;
-  font-family: "Sitka Text", sans-serif;
 
+.details1{
+    color:white;
+    font-size:20px;
+    font-family: "Sitka Text", sans-serif;
 }
+
 .container1{
     max-width: 700px;
     width:100%;
@@ -157,6 +178,7 @@ transition: 0.4s ease-in-out;
     border-radius: 5px;
     background-color: hsl(291deg 64% 42% / 61%);
 }
+
 .reservationfrontselecter{
     height: 45px;
     width: 100%;
@@ -230,8 +252,11 @@ transition: 0.4s ease-in-out;
 .button1 input:hover{
     background: linear-gradient(135deg,#9b59b6,#71b7e6);
 }
+
 /* end form */
+
 /* Management panel */
+
 .management{
     background-color: #acacac;
     display: flex;
@@ -240,6 +265,7 @@ transition: 0.4s ease-in-out;
     width: 100vw;
     height: 100vh;
 }
+
 .frame{
     width: 75%;
     height: 75%;
@@ -249,6 +275,7 @@ transition: 0.4s ease-in-out;
     grid-template-columns: repeat(5, 20%);
     grid-template-rows: repeat(2, 50%);
 }
+
 .gridbox{
     margin: 5%;
     background-color: #71b7e6;
@@ -257,14 +284,18 @@ transition: 0.4s ease-in-out;
     justify-content: center;
     align-items: center;
 }
+
 #clock{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 144px;
 }
+
 /*Sign in*/
+
 #signInPage{
     background-image: url("../res/images/Nature.jpg");
 }
+
 .footer{
     background-color: hsla(138, 100%, 27%, 0.9);
     min-height: 30px;
@@ -279,6 +310,7 @@ transition: 0.4s ease-in-out;
     justify-content: center;
     align-items: center;
 }
+
 .signInBox{
     resize: both;
     width: 380px;
@@ -291,10 +323,12 @@ transition: 0.4s ease-in-out;
     text-align: center;
     color: white;
 }
+
 .bigsign{
     font-size: 2.5em;
     margin: auto;
 }
+
 .birdLeft{
     margin-left: 50px;
     margin-top: -200px;
@@ -302,6 +336,7 @@ transition: 0.4s ease-in-out;
     width: 20%;
     transform:scaleX(-1)
 }
+
 .birdRight{
     float: right;
     margin-right:50px ;
@@ -309,6 +344,7 @@ transition: 0.4s ease-in-out;
     height: 30%;
     width: 20%;
 }
+
 .box input[type="email"],.box input[type="password"]{
     padding: 0%;
     margin: 0%;
@@ -330,33 +366,38 @@ transition: 0.4s ease-in-out;
     height: 25px;
     border-radius: 15px;
 }
+
 .box input[type="submit"]:hover{
     background-color: hsl(138, 50%, 50%);
 }
+
     /*Room page*/
-    #roompage{
+#roompage{
         background-image:url(../res/images/coolbed.jpg);
-    }
+}
+
 .firstroom{
-border:black solid 5px;
-box-shadow: 5px 5px;
-width: 350px;
-height: 300px;
-background-color:rgba(26, 228, 60, 0.58);
-margin-top: 60px;
-margin-left:100px;
-margin-right: 0px;
+    border:black solid 5px;
+    box-shadow: 5px 5px;
+    width: 350px;
+    height: 300px;
+    background-color:rgba(26, 228, 60, 0.58);
+    margin-top: 60px;
+    margin-left:100px;
+    margin-right: 0px;
 }
+
 .firsthead{
-margin-top: 25px;
-display: flex;
-align-content: center;
-color: white;
-justify-content: center;
-font-size: 1.5em;
-border: black 2px solid;
-box-shadow: black 2px 2px;
+    margin-top: 25px;
+    display: flex;
+    align-content: center;
+    color: white;
+    justify-content: center;
+    font-size: 1.5em;
+    border: black 2px solid;
+    box-shadow: black 2px 2px;
 }
+
 .firstparg{
     margin-top: 40px;
     color: white;
@@ -365,122 +406,146 @@ box-shadow: black 2px 2px;
     align-content: center;
     font-size: 1.2em;
 }
+
 .imgres{
-width: 450px;
-height: 250px;
+    width: 450px;
+    height: 250px;
 }
-.mySlides .numbertext
-{
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+
+.mySlides .numbertext{
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
 }
+
 /* Slideshow container */
-.slideshow-container {
+.slideshow-container{
     display: absolute;
     height: 270px;
-  width: 450px;
-  object-fit: cover;
-  object-fit: contain;
-  position: relative;
-  margin: auto;
-  border: black solid 5px;
-  box-shadow: 5px 8px 5px 8px;
-  float: right;
-  margin-right: 119px;
-  margin-top:-200px;
+    width: 450px;
+    object-fit: cover;
+    object-fit: contain;
+    position: relative;
+    margin: auto;
+    border: black solid 5px;
+    box-shadow: 5px 8px 5px 8px;
+    float: right;
+    margin-right: 119px;
+    margin-top:-200px;
 }
+
 /* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 10px;
-  margin: 0;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+
+.prev, .next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    margin: 0;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 }
+
 /* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
+
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+
+.prev:hover, .next:hover{
+    background-color: rgba(0,0,0,0.8);
 }
+
 /* Caption text */
+
 /* Number text (1/3 etc) */
-.numbertext {
-  color:black;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+
+.numbertext{
+    color:black;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
 }
+
 /* The dots/bullets/indicators */
- .dot {
-  cursor: pointer;
-  height: 10px;
-  width: 10px;
-  margin: 0 5px;
-  background-color: #717171;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+
+.dot{
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #717171;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
+
 .dots{
     display:flex;
     justify-content: center;
     margin-right: 120px;
 }
-.all
-{
+
+.all{
     display: flex;
     flex-direction: column;
     float:right;
     margin-top: -100px;
 }
-.active, .dot:hover {
-  background-color: #bbb;
+
+.active, .dot:hover{
+    background-color: #bbb;
 }
+
 /* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+
+.fade{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
+
 /*text of image*/
+
 .text{
     position: relative;
     top: -6px;
-height: 100%;
-background-color: white;
-display: flex;
-align-content: center;
-justify-content: center;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+
+@-webkit-keyframes fade{
+    from {opacity: .4}
+    to {opacity: 1}
 }
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+@keyframes fade{
+    from {opacity: .4}
+    to {opacity: 1}
 }
+
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+
+@media only screen and (max-width: 300px){
+    .prev, .next,.text {font-size: 11px}
 }
+
 /*Review Tables*/
+
 #Rtable{
     background-image:url(../res/images/tables.jpg);
     backdrop-filter: blur(1px);
@@ -488,9 +553,10 @@ justify-content: center;
     background-attachment: fixed;
     overflow: hidden;
     overflow-y: scroll;
-  scrollbar-color: rebeccapurple green;
-  scrollbar-width: thin;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
 }
+
 .picturesizeone{
     display: flex;
     justify-content: center;
@@ -502,6 +568,7 @@ justify-content: center;
     border: blueviolet solid 3px;
     box-shadow: hsl(291deg 64% 42% / 61%) 8px 8px 10px 10px;
 }
+
 .RTsize{
     color: white;
     margin-top: 35px;
@@ -514,16 +581,20 @@ justify-content: center;
     justify-content: center;
     border: 2px solid black;
 }
+
 .textlocation{
     display: flex;
     justify-content: center;
 }
+
 .RTlinkcolor{
     color: white;
 }
+
 .RTlinkcolorHover:hover{
     color: red;
 }
+
 .RTparg{
     color: white;
     background-color: hsl(291deg 64% 42% / 61%);
@@ -536,12 +607,15 @@ justify-content: center;
     width: 400px;
     font-size:1.0em;
 }
+
 /* Activities Preview*/
+
 #preActBg{
     background-image: url("../res/images/preview_activities_bg.png");
     background-size: cover;
     background-position: 0 -120px;
 }
+
 #preActTitle{
     background-color:hsl(291deg 64% 42% / 61%);
     width: 30%;
@@ -552,12 +626,14 @@ justify-content: center;
     margin-top: 60px;
     margin-left: 40px;
 }
+
 #preActPageBox{
     padding-top: 50px;
     display: grid;
     grid-template-columns: 40px auto 40px;
     grid-template-rows: 2fr 1fr;
 }
+
 #preActPageTopBox{
     display: grid;
     grid-column: 2/3;
@@ -566,12 +642,14 @@ justify-content: center;
     grid-template-rows: auto;
     background-color: white;
 }
+
 #preActPageBotBox{
     display: grid;
     grid-column: 2/3;
     grid-row: 2/3;
     background-color: hsl(291deg 64% 42% / 61%);
 }
+
 .preActPageBoxText{
     text-decoration: none;
     color: black;
@@ -584,6 +662,7 @@ justify-content: center;
     font-size: 25px;
     font-weight: bold;
 }
+
 .preActPageBoxTextHover:hover{
     background-color: rgba(172, 164, 164, 0.767);
     border-radius: 3px;
@@ -603,24 +682,29 @@ justify-content: center;
     margin-top: 60px;
     margin-left: 40px;
 }
+
 #evCalEventTable{
     margin-left: 40px;
     background-color: hsl(291deg 64% 42% / 61%);
     font-size: 15px;
     color: white;
 }
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+
 #evCalEventTable tr, td, th{
     padding-left: 30px;
     padding-right: 30px;
 }
+
 #evCalTopRowTable{
     color: black;
     background-color: white;
 }
+
 .evCalText{
     color: white;
     font-size: 20px;
@@ -628,6 +712,7 @@ table, th, td {
     margin-left: 40px;
     font-weight: bold;
 }
+
 .evCalLink{
     text-decoration: none;
     color: rgb(147, 224, 255);
@@ -640,20 +725,21 @@ table, th, td {
 /* Activities form */
 
 #eventlist{
-  width:130%;
+    width:130%;
 }
 
 .maintitle{
-  background-color:hsl(291deg 64% 42% / 61%);
-  width: 41%;
-  display: flex;
-  justify-content: center;
-  font-family: "Sitka Text", sans-serif;
-  font-size: 40px;
-  margin-left: 115px;
-  margin-top: 1.5em;
-  padding-bottom: 44px;
+    background-color:hsl(291deg 64% 42% / 61%);
+    width: 41%;
+    display: flex;
+    justify-content: center;
+    font-family: "Sitka Text", sans-serif;
+    font-size: 40px;
+    margin-left: 115px;
+    margin-top: 1.5em;
+    padding-bottom: 44px;
 }
+
 .Activitiestitle h1{
     color:white;
     background-color:hsl(291deg 64% 42% / 61%);
@@ -663,58 +749,66 @@ table, th, td {
 }
 
 .Activitiestitle{
-  font-family: "Sitka Text", sans-serif;
-  font-size: 30px;
-  margin-left: 80px;
-  margin-top: 1.5em;
-  padding-bottom: 44px;
+    font-family: "Sitka Text", sans-serif;
+    font-size: 30px;
+    margin-left: 80px;
+    margin-top: 1.5em;
+    padding-bottom: 44px;
 }
 
 /*Form box */
 .firstnamewidth{
-  width:250px;
-  margin-left: 10px;
+    width:250px;
+    margin-left: 10px;
 }
-.formbox {
-  display:grid;
-  grid-template-rows:  85px 83px 89px;
-  grid-template-columns: 279px 279px;
-  height:260px;
-  width: 560px;
-  background-color: hsl(291deg 64% 42% / 61%);
-  margin-left:75px;
-  margin-bottom: 20px;
+
+.formbox{
+    display:grid;
+    grid-template-rows:  85px 83px 89px;
+    grid-template-columns: 279px 279px;
+    height:260px;
+    width: 560px;
+    background-color: hsl(291deg 64% 42% / 61%);
+    margin-left:75px;
+    margin-bottom: 20px;
 }
+
 .formwidth{
     width: 250px;
     margin-left: 10px;
 }
+
 .formlabel h1{
-  margin-top:10px;
-  margin-left: 10px;
-  font-family: "Sitka Text", sans-serif;
-  font-size: 25px;
-  color:white;
+    margin-top:10px;
+    margin-left: 10px;
+    font-family: "Sitka Text", sans-serif;
+    font-size: 25px;
+    color:white;
 }
+
 form{
-  margin-left:3px;
+    margin-left:3px;
 }
+
 .activityImage{
-  width: 24%;
-  height: 262px;
-  background-image: url(../res/images/ActivityBird.jpg);
-  background-size: cover;
-  margin-right:23%;
-  float:right;
-  border:black solid 3px;
-  box-shadow: black 4px 4px;
+    width: 24%;
+    height: 262px;
+    background-image: url(../res/images/ActivityBird.jpg);
+    background-size: cover;
+    margin-right:23%;
+    float:right;
+    border:black solid 3px;
+    box-shadow: black 4px 4px;
 }
+
 p{
     margin-bottom: 10px;
 }
+
 #activities{
-  background-image: url(../res/images/Nature.jpg)
+    background-image: url(../res/images/Nature.jpg)
 }
+
 .activitytext{
     background-color:hsl(291deg 64% 42% / 61%);
     width:35%;
@@ -726,20 +820,21 @@ p{
 }
 
 .submitlabel{
-  font-family: "Sitka Text", sans-serif;
-  float:right;
-  margin-right: 35px;
-  margin-top: 52px;
-  color: white;
-  background-color: hsl(270deg 84% 38%);
-  padding : 6px 18px;
+    font-family: "Sitka Text", sans-serif;
+    float:right;
+    margin-right: 35px;
+    margin-top: 52px;
+    color: white;
+    background-color: hsl(270deg 84% 38%);
+    padding : 6px 18px;
 }
 
 .submitlabel:hover{
-  background-color:white;
-  transition: 0.5s;
-  color: black;
+    background-color:white;
+    transition: 0.5s;
+    color: black;
 }
+
 /*Reservation Room*/
 
 #resRoomTitle {
@@ -752,8 +847,6 @@ p{
     margin-top: 60px;
     margin-left: 40px;
 }
-
-
 
 #resRoomTable{
     margin-top: 30px;
@@ -771,70 +864,70 @@ p{
     background-position: 0 -180px;
 }
 
-
 /* Contact Page */
+
 #contact{
-  background-image: url(../res/images/peoplenature.jpg);
-  background-size: cover;
+    background-image: url(../res/images/peoplenature.jpg);
+    background-size: cover;
 }
 
 .contact{
-  margin-left: 7%;
-  font-family: "Sitka Text", sans-serif;
-  color: white;
-  margin-bottom: 1%;
+    margin-left: 7%;
+    font-family: "Sitka Text", sans-serif;
+    color: white;
+    margin-bottom: 1%;
 }
 
 .contact h1{
-  font-size: 27px;
+    font-size: 27px;
 }
 
 .customwidth{
-  width:30%;
-  padding: 3px 10px;
+    width:30%;
+    padding: 3px 10px;
 }
 
 textarea{
-  resize:none;
+    resize:none;
 }
 
 .Contacttitle{
-  background-color:hsl(291deg 64% 42% / 61%);
-  width:70%;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  font-family: "Sitka Text", sans-serif;
-  font-size: 30px;
-  margin-left: 100px;
-  margin-top: 1.5em;
-  margin-bottom: 30px;
-  padding-bottom: 44px;
+    background-color:hsl(291deg 64% 42% / 61%);
+    width:70%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    font-family: "Sitka Text", sans-serif;
+    font-size: 30px;
+    margin-left: 100px;
+    margin-top: 1.5em;
+    margin-bottom: 30px;
+    padding-bottom: 44px;
 }
 
 .Contacttitle h1{
-  color:white;
+    color:white;
 }
 
 /*Admin Panel*/
+
 #AdminPanel{
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 .Tabletitle{
-  font-family: "Sitka Text", sans-serif;
-  margin-left: 20px;
-  margin-top: 10px;
+    font-family: "Sitka Text", sans-serif;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
-
 .activitytable{
-  font-family: "Sitka Text", sans-serif;
+    font-family: "Sitka Text", sans-serif;
 }
 
 #adminPanel td, th, tr{
-      margin: 20px;
-      color: black;
+    margin: 20px;
+    color: black;
 }
 
 #adminPanel{
@@ -848,55 +941,58 @@ textarea{
     margin-top: 19em;
 }
 
-
 .signout:hover{
-  transition: 0.5s;
-  background-color: green;
-  color: white;
+    transition: 0.5s;
+    background-color: green;
+    color: white;
 }
 
 /* UserPanel */
 
 #UserPanel{
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 /*Reserve Tables*/
 
 #resTableBg{
-background-image: url(../res/images/reservetablefront.jpg);
+    background-image: url(../res/images/reservetablefront.jpg);
 }
-#resTableTitle{
-  color:white;
-  font-size: 3.5em;
-  background-color:hsl(291deg 64% 42% / 61%);
-  display: flex;
-  justify-content:center;
-  width: 30%;
-  margin-left: 150px;
-  margin-top: 60px;
-  margin-bottom: 30px;
-}
-#resTableForm{
-width:30%;
-height:350px;
-background-color:hsl(291deg 64% 42% / 61%);
-margin-left: 150px;
-font-size: 2.0em;
-color: white;
-font-family: "Sitka Text", sans-serif;
 
+#resTableTitle{
+    color:white;
+    font-size: 3.5em;
+    background-color:hsl(291deg 64% 42% / 61%);
+    display: flex;
+    justify-content:center;
+    width: 30%;
+    margin-left: 150px;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
+
+#resTableForm{
+    width:30%;
+    height:350px;
+    background-color:hsl(291deg 64% 42% / 61%);
+    margin-left: 150px;
+    font-size: 2.0em;
+    color: white;
+    font-family: "Sitka Text", sans-serif;
+}
+
 .reserveTablesFormInput{
-  width: 60%;
-  height:20px;
-  margin-left: 20px;
+    width: 60%;
+    height:20px;
+    margin-left: 20px;
 }
+
 .resTableTextspacing{
-  margin-left:15px;
+    margin-left:15px;
 }
+
 .reservetablebutton{
-  height:20px;
-  width: 80px;
-  margin-left: 13px;
+    height:20px;
+    width: 80px;
+    margin-left: 13px;
 }

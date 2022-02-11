@@ -1,9 +1,6 @@
 <?php session_start(); ?>
-
-
 <?php require 'functions/functions.php'; ?>
 <?php  register();?>
-
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +43,7 @@ include('res/elements/header.php');
 <img src="res/images/bird-1mb.gif" class="birdRight">
 
 <?php
-include('res/elements/footer.php');
+    include('res/elements/footer.php');
 ?>
 
 </body>

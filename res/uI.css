@@ -2,86 +2,77 @@
 
 /* userInfo */
 
-body
-{
+body{
     background: url(../res/images/Nature.jpg);
 }
 
-table.uI
-{
+table.uI{
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
     border: 3px solid green;
 }
 
-
-th, td {
+th, td{
 padding: 20px;
 }
 
-
-
 /* __type__ */
 
-html {
+html{
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
-  }
+}
   
-  thead th, tfoot th {
+thead th, tfoot th{
     font-family: 'Rock Salt', cursive;
-  }
+}
   
-  th {
+th{
     letter-spacing: 2px;
-  }
+}
   
-  td {
+td{
     letter-spacing: 1px;
-  }
+}
   
-  tbody td {
+tbody td{
     text-align: center;
-  }
+}
   
-  tfoot th {
+tfoot th{
     text-align: right;
-  }
+}
 
-  /* graphics and colors */
+/* graphics and colors */
 
-thead, tfoot {
+thead, tfoot{
     background: url(../res/images/natureLeaves.jpeg);
-
     color: white;
     text-shadow: 1px 1px 1px black;
-  }
+}
   
-  thead th, tfoot th, tfoot td {
+thead th, tfoot th, tfoot td{
     background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
     border: 3px solid green;
-  }
+}
 
-  /* zebra striping */
+/* zebra striping */
 
-tbody tr:nth-child(odd) {
+tbody tr:nth-child(odd){
     background-color: hsl(138, 75%, 37%);
-  }
+}
   
-  tbody tr:nth-child(even) {
+tbody tr:nth-child(even){
     background-color: hsl(138, 75%, 55%);
-  }
-  
-
-  
-  table {
+}
+    
+table{
     background-color: hsl(138, 75%, 37%);
-  }
-
+}
 
   /* caption */
 
-caption {
+caption{
     font-family: 'Rock Salt', cursive;
     padding: 20px;
     font-style: italic;
@@ -89,6 +80,4 @@ caption {
     color: #666;
     text-align: right;
     letter-spacing: 1px;
-  }
-
-
+}

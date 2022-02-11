@@ -2,21 +2,26 @@
         session_start();
 ?>
 <?php
+
 // Initialize the session
+
     require_once "res/elements/session.php";
+
 // Include config file
+
     require_once "res/elements/dbCon.php";
 
 // Define variables and initialize with empty values
+
     $email = $password = "";
     $email_err = $password_err = $login_err = "";
 
-
-
     // Processing form data when form is submitted
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check if email is empty
+
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter your email.";
     } else{
@@ -24,70 +29,81 @@
     }
 
     // Check if password is empty
+
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
     }
 
-
-
     // Validate credentials
+
    if(empty($email_err) && empty($password_err)){
+
        // Prepare a select statement
+
        $sql = "SELECT * FROM login  WHERE email = ?";
 
        if($stmt = mysqli_prepare($conn, $sql)){
+
            // Bind variables to the prepared statement as parameters
+
            mysqli_stmt_bind_param($stmt, "s", $param_email);
 
            // Set parameters
+
            $param_email = $email;
 
            // Attempt to execute the prepared statement
-           if(mysqli_stmt_execute($stmt)){
+
+            if(mysqli_stmt_execute($stmt)){
                // Store result
+               
                mysqli_stmt_store_result($stmt);
 
                // Check if email exists, if yes then verify password
                if(mysqli_stmt_num_rows($stmt) == 1){
-                   // Bind result variables
-                  // mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
-                   ///if(mysqli_stmt_fetch($stmt)){
-                    //   if(password_verify($password, $hashed_password)){
-                           // Password is correct, so start a new session
-                          // session_start();
-                           header("Location: reservation.php");
+                // Bind result variables
+                // mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
+                //  if(mysqli_stmt_fetch($stmt)){
+                //      if(password_verify($password, $hashed_password)){
+                        // Password is correct, so start a new session
+                        // session_start();
 
+                    header("Location: reservation.php");
 
-                           // Store data in session variables
-                                                $_SESSION["id"] = $id;
-                                                $_SESSION["email"] = $email;
+                        // Store data in session variables
 
-                                            } else{
-                                                // Password is not valid, display a generic error message
-                                                $login_err = "Invalid email or password.";
-                                            }
-                                        }
-                                    } else{
-                                        // email doesn't exist, display a generic error message
-                                        $login_err = "Invalid email or password.";
-                                    }
-                                } else{
-                                    echo "Oops! Something went wrong. Please try again later.";
-                                }
+                    $_SESSION["id"] = $id;
+                    $_SESSION["email"] = $email;
 
-                                // Close statement
-                                mysqli_stmt_close($stmt);
-                            }
-                      //  }
+                } else{
 
-                        // Close connection
-                      //  mysqli_close($conn);
-                  //  }
+                    //Password is not valid, display a generic error message
 
+                    $login_err = "Invalid email or password.";
+                }
+            }
+        }else{
 
+            // email doesn't exist, display a generic error message
+
+            $login_err = "Invalid email or password.";
+        }
+    }else{
+    echo "Oops! Something went wrong. Please try again later.";
+    }
+
+    //Close statement
+    
+    mysqli_stmt_close($stmt);
+    }
+    //}
+    //Close connection
+    //mysqli_close($conn);
+    //}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,17 +117,17 @@
     </style>
 </head>
 <body>
-        <?php
-            require('res/elements/header.php');
-        ?>
+    <?php
+        require('res/elements/header.php');
+    ?>
     <div class="wrapper">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
 
         <?php
-        if(!empty($login_err)){
-            echo '<div class="alert alert-danger">' . $login_err . '</div>';
-        }
+            if(!empty($login_err)){
+                echo '<div class="alert alert-danger">' . $login_err . '</div>';
+            }
         ?>
 
         <form method="post">

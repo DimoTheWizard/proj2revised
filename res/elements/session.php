@@ -1,4 +1,5 @@
-<?php 
+<?php
+//saves user info for other pages to use
     session_start();
     $fname = $_SESSION['fname'];
     $lname = $_SESSION['lname']; 

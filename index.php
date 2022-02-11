@@ -3,8 +3,10 @@
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
 
+    <!--Home Page-->
+
+    <head>
         <link rel="stylesheet" href="res/style.css">
         <title>Falcon Hotel and Resturant</title>
         <meta charset="utf-8">
@@ -14,7 +16,6 @@
         <?php
             include('res/elements/header.php');
         ?>
-
         <h1 class="homePage">
             Falconers Hotel and Restaurant
         </h1>

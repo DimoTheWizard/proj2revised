@@ -23,6 +23,8 @@
             <h1> Reserve a spot in an event </h1>
         </div>
 
+        <!--Reserve event-->
+
         <div class = "activityImage"> </div>
         <form action = "activities.php" method = "post">
             <div class = "formbox">

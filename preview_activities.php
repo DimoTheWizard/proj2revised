@@ -20,7 +20,6 @@
                 <a class="preActPageBoxText preActPageBoxTextHover" href="activities.php">Reserve a spot</a></h1>
             </div>
             <div id="preActPageBotBox">
-
             </div>
         </div>
         <?php

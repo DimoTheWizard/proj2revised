@@ -1,5 +1,5 @@
 <?php
-        session_start();
+    session_start();
 ?>
 <?php
 
@@ -19,7 +19,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $desc = trim(htmlspecialchars($_POST['desc']));
 
         $finalName = $fName . ' ' . $lName;
-
 
 /*Object Oriented style*/
         if (isset($_POST['submit'])) {
@@ -57,7 +56,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -75,6 +73,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class = "Contacttitle">
         <h1> Contact Our Customer Service </h1>
     </div>
+
+    <!--Form for the contact page-->
 
     <form method="post">
 
@@ -103,13 +103,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="submit" name="submit" value="Submit">
         </div>
     </form>
-
-
-
-
-
-
-
     </form>
     </body>
 </html>
