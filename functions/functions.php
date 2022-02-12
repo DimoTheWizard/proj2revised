@@ -139,8 +139,8 @@ function signIn()
                                 $_SESSION['fName'] = $row['fName'];
                                 $_SESSION['lName'] = $row['lName'];
                                 $_SESSION['email'] = $row['email'];
-                                $_SESSION['pathCert'] = $row['pathCert'];
                                 $_SESSION['usrLevel'] = $row['usrLevel'];
+                                $_SESSION['pathCert'] = $row['pathCert'];
                                 $_SESSION['isLogged'] = "logged";
 
                                 if ($row['usrLevel'] === 'guest' || $row['usrLevel'] === 'vip') {
@@ -159,14 +159,6 @@ function signIn()
                                 echo '<h2 style="color:red">Incorrect password</h2>';
                             }
                         }
-
-                        /*
-                        if(!$result) {
-                            die('Query failed' . mysqli_error($con));
-                        } else {
-                            echo "Query successful";
-                        }
-                        */
                     }
                 } else {
                     echo '<h2 style="color:red">Not a valid e-mail</h2>';
@@ -327,6 +319,60 @@ function reservePage()
         }
     }
 }
+
+
+function covCert() {
+
+    global $con;
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_FILES["certFile"]["size"] <= 3145728) {
+            if ((strlen($_FILES["certFile"]["name"]) <= 50)) {
+                $targetfolder = "covCerts/";
+                $targetfolder = $targetfolder . basename($_FILES['certFile']['name']);
+                $file_type = $_FILES['certFile']['type'];
+                if ($file_type == "application/pdf") {
+                    $email = $_SESSION['email'];
+                    if (move_uploaded_file($_FILES['certFile']['tmp_name'], $targetfolder)) {
+                        $query = $con->prepare("UPDATE users SET pathCert = ? WHERE email=?");
+                        $pathCert = 'covCerts/'. $_FILES["certFile"]["name"];
+
+                        if (false === $query) {
+                            die('Prepare failed' . mysqli_error($con));
+                        }
+
+                        $query->bind_param("ss", $pathCert, $email);
+
+                        if (false === $query) {
+                            die('Bind param failed' . mysqli_error($con));
+                        }
+
+                        $query->execute();
+
+                        if (false === $query) {
+                            die('Execute failed' . mysqli_error($con));
+                        }
+
+                        $query->close();
+                        $con->close();
+                        echo '<br>';
+                        echo '<h2 style="color:green">The covid certification ' . basename($_FILES["certFile"]["name"]) . ' has been uploaded</h2>';
+                    } else {
+                        echo "ERROR uploading file";
+                    }
+                } else {
+                    echo '<h2 style="color:red">You may only upload PDF files.<br></h2>';
+                }
+            } else {
+                echo '<h2 style="color:red">File exceeds 50 characters</h2>';
+            }
+        } else {
+            echo '<h2 style="color:red">File is larger than 3 MB</h2>';
+        }
+    }
+}
+
+
 
 //event calendar list for events for event_calendar.php
 
@@ -612,6 +658,7 @@ function adminUsers()
 
     $query->close();
 
+
     $funcRequired = "adminUsers";
     foreach ($data as $row) {
         echo '<tr>';
@@ -620,7 +667,6 @@ function adminUsers()
         echo '<td>' . $row['username'] . '</td>';
         echo '<td>' . $row['fName'] . '</td>';
         echo '<td>' . $row['lName'] . '</td>';
-        echo '<td>' . $row['password'] . '</td>';
         echo '<td>' . $row['usrLevel'] . '</td>';
         echo '<td>' . $row['pathCert'] . '</td>';
         echo "<td>" . '<a href="./adminPanelEdit.php?id=' . $row['id'] . '&funcRequired=' . $funcRequired . '">Edit</a>' . "</td>";
@@ -1459,15 +1505,49 @@ function roomReservation()
 
 function overviewUser()
 {
-    $funcRequired = "adminUsers";
+
+        global $con;
+
+        $email = $_SESSION['email'];
+
+        $query = $con->prepare("SELECT * FROM users WHERE email= ?");
+
+        if (false === $query) {
+            die('Prepare failed' . htmlspecialchars($query->error));
+        }
+
+        $query->bind_param("s", $email);
+
+        if (false === $query) {
+            die('Binding failed' . htmlspecialchars($query->error));
+        }
+
+    $query->execute();
+
+        if (false === $query) {
+            die('Execution failed' . htmlspecialchars($query->error));
+        }
+
+        $result = $query->get_result();
+
+        $data = $result->fetch_all(MYSQLI_ASSOC);
+
+
+
+
         echo '<tr>';
         echo '<td>' . $_SESSION['email'] . '</td>';
         echo '<td>' . $_SESSION['username'] . '</td>';
         echo '<td>' . $_SESSION['fName'] . '</td>';
-        echo '<td>' . $_SESSION['lName'] . '</td>';;
+        echo '<td>' . $_SESSION['lName'] . '</td>';
         echo '<td>' . $_SESSION['usrLevel'] . '</td>';
+        foreach ($data as $row) {
+            $pathCert = !isset($row['pathCert']) || $row['pathCert'] == '' ? 'No' : 'Yes';
+            echo '<td>' . $pathCert . '</td>';
+        }
         echo "<td>" . '<a href="./userEdit.php?id=' . $_SESSION['id'] . '">Edit</a>' . "</td>";
         echo '</tr>';
+
 }
 
 function userEdit()
@@ -1511,6 +1591,13 @@ function userEdit()
                 }
 
                 echo '<h2 style="color:green"Edit done</h2>';
+
+                $_SESSION['username'] = $username;
+                $_SESSION['fName'] = $fName;
+                $_SESSION['lName'] = $lName;
+                $_SESSION['email'] = $email;
+
+                echo '<h2 style="color:green;">Edit made, press the link to go back to user panel</h2>';
 
                 $query->close();
                 $con->close();

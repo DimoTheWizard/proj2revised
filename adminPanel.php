@@ -23,8 +23,6 @@ include('res/elements/footer.php');
 include('functions/functions.php');
 ?>
 
-    <<a id="signOut" href="functions/sessionDestroy.php">Sign Out</a>
-
     <h1 class = "Tabletitle" > Activity </h1>
 
     <!--tables for admin panel-->
@@ -126,7 +124,6 @@ include('functions/functions.php');
             <th> Username </th>
             <th> First Name </th>
             <th> Last Name </th>
-            <th> Password </th>
             <th> User Level </th>
             <th> Corona Certificate Path </th>
             <th> Edit </th>
