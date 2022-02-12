@@ -1501,6 +1501,92 @@ function roomReservation()
     }
 }
 
+//Table Reservation
+
+function dropDownTable(){
+    global $con;
+
+    $query = $con->prepare("SELECT tableNr FROM tables");
+
+    if (false === $query) {
+        die('Prepare failed' . htmlspecialchars($query->error));
+    }
+
+    $query->execute();
+
+    if (false === $query) {
+        die('Execute failed' . htmlspecialchars($query->error));
+    }
+
+    $result = $query->get_result();
+
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    $query->close();
+
+    foreach($data as $row){
+        echo '<option>' . $row['tableNr'] . '</option>';
+    }
+}
+
+function tableReservation(){
+    global $con;
+    if (isset($_POST['submit'])){
+        $tableNr = $_POST['tableList'];
+
+        //inputing filled data into database
+        $query = $con->prepare("SELECT id FROM tables WHERE tableNr = ?");
+        /*We send back the number of the room so that we can retrieve the id*/
+        if (false === $query) {
+            die('Prepare failed' . htmlspecialchars($query->error));
+        }
+
+        $query->bind_param("i", $tableNr);
+        if ($query->execute()) {
+
+        } else {
+            echo "Error executing query";
+            die(mysqli_error($con));
+        }
+
+        $result = $query->get_result();
+        $result->fetch_all(MYSQLI_ASSOC);
+
+        foreach($result as $row){
+            $tableId = $row;
+            break;
+        }
+
+        if (!empty($_POST['tableList'])) {
+            $table = $_POST['tableList'];
+            echo '<h2 style="color:green">You have chosen ' . $table . '</h2>';
+        } else {
+            echo '<h2 style="color:red"please select room</h2>';
+        }
+
+        //inputing filled data into database
+        $query = $con->prepare("INSERT INTO reservedtables (
+                   userId, tableId
+                ) VALUES (
+                    ?, ?
+                )");
+
+        if (false === $query) {
+            die('Prepare failed' . htmlspecialchars($query->error));
+        }
+
+        $userId = $_SESSION['id']; /*from the user*/
+
+        $query->bind_param("ii", $userId, $tableId);
+        if ($query->execute()) {
+            echo '<h2 style="color:green">record created succesfully</h2>';
+        } else {
+            echo '<h2 style="color:green">error executing query</h2>';
+            die(mysqli_error($con));
+        }
+    }
+}
+
 //User panel
 
 function overviewUser()

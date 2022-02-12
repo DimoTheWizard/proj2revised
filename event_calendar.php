@@ -5,7 +5,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="res/style.css">
-        <title>Falcon Hotel and Resturant</title>
+        <title>Falcon Hotel and Restaurant</title>
         <meta charset="utf-8">
         <meta lang="en-us">
     </head>

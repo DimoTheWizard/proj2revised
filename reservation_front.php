@@ -1,9 +1,6 @@
 <?php
-        session_start();
-?>
-<?php
+    session_start();
     require 'functions/functions.php';
-    //reservePage();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +64,7 @@
             </div>
         </div>
         <?php
-        require('res/elements/footer.php')
+            require('res/elements/footer.php')
         ?>
     </body>
 </html>
